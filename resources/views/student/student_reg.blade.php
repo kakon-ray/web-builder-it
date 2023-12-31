@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'Student Registation | Uma IT ' }}
+    {{ 'Student Registation | Web Builder IT ' }}
 @endsection
 
 @section('content')

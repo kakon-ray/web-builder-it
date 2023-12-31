@@ -1,6 +1,6 @@
 /*
 /*
-@File: Uma IT
+@File: Web Builder IT
 
 
 /*================================================
@@ -215,20 +215,25 @@ section {
   border: none;
   color: #fff;
   padding: 11px 20px;
-  margin: 0px 10px;
+  margin: 0px 0px;
+  transition: .3s;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   padding-top: 15px;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
 }
 .common-btn:hover {
   background-color: var(--main-hover-color);
   border: none;
   color: #fff;
   padding: 11px 20px;
-  margin: 0px 10px;
+  margin: 0px 0px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -245,15 +250,13 @@ section {
   padding: 10px 20px;
   padding-top: 14px;
   color: var(--white-color);
-  background: linear-gradient(
-  117deg,
-  var(--main-color) 0% 25%,
-  var(--main-color) 25% 50%,
-  var(--main-color) 50% 75%,
-  var(--main-color) 75% 88%,
-  transparent 89%
-);
+  background: linear-gradient(  117deg,  var(--main-color) 0% 25%,  var(--main-color) 25% 50%,  var(--main-color) 50% 75%,  var(--main-color) 75% 88%,  transparent 89%);
   border: none;
+  transition:0.3s ;
+  -webkit-transition:0.3s ;
+  -moz-transition:0.3s ;
+  -ms-transition:0.3s ;
+  -o-transition:0.3s ;
 }
 
 .btn-one:hover {
@@ -464,6 +467,11 @@ h6{
 .red-title{
   color: var(--main-color);
   font-size: 52px;
+
+}
+.sm-red-title{
+  color: var(--main-color);
+  font-size: 40px;
 
 }
 

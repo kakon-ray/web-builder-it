@@ -1,6 +1,6 @@
 @extends('layouts.admin_app')
 @section('title')
-    {{ 'Admin Password Reset | Uma IT ' }}
+    {{ 'Admin Password Reset | Web Builder IT ' }}
 @endsection
 
 @section('content')

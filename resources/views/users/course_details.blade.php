@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h5 class="pb-3"><i class="fas fa-book-open me-2"></i>খুলনার সেরা আই.টি ট্রেনিং ইনস্টিটিউট এবং সফটয়্যার
+                    <h5 class="pb-3"><i class="fas fa-book-open me-2"></i>দেশ সেরা আই.টি ট্রেনিং ইনস্টিটিউট এবং সফটয়্যার
                         ফার্ম</h5>
                     <h2 class="mt-4 mb-0 pb-0">{{ $course_details->course_title }}</h2>
 

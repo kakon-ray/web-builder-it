@@ -8,8 +8,10 @@
     <section class="services-contact">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-8 mx-auto">
                     <div class="card p-5">
+                        <h4 class="pb-5 text-center"> CONTACT OUR EXPERTS DEVELOPER</h4>
                         <form action="{{ route('user.services.message.submit') }}" id="servicesalert" method="POST">
                             @csrf
                             <!-- Name input -->

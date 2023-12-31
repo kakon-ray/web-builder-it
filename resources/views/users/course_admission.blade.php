@@ -17,6 +17,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card p-5">
+                        <h5 class="pb-4">ফ্রি সেমিনারে অংশগ্রহন করতে এডমিশন ফরম টি পূরন করুন</h5>
                         <form action="{{ route('user.course.message.submit') }}" id="courseadmissionalert" method="POST">
                             @csrf
                             <!-- Name input -->

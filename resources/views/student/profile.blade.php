@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'My Course | Uma IT ' }}
+    {{ 'My Course | Web Builder IT ' }}
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
                             <img src="{{ asset('img/profile.jpg') }}" alt="avatar" class="rounded-circle img-fluid"
                                 style="width: 150px;">
                             <h5 class="my-3">{{ Auth::guard('student')->user()->student_name }}</h5>
-                            <p class="text-muted mb-1">Student Of Uma It</p>
+                            <p class="text-muted mb-1">Student Of Web Builder IT</p>
 
                             <div class="d-flex justify-content-center mb-2">
                                 <button type="button" id="show_overview" class="common-btn py-2 m-2">Overview</button>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'Password Reset | Uma IT ' }}
+    {{ 'Password Reset | Web Builder IT ' }}
 @endsection
 
 @section('content')

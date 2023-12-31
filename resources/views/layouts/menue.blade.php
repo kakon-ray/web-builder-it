@@ -8,21 +8,18 @@
                        <div class="top-nav-container">
                            <ul class="topbar-list">
                                <li>
-                                   <a href="+01123456789"><i class="fas fa-phone"></i><span>+০১৯৮২৩১১৩০৮</span></a>
+                                   <a href="+01123456789"><i class="fas fa-phone"></i><span>+8801707500512</span></a>
                                </li>
                                <li>
                                    <a href="+01123456789"><i
-                                           class="fas fa-envelope"></i><span>Umamarketofficial@gmail.com</span></a>
+                                           class="fas fa-envelope"></i><span>thisiskakonray@gmail.com</span></a>
                                </li>
-                               <li>
-                                   <a href="#!"><i class="fas fa-calendar-week"></i><span>শনিবার - বৃহস্পতিবার:
-                                           সকাল ৯ঃ৩০ - সন্ধ্যা ৭</span></a>
-                               </li>
+
                            </ul>
 
                            <ul class="topbar-list text-center">
                                <li>
-                                   <a href="#!"><span>খুলনার সেরা সফটওয়্যার ফার্ম এবং আই.টি ইনস্টিটিউট
+                                   <a href="#!"><span>দেশ সেরা সফটওয়্যার ফার্ম এবং আই.টি ইনস্টিটিউট
                                        </span></a>
                                </li>
                            </ul>
@@ -37,7 +34,7 @@
            <nav class="navbar navbar-expand-lg py-0">
                <div class="container">
                    <a class="navbar-brand" href="{{ url('/') }}">
-                       <h2>UMAIT</h2>
+                       <h2><span class="sm-red-title">Web Builder</span> IT</h2>
                    </a>
                    <div class="nav-responsive">
                        <a href="#!" data-bs-toggle="modal" data-bs-target="#search-modal" class="search-box"><i

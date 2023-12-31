@@ -1,6 +1,6 @@
 @extends('layouts.admin_app')
 @section('title')
-    {{ 'Show Password Reset Form| Uma IT ' }}
+    {{ 'Show Password Reset Form| Web Builder IT ' }}
 @endsection
 
 @section('content')

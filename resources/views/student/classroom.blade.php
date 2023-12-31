@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'My Classroom | Uma IT ' }}
+    {{ 'My Classroom | Web Builder IT ' }}
 @endsection
 
 @section('content')

@@ -33,9 +33,9 @@
             <div class="row">
                 <div class="col-lg-6 col-md-10 mx-auto">
                     <div class="text-center mb-5">
-                        <h2 class="fw-bold">জনপ্রিয় কোর্সসমূহ</h2>
-                        <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে উমা আই.টি প্রস্তুত আপনার ক্যারিয়ার গড়ার
-                            অগ্রযাত্রায়। আমাদের ১০ টিরও বেশি ট্রেন্ডি কোর্স থেকে আজই বেছে নিন আপনার পছন্দের কোর্স।</h6>
+                        <h2 class="fw-bold">জনপ্রিয় <span class="sm-red-title">কোর্সসমূহ</span></h2>
+                        <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে ওয়েব বিল্ডার আইটি প্রস্তুত আপনার ক্যারিয়ার গড়ার
+                            অগ্রযাত্রায়।</h6>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 my-auto">
-                    <h2 class="mt-4 mb-0 pb-0">অংশ নিন ফ্রি সেমিনারে</h2>
+                    <h2 class="mt-4 mb-0 pb-0">অংশ নিন <span class="sm-red-title">ফ্রি সেমিনারে</span></h2>
                     <p class="cariar-details py-3">ফ্রিল্যান্সিং-এর জন্য কোন কোর্স করবেন, সিদ্ধান্ত নিতে পারছেন না? জয়েন
                         করুন আমাদের ফ্রি সেমিনারে। বিষয়ভিত্তিক এই সেমিনারগুলোতে প্রতিটি কোর্সের সম্ভাবনা সম্পর্কে জানতে
                         পারবেন। তাছাড়া সেমিনারে উপস্থিত এক্সপার্ট কাউন্সেলরের সঙ্গে কথা বলে আপনি যথাযথ কোর্স বেছে নেওয়ার
@@ -128,7 +128,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-10 mx-auto">
                     <div class="text-center mb-5">
-                        <h2 class="fw-bold">জনপ্রিয় সার্ভিস</h2>
+                        <h2 class="fw-bold">জনপ্রিয় <span class="sm-red-title">সার্ভিস</span></h2>
                         <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে উমা আই.টি প্রস্তুত আপনার ক্যারিয়ার গড়ার
                             অগ্রযাত্রায়। আমাদের ১০ টিরও বেশি ট্রেন্ডি কোর্স থেকে আজই বেছে নিন আপনার পছন্দের কোর্স।</h6>
                     </div>
@@ -295,7 +295,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="text-center py-4">Our Happy Clients</h2>
+                    <h2 class="text-center py-4">Our <span class="sm-red-title">Happy Clients Review</span></h2>
                 </div>
                 <div class="col-lg-12">
                     <div id="owl-demo" class="owl-carousel owl-theme">
@@ -304,7 +304,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/banner1.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -312,7 +312,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/banner2.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -320,7 +320,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/banner3.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -328,7 +328,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/banner4.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -336,7 +336,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/banner1.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -344,7 +344,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/banner2.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -352,7 +352,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/banner3.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -360,7 +360,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/banner4.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -369,7 +369,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/nobolok-image.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -378,7 +378,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/kmpi-logo.jpg') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>
@@ -386,7 +386,7 @@
                             <a target="_blank" href="https://multicart-baa75.web.app/">
                                 <img src="{{ asset('img/portfolio/khulna-gejet.png') }}" alt="Owl Image">
                                 <!-- <div class="carosel_item_content">
-                     <h4>Developed By Uma IT</h4>
+                     <h4>Developed By Web Builder IT</h4>
                    </div> -->
                             </a>
                         </div>

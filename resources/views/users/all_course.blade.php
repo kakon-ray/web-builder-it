@@ -9,9 +9,9 @@
     <section class="all-course">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-10 mx-auto">
+                <div class="col-lg-8 col-md-12 mx-auto">
                     <div class="text-center mb-5">
-                        <h2 class="fw-bold">জনপ্রিয় কোর্সসমূহ</h2>
+                        <h2 class="fw-bold"><span class="sm-red-title">ক্যারিয়ার ডেভেলপমেন্ট</span> কোর্সসমূহ</h2>
 
                     </div>
                 </div>
