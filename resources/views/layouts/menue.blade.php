@@ -33,9 +33,12 @@
        <div class="andfood-navbar">
            <nav class="navbar navbar-expand-lg py-0">
                <div class="container">
-                   <a class="navbar-brand" href="{{ url('/') }}">
-                       <h2><span class="sm-red-title">Web Builder</span> IT</h2>
-                   </a>
+              
+                    <a class="header-brand-logo-outer navbar-brand" href="{{ url('/') }}">
+                        <h2><span class="sm-red-title">Web Builder</span> IT</h2>
+                    </a>
+             
+                   
                    <div class="nav-responsive">
                        <a href="#!" data-bs-toggle="modal" data-bs-target="#search-modal" class="search-box"><i
                                class="fas fa-search"></i></a>

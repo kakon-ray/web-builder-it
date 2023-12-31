@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-10 mx-auto">
                     <div class="text-center mb-5">
-                        <h2 class="fw-bold">জনপ্রিয় <span class="sm-red-title">কোর্সসমূহ</span></h2>
+                        <h2 class="fw-bold heading">জনপ্রিয় <span class="sm-red-title">কোর্সসমূহ</span></h2>
                         <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে ওয়েব বিল্ডার আইটি প্রস্তুত আপনার ক্যারিয়ার গড়ার
                             অগ্রযাত্রায়।</h6>
                     </div>
@@ -86,7 +86,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 my-auto">
-                    <h2 class="mt-4 mb-0 pb-0">অংশ নিন <span class="sm-red-title">ফ্রি সেমিনারে</span></h2>
+                    <h2 class="mt-4 mb-0 pb-0 heading">অংশ নিন <span class="sm-red-title">ফ্রি সেমিনারে</span></h2>
                     <p class="cariar-details py-3">ফ্রিল্যান্সিং-এর জন্য কোন কোর্স করবেন, সিদ্ধান্ত নিতে পারছেন না? জয়েন
                         করুন আমাদের ফ্রি সেমিনারে। বিষয়ভিত্তিক এই সেমিনারগুলোতে প্রতিটি কোর্সের সম্ভাবনা সম্পর্কে জানতে
                         পারবেন। তাছাড়া সেমিনারে উপস্থিত এক্সপার্ট কাউন্সেলরের সঙ্গে কথা বলে আপনি যথাযথ কোর্স বেছে নেওয়ার
@@ -128,7 +128,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-10 mx-auto">
                     <div class="text-center mb-5">
-                        <h2 class="fw-bold">জনপ্রিয় <span class="sm-red-title">সার্ভিস</span></h2>
+                        <h2 class="fw-bold heading">জনপ্রিয় <span class="sm-red-title">সার্ভিস</span></h2>
                         <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে উমা আই.টি প্রস্তুত আপনার ক্যারিয়ার গড়ার
                             অগ্রযাত্রায়। আমাদের ১০ টিরও বেশি ট্রেন্ডি কোর্স থেকে আজই বেছে নিন আপনার পছন্দের কোর্স।</h6>
                     </div>
@@ -174,7 +174,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    <h2>Technology Uses</h2>
+                  <div class="text-center">
+                    <h2 class="heading"><span class="sm-red-title">Technology</span> Uses</h2>
+                  </div>
 
                     <div class="row mt-5">
                         <div class="col-lg-4 my-2">
@@ -273,8 +275,8 @@
                 <div class="row">
                     <div class="col-lg-10 mx-auto">
                         <div class="row g-4">
-                            <div class="col-lg-12">
-                                <h2 class="text-center pb-3">Gallery</h2>
+                            <div class="col-lg-12 text-center">
+                                <h2 class="text-center pb-3 heading">Gallery</h2>
                             </div>
 
                             @foreach ($gallery_image->slice(0, 6) as $item)
@@ -294,8 +296,8 @@
     <section class="our-portfolio">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="text-center py-4">Our <span class="sm-red-title">Happy Clients Review</span></h2>
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-center py-4 heading">Our <span class="sm-red-title">Happy Clients Review</span></h2>
                 </div>
                 <div class="col-lg-12">
                     <div id="owl-demo" class="owl-carousel owl-theme">

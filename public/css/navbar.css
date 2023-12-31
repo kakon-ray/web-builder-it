@@ -185,6 +185,28 @@
   height: 60px;
 }
 
+/* =====================================================================
+     navbar logo  before design 
+======================================================================== */
+.navbar{
+  position: relative;
+}
+.header-brand-logo-outer:before {
+  content: '';
+  background-color: var(--main-color);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  left: -60px;
+  width: 100px;
+  -webkit-transform: skew(30deg);
+  -moz-transform: skew(30deg);
+  -o-transform: skew(30deg);
+  -ms-transform: skew(30deg);
+  transform: skew(30deg);
+}
+
 
 /* ================= Navbar mediaquery ========================= */
 @media (max-width: 1440px) {

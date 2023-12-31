@@ -703,7 +703,10 @@ h6{
 }
 
 
-/* gallery section */
+/* =====================================================================
+   Gallery Section style
+======================================================================== */
+
 #gallery{
   margin: 30px 0;
   margin-bottom: 40px;
@@ -732,7 +735,11 @@ h6{
   font-size: 14px;
 }
 
-/* ck editor height change */
+/* =====================================================================
+   ck editor height change
+======================================================================== */
+
+
 
 .ck-editor__editable_inline {
   min-height: 200px;
@@ -746,3 +753,49 @@ h6{
   margin-left: 20px;
   list-style-type: upper-roman !important;
 }
+
+
+/* =====================================================================
+     Hedding Title Style border bottom using after start
+======================================================================== */
+
+.heading{
+  display:inline-block;
+  position: relative;
+  margin-bottom: 20px;
+}
+.heading:after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  bottom:0px;
+  background: var(--main-color);
+  transition: all .5s ease;
+  height: 4px;
+  left: 50%;
+  -moz-transform: translateX(-50%) skewX(-65deg);
+  -webkit-transform: translateX(-50%) skewX(-65deg);
+  -o-transform: translateX(-50%) skewX(-65deg);
+  -ms-transform: translateX(-50%) skewX(-65deg);
+  transform: translateX(-50%) skewX(-65deg);
+}
+.heading:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom:0px;
+  background: var(--main-color);
+  transition: all .5s ease;
+  height: 4px;
+  left: 50%;
+  -moz-transform: translateX(-50%) skewX(-65deg);
+  -webkit-transform: translateX(-50%) skewX(-65deg);
+  -o-transform: translateX(-50%) skewX(-65deg);
+  -ms-transform: translateX(-50%) skewX(-65deg);
+  transform: translateX(-50%) skewX(-65deg);
+}
+
+/* =====================================================================
+     Hedding Title Style border bottom using after end
+======================================================================== */
+
