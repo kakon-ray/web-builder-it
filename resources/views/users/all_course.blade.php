@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'All Course | Uma IT' }}
+    {{ 'All Course | Web Builder IT' }}
 @endsection
 
 @section('content')
@@ -12,8 +12,7 @@
                 <div class="col-lg-6 col-md-10 mx-auto">
                     <div class="text-center mb-5">
                         <h2 class="fw-bold">জনপ্রিয় কোর্সসমূহ</h2>
-                        <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে উমা আই.টি প্রস্তুত আপনার ক্যারিয়ার গড়ার
-                            অগ্রযাত্রায়। আমাদের ১০ টিরও বেশি ট্রেন্ডি কোর্স থেকে আজই বেছে নিন আপনার পছন্দের কোর্স।</h6>
+
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'Free Seminer | Uma IT ' }}
+    {{ 'Free Seminer | Web Builder IT ' }}
 @endsection
 
 @section('content')

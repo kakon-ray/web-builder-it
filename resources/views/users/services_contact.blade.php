@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'Services Contact | Khulna IT ' }}
+    {{ 'Services Contact | Web Builder IT ' }}
 @endsection
 
 @section('content')

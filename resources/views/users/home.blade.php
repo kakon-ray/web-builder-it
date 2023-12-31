@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'Home | Uma IT' }}
+    {{ 'Home | Web Builder IT' }}
 @endsection
 
 @section('content')
@@ -9,16 +9,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h5><i class="fas fa-book-open me-2"></i>খুলনার সেরা সফটওয়্যার ফার্ম এবং আই.টি ইনস্টিটিউট</h5>
-                    <h2 class="mt-4 mb-0 pb-0">ক্যারিয়ার শুরু হোক</h2>
-                    <h1 class="red-title mt-0 pt-0">দক্ষতার আত্মবিশ্বাসে</h1>
-                    <p class="cariar-details">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে উমা আই.টি প্রস্তুত আপনার ক্যারিয়ার গড়ার
-                        অগ্রযাত্রায়। আমাদের ১০ টিরও বেশি ট্রেন্ডি কোর্স থেকে আজই বেছে নিন আপনার পছন্দের কোর্স।</p>
+                    <h5><i class="fas fa-book-open me-2"></i> ওয়েব বিল্ডার আইটিতে আপনাকে স্বাগতম৷! </h5>
+                    <h2 class="mt-4 mb-0 pb-0">ওয়েব ডেভেলপমেন্ট শিখুন</h2>
+                    <h1 class="red-title mt-0 pt-0">লাইভ ক্লাসে</h1>
+                    <p class="cariar-details"> আপনার যাত্রার শুরু থেকে  চাকরি অথবা ফ্রিল্যান্সিং মার্কেটে একজন স্কিলফুল ডেভেলপার না হওয়া পর্যন্ত আমাদের সাপোর্ট পাবেন। </p>
                     <div class="cariar-button">
                         <a href="{{ route('user.course.contact') }}" class="btn-one"><i
-                                class="fas fa-book-open pe-2"></i>Contact Admission</a>
+                                class="fas fa-book-open pe-2"></i>Admission</a>
                         <a href="{{ route('user.services.contact') }}" class="btn-two"><i
-                                class="fas fa-book-open pe-2"></i>Contact All Services</a>
+                                class="fas fa-book-open pe-2"></i>Services</a>
                     </div>
                 </div>
                 <div class="col-lg-6">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'All Services | Uma IT' }}
+    {{ 'All Services | Web Builder IT' }}
 @endsection
 
 @section('content')
