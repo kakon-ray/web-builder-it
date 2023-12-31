@@ -1,0 +1,740 @@
+/*
+/*
+@File: Uma IT
+
+
+/*================================================
+Default CSS
+=================================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,400;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --main-color: #FF1E1E;
+  --main-color-tow: #db5353;
+  --main-hover-color: #e61212;
+  --white-color: #ffffff;
+  --black-color: #2b2540;
+  --navber-color: #424155;
+  --paragraph-color: #5a5a5c;
+  --bg-color: #faf7f2;
+  --transition: 0.4s all ease-in-out;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: rgb(239, 237, 237) !important;
+
+}
+
+/* ======================== scrollbar style  ===========================*/
+::-webkit-scrollbar {
+  background-color: var(--main-color);
+  box-shadow: inset 0 0 5px rgb(255, 255, 255);
+  width: 8px;
+  height: 8px;
+}
+
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 50px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-color);
+}
+/* ======================== scrollbar bar hover end  ===========================*/
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: white;
+ overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  transition: var(--transition);
+}
+
+.ptb-100 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.pb-100 {
+  padding-bottom: 100px;
+}
+
+.pt-100 {
+  padding-top: 100px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out 0.1s;
+  outline: 0 !important;
+  color: var(--black-color);
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--black-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 60px;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 55px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+h6 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Lato", sans-serif;
+  color: var(--paragraph-color);
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+  padding: 0;
+}
+
+/* --Common Style-- */
+section {
+  position: relative;
+}
+.page-link {
+
+  color:  var(--main-color);
+  
+}
+.page-item.active .page-link {
+  background-color: var(--main-color);
+  border-color:  var(--main-color);
+}
+
+.section_padding {
+  padding: 100px 0;
+}
+
+.section_padding_top {
+  padding: 100px 0 0 0;
+}
+
+.section_padding_bottom {
+  padding: 0 0 100px 0;
+}
+
+.margin {
+  margin: 100px 0;
+}
+
+.margin_top {
+  margin: 100px 0 0 0;
+}
+
+.margin_bottom {
+  margin: 0 0 100px 0;
+}
+
+.common-btn {
+  background-color: var(--main-color);
+  border: none;
+  color: #fff;
+  padding: 11px 20px;
+  margin: 0px 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding-top: 15px;
+}
+.common-btn:hover {
+  background-color: var(--main-hover-color);
+  border: none;
+  color: #fff;
+  padding: 11px 20px;
+  margin: 0px 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding-top: 15px;
+}
+
+.btn-one {
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 6px;
+  position: relative;
+  padding: 10px 20px;
+  padding-top: 14px;
+  color: var(--white-color);
+  background: linear-gradient(
+  117deg,
+  var(--main-color) 0% 25%,
+  var(--main-color) 25% 50%,
+  var(--main-color) 50% 75%,
+  var(--main-color) 75% 88%,
+  transparent 89%
+);
+  border: none;
+}
+
+.btn-one:hover {
+  background: linear-gradient(
+    117deg,
+    var(--main-hover-color) 0% 25%,
+    var(--main-hover-color) 25% 50%,
+    var(--main-hover-color) 50% 75%,
+    var(--main-hover-color) 75% 88%,
+    transparent 89%
+  );
+  color: var(--white-color);
+}
+
+.btn-one:focus {
+  box-shadow: none;
+}
+
+.btn_md {
+  padding: 12px 35px;
+  font-size: 18px;
+}
+
+.btn-two {
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 6px;
+  position: relative;
+  padding: 10px 30px;
+  padding-top: 14px;
+  color: var(--white-color);
+  background: linear-gradient(
+    300deg,
+    var(--main-color) 0% 25%,
+    var(--main-color) 25% 50%,
+    var(--main-color) 50% 75%,
+    var(--main-color) 75% 88%,
+    transparent 89%
+  );
+  border: none;
+}
+
+.btn-two:hover {
+  background: linear-gradient(
+    300deg,
+    var(--main-hover-color) 0% 25%,
+    var(--main-hover-color) 25% 50%,
+    var(--main-hover-color) 50% 75%,
+    var(--main-hover-color) 75% 88%,
+    transparent 89%
+  );
+  color: var(--white-color);
+}
+
+.course_details_card{
+  background-color: var(--main-color);
+}
+
+/* footer  */
+.footer-link-area ul li {
+  color: var(--heading-color);
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 400;
+  padding-bottom: 15px;
+}
+
+.footer-area {
+  padding: 90px 0;
+  background-color: var(--white-color);
+}
+
+.footer-area .row .col-12:nth-child(5) i {
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 4px;
+  color: var(--white-color);
+  background-color: var(--black-color);
+  margin-right: 8px;
+}
+
+.footer-area .row .col-12:nth-child(5) p:nth-child(1) a,
+.footer-area .row .col-12:nth-child(5) p:nth-child(3) a {
+  color: var(--main-color);
+  font-weight: 500;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.footer-area .row .col-12:nth-child(5) p:nth-child(1),
+.footer-area .row .col-12:nth-child(5) p:nth-child(3) {
+  padding: 8px 0 12px;
+}
+
+.footer-area .row .col-12:nth-child(5) p:nth-child(1) {
+  padding-top: 0;
+}
+
+.footer-first-area p:nth-child(2) {
+  line-height: 25px;
+  margin: 20px 0;
+}
+
+.footer-first-area p {
+  margin: 4px 0 0 0;
+}
+
+.footer-content,
+.footer-first-area {
+  padding-bottom: 25px;
+}
+
+.footer-first-area p span {
+  color: var(--black-color);
+  font-weight: 500;
+}
+
+.footer-heading-area h4 {
+  display: inline-flex;
+  padding-bottom: 15px;
+  font-weight: 500;
+  padding-top: 15px;
+}
+
+.footer-link-area {
+  padding-top: 18px;
+}
+
+.footer-link-area ul li a {
+  color: var(--black-color);
+  font-size: 16px;
+  font-weight: 400;
+  transition: var(--transition);
+  font-family: "Lato", sans-serif;
+}
+
+.footer-link-area ul li a:hover {
+  color: var(--main-color);
+}
+
+/* copyright area  */
+
+.copyright-area {
+  background-color: var(--main-color);
+  padding: 15px 0;
+}
+
+.copyright-left p {
+  color: var(--white-color);
+}
+
+.copyright-right a {
+  color: var(--white-color);
+  margin-left: 22px;
+  font-size: 22px;
+  line-height: 0px;
+  transition: var(--transition);
+}
+
+.copyright-right a:hover {
+  transform: scale(1.2);
+}
+
+.copyright-right a:nth-child(even) {
+  font-size: 13px;
+  border-radius: 50%;
+  padding: 5px;
+  color: var(--main-color);
+  background-color: var(--white-color);
+}
+
+.copyright-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.fa-facebook {
+  border-radius: 50%;
+}
+
+/* ================banner section */
+.cariar-section{
+  padding: 50px 0;
+}
+
+.slider img{
+  height: 600px;
+}
+
+.fa-book-open{
+  color: var(--main-color);
+}
+
+p{
+  line-height: 40px;
+}
+
+h6{
+  font-size: 17px;
+  line-height: 35px;
+}
+
+.cariar-section h1,h2{
+  font-weight: bold;
+}
+
+.red-title{
+  color: var(--main-color);
+  font-size: 52px;
+
+}
+
+.cariar-button{
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.cariar-button .fa-book-open{
+  color: white;
+  margin-right: 3px;
+}
+
+.cariar-img{
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.cariar-section .cariar-details{
+  line-height: 40px;
+}
+
+
+/* course section / services section */
+.card-title{
+  padding-top: 10px;
+}
+
+.course-section{
+  padding: 40px 0;
+}
+
+.course-section .card{
+  border-radius: 70px 0px ;
+
+}
+.course-section img{
+  border-radius: 70px 0px ;
+  height: 230px;
+
+}
+
+.course-section p{
+  font-size: 13px;
+}
+
+.btn-danger{
+  border-radius: 25px 2px !important;
+
+}
+
+.review{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ margin-bottom: 20px;
+  
+}
+
+.review .fa-star{
+ font-size: 16px;
+}
+
+
+/* free seminer details */
+
+.main-card{
+  background-color: var(--main-color-tow);
+  color: rgb(255, 255, 255);
+}
+
+.all-course {
+  margin: 20px 0;
+}
+
+.all-course img{
+  height: 230px;
+}
+
+/* course details */
+.course-details-carikulam .card{
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.course-details-carikulam{
+  margin: 50px 0;
+}
+.course-details-carikulam ol li{
+ font-size: 20px;
+}
+
+.admission-btn {
+  background-color: white;
+  border: none;
+  padding: 13px 25px;
+  color: #2b2540;
+  text-align: center;
+  padding-top: 16px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.admission-btn:hover{
+  background-color: rgb(0, 241, 245);
+  padding: 13px 25px;
+  color: var(--main-color);;
+  text-align: center;
+  padding-top: 16px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.course-carikulam{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 90px;
+}
+.course-pement .card{
+  padding: 30px;
+}
+
+
+/* ================ our portfolio section ============ */
+.our-portfolio{
+  padding: 40px 0;
+}
+/* owl carosels style customize */
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.our-portfolio img {
+  height: 300px !important
+}
+
+
+/* consultation section */
+#home_cta {
+  padding: 100px 0;
+  background-image: url(../img/background-img/cta-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #e3e3e3;
+  margin: 50px 0;
+}
+
+#home_cta p{
+  color: white;
+  padding-top: 10px;
+}
+.theme-btn-cta {
+  background-color: var(--bg-color);
+  color: var(--black-color);
+  padding: 20px 30px;
+  border: none;
+}
+
+.theme-btn-cta:hover {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  padding: 20px 30px;
+  border: none;
+}
+
+/* technology use section */
+#technology-uses {
+  padding: 50px 0;
+  background-image: url(../img/background-img/bg-service.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#technology-uses img{
+  width: 100px;
+  height: 100px;
+}
+
+/* services contact section */
+
+.services-contact{
+  margin: 70px 0;
+}
+
+
+.course_details_desc ul li {
+  list-style: none;
+  font-size: 20px;
+}
+
+.course_details_desc ul li:before {
+  content:"·";
+  font-size:110px;
+  vertical-align:middle;
+  line-height:20px;
+  color: var(--main-color-tow);
+}
+
+.carosel_item_container{
+  position: relative;
+}
+
+.carosel_item_content{
+  position: absolute;
+  text-align: center;
+  background-color: #060606c2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 14px;
+}
+
+
+/* gallery section */
+#gallery{
+  margin: 30px 0;
+  margin-bottom: 40px;
+}
+.gallery img{
+  height: 300px;
+  width: 100%;
+}
+
+
+.andfood-navbar.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999999999;
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+  background: #fffdf9 !important;
+  -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+  transition: 0.6s;
+}
+
+.admission .form-label{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ck editor height change */
+
+.ck-editor__editable_inline {
+  min-height: 200px;
+}
+
+.table-responsive{
+  overflow-x: auto;
+}
+
+.course_details_desc ul{
+  margin-left: 20px;
+  list-style-type: upper-roman !important;
+}

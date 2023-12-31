@@ -1,0 +1,182 @@
+
+/*================================================
+Default CSS
+=================================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,400;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --main-color: #FF1E1E;
+  --main-color-tow: #db5353;
+  --main-hover-color: #e61212;
+  --white-color: #ffffff;
+  --black-color: #2b2540;
+  --navber-color: #424155;
+  --paragraph-color: #5a5a5c;
+  --bg-color: #faf7f2;
+  --transition: 0.4s all ease-in-out;
+}
+
+/*student registation passwrod eay show and hidden */
+
+.password-container{
+    position: relative;
+  }
+
+  #eye {
+    position: absolute;
+    top: 60%;
+    right: 4%;
+    cursor: pointer;
+    color: var(--main-color);
+}
+  #confirm_password_eye {
+    position: absolute;
+    top: 60%;
+    right: 4%;
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+/* student registation login password show */
+
+
+#confirm_login_eye {
+  position: absolute;
+  top: 60%;
+  right: 4%;
+  cursor: pointer;
+  color: var(--main-color);
+}
+
+/*==================== checkout page pement card ===========================*/
+.checkout .card {
+  background-color: #fff;
+  border-radius: var(--card-radius);
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding: 50px 20px;
+  position: relative;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.checkout .radio {
+  font-size: inherit;
+  margin: 0;
+  position: absolute;
+  right: calc(var(--card-padding) + var(--radio-border-width));
+  top: calc(var(--card-padding) + var(--radio-border-width));
+}
+
+#chcekoutradio { 
+  accent-color: var(--main-color); 
+} 
+
+.checkout input[type=radio] {
+  border: 0px;
+  width: 14%;
+  height: 2em;
+}
+
+.pement-title::after{
+  display: block;
+  content: "";
+  border-bottom: solid 2px var(--main-color);
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+  transform: scaleX(1);
+  width: 10%;
+  position: absolute;
+  left: 45%;
+}
+
+/* google and facebook login button style */
+
+.btn-google {
+  color: #fff;
+  background-color: var(--main-color);
+  border-color: #fff;
+}
+
+.btn-google:hover {
+  color: #fff;
+  background-color: var(--main-hover-color);
+  border-color: #e6e6e6;
+}
+
+.btn-google:focus, .btn-google.focus {
+  color: #fff;
+  background-color: var(--main-hover-color);
+  border-color: #e6e6e6;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+
+.btn-google.disabled, .btn-google:disabled {
+  color: #fff;
+  background-color: var(--main-color-tow);
+  border-color: #fff;
+}
+
+.btn-google:not(:disabled):not(.disabled):active, .btn-google:not(:disabled):not(.disabled).active,
+.show > .btn-google.dropdown-toggle {
+  color: #fff;
+  background-color: var(--main-hover-color);
+  border-color: #dfdfdf;
+}
+
+.btn-google:not(:disabled):not(.disabled):active:focus, .btn-google:not(:disabled):not(.disabled).active:focus,
+.show > .btn-google.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+
+
+.btn-facebook {
+  margin: 10px 0;
+  color: #fff;
+  background-color: #3b5998;
+  border-color: #fff;
+}
+
+.btn-facebook:hover {
+  color: #fff;
+  background-color: #30497c;
+  border-color: #e6e6e6;
+}
+
+.btn-facebook:focus, .btn-facebook.focus {
+  color: #fff;
+  background-color: #30497c;
+  border-color: #e6e6e6;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+
+.btn-facebook.disabled, .btn-facebook:disabled {
+  color: #fff;
+  background-color: #3b5998;
+  border-color: #fff;
+}
+
+.btn-facebook:not(:disabled):not(.disabled):active, .btn-facebook:not(:disabled):not(.disabled).active,
+.show > .btn-facebook.dropdown-toggle {
+  color: #fff;
+  background-color: #2d4373;
+  border-color: #dfdfdf;
+}
+
+.btn-facebook:not(:disabled):not(.disabled):active:focus, .btn-facebook:not(:disabled):not(.disabled).active:focus,
+.show > .btn-facebook.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
