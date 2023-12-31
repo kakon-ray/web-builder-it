@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h5><i class="fas fa-book-open me-2"></i> ওয়েব বিল্ডার আইটিতে আপনাকে স্বাগতম৷! </h5>
+                    <h5><i class="fas fa-book-open me-2"></i> ওয়েব বিল্ডার আইটিতে আপনাকে স্বাগতম ! </h5>
                     <h2 class="mt-4 mb-0 pb-0">ওয়েব ডেভেলপমেন্ট শিখুন</h2>
                     <h1 class="red-title mt-0 pt-0">লাইভ ক্লাসে</h1>
                     <p class="cariar-details"> আপনার যাত্রার শুরু থেকে  চাকরি অথবা ফ্রিল্যান্সিং মার্কেটে একজন স্কিলফুল ডেভেলপার না হওয়া পর্যন্ত আমাদের সাপোর্ট পাবেন। </p>

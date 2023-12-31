@@ -6,12 +6,10 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12 pb-4 d-flex justify-content-end">
+            <div class="col-lg-12 pb-4 d-flex justify-content-between">
+                <h3 class="text-center ">Mange<span style="color:#4e73df;"> Course Tutorial</span></h3>
                 <a href="{{ route('admin.add.tutorial')}}" type="button"
                 class="btn btn-primary"><i class="fas fa-plus me-2"></i>Add New Tutorial</a>
-            </div>
-            <div class="col-lg-12">
-                <h3 class="text-center ">Mange<span style="color:#4e73df;"> Course Tutorial</span></h3>
             </div>
 
             <div class="col-lg-12 table-responsive">

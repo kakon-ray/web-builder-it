@@ -81,7 +81,7 @@
                                         @php
                                             $percentage = ($item->pement_clear * 100) / $item->add_course->course_fee;
                                         @endphp
-                                    @endif
+                                   
 
 
                                     @if ($percentage >= 30 && $item->pement_clear != 0)
@@ -103,7 +103,7 @@
                                         @endif
                                     @endif
 
-
+                                    @endif
 
 
                                 </td>
