@@ -202,7 +202,7 @@
                 </div>
             </li>
             <li
-                class="nav-item {{ request()->routeIs('admin.add.tutorial') || request()->routeIs('admin.manage.tutorial') ? 'active' : '' }}">
+                class="nav-item {{ request()->routeIs('dashboard.review.manage') || request()->routeIs('dashboard.review.add') ? 'active' : '' }}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages9"
                     aria-expanded="true" aria-controls="collapsePages9">
                     <i class="fas fa-comments"></i>
