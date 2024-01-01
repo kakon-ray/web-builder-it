@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdmissionController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ClientReviewController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SeminerController;
@@ -135,5 +136,25 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('edit/specific/tutorial/{id}', [TutorialController::class, 'edit_specific_tutorial'])->name('edit.specific.tutorial');
         Route::get('delete/tutorial', [TutorialController::class, 'delete_tutorial']);
     });
-    
+});
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::name('dashboard.')->prefix('dashboard')->group(function () {
+
+
+        Route::name('review.')->prefix('review')->group(function () {
+            Route::get('manage', [ClientReviewController::class, 'manage_client_review'])->name('manage');
+            Route::get('add', [ClientReviewController::class, 'add_client_review'])->name('add');
+            Route::get('update', [ClientReviewController::class, 'update_client_review'])->name('update');
+            Route::post('add/submit', [ClientReviewController::class, 'add_client_review_submit'])->name('add.submit');
+            Route::post('update/submit', [ClientReviewController::class, 'update_client_review_submit'])->name('update.submit');
+            Route::get('delete', [ClientReviewController::class, 'client_review_delete'])->name('delete');
+        });
+
+
+
+
+    });
 });

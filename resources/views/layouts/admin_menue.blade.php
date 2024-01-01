@@ -201,6 +201,27 @@
                     </div>
                 </div>
             </li>
+            <li
+                class="nav-item {{ request()->routeIs('admin.add.tutorial') || request()->routeIs('admin.manage.tutorial') ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages9"
+                    aria-expanded="true" aria-controls="collapsePages9">
+                    <i class="fas fa-comments"></i>
+                    <span>Manage Review </span>
+                </a>
+
+                <div id="collapsePages9" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white mb-1 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('dashboard.review.manage') }}">Manage Review</a>
+                    </div>
+                </div>
+                <div id="collapsePages9" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white mb-1 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('dashboard.review.add') }}">Add Review</a>
+                    </div>
+                </div>
+            </li>
 
             @if (Auth::guard('web')->user()->role == 'superadmin')
                 <li class="nav-item {{ request()->routeIs('admin.user.maintain') ? 'active' : '' }}">
