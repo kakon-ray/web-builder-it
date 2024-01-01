@@ -23,21 +23,29 @@
             <div class="card-header text-center">Add <span style="color:#4e73df;"> Client Review</span></div>
 
             <div class="card-body p-5">
-                <form method="POST" action="{{ route('dashboard.review.add.submit') }}" id="addClientReview" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('dashboard.review.add.submit') }}" id="addClientReview"
+                    enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <div class="my-4">
                         <label class="form-label">Name</label>
-                        <input name="name" type="text" class="form-control"
-                            placeholder="Client Name">
+                        <input name="name" type="text" class="form-control" placeholder="Client Name">
                     </div>
 
                     <div class="my-4">
                         <label class="form-label">Review Star</label>
-                        <input name="review_star" type="number" min="1" max="5" class="form-control" 
+                        <input name="review_star" type="number" min="1" max="5" class="form-control"
                             placeholder="Review Star">
+                    </div>
+
+                    <div class="my-4">
+                        <label class="form-label">Review Category</label>
+                        <select class="form-control rounded-0" name="categorie">
+                            <option value="student_review" selected>Student Review</option>
+                            <option value="client_review">Client Review</option>
+                        </select>
                     </div>
 
                     <div class="my-4">
@@ -47,8 +55,8 @@
 
                     <div class="my-4">
                         <label class="form-label">Client Image</label>
-                        <input  name="image" type="file" class="form-control">
-            
+                        <input name="image" type="file" class="form-control">
+
                     </div>
 
                     <button type="submit" class="btn btn-primary">

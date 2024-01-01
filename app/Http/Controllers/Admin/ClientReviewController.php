@@ -27,18 +27,35 @@ class ClientReviewController extends Controller
 
     public function add_client_review_submit(Request $request)
     {
-        $arrayRequest = [
-            "name" => $request->name,
-            "review_star" => $request->review_star,
-            "description" => $request->description,
-        ];
+        
+        if ($request->image) {
+            $arrayRequest = [
+                'name' => $request->name,
+                'review_star' => $request->review_star,
+                'description' => $request->description,
+                'image' => $request->image,
+            ];
 
-        $arrayValidate  = [
-            'name' => 'required',
-            'name' => 'required',
-            'description' => ['required', 'max:500'],
-       
-        ];
+            $arrayValidate  = [
+                'name' => 'required',
+                'review_star' => 'required',
+                'description' => ['required', 'max:500'],
+                'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:300'],
+
+            ];
+        } else {
+            $arrayRequest = [
+                'name' => $request->name,
+                'review_star' => $request->review_star,
+                'description' => $request->description,
+            ];
+
+            $arrayValidate  = [
+                'name' => 'required',
+                'review_star' => 'required',
+                'description' => ['required', 'string', 'max:500'],
+            ];
+        }
 
         $response = Validator::make($arrayRequest, $arrayValidate);
 
@@ -57,21 +74,22 @@ class ClientReviewController extends Controller
 
             try {
 
-           
-                    if($request->image){
-                        $img = $request->image;
+
+                if ($request->image) {
+                    $img = $request->image;
                     $image =  $img->store('/public/review_image');
                     $image = (explode('/', $image))[2];
                     $host = $_SERVER['HTTP_HOST'];
                     $image = "http://" . $host . "/storage/review_image/" . $image;
-                    }else{
-                        $image = $request->image;
-                    }
-               
+                } else {
+                    $image = $request->image;
+                }
+
 
                 $clientReview = ClientReview::create([
                     'name' => $request->name,
                     'review_star' => $request->review_star,
+                    'categorie' => $request->categorie,
                     'image' => $image,
                     'description' => $request->description,
 
@@ -144,28 +162,29 @@ class ClientReviewController extends Controller
                 'status' => 404
             ], 404);
         } else {
-            if($request->image){
+            if ($request->image) {
                 $arrayRequest = [
                     'name' => $request->name,
                     'review_star' => $request->review_star,
+                    'categorie' => $request->categorie,
                     'description' => $request->description,
                     'image' => $request->image,
                 ];
-        
+
                 $arrayValidate  = [
                     'name' => 'required',
                     'review_star' => 'required',
                     'description' => ['required', 'max:500'],
-                    'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+                    'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:300'],
 
                 ];
-            }else{
+            } else {
                 $arrayRequest = [
                     'name' => $request->name,
                     'review_star' => $request->review_star,
                     'description' => $request->description,
                 ];
-        
+
                 $arrayValidate  = [
                     'name' => 'required',
                     'review_star' => 'required',
@@ -197,7 +216,6 @@ class ClientReviewController extends Controller
                         $image = (explode('/', $image))[2];
                         $host = $_SERVER['HTTP_HOST'];
                         $image = "http://" . $host . "/storage/doctor_image/" . $image;
-
                     } else {
                         $image = $request->old_image;
                     }
@@ -205,12 +223,11 @@ class ClientReviewController extends Controller
 
                     $clientReview->name = $request->name;
                     $clientReview->review_star = $request->review_star;
+                    $clientReview->categorie = $request->categorie;
                     $clientReview->image = $image;
                     $clientReview->description = $request->description;
                     $clientReview->save();
                     DB::commit();
-
-
                 } catch (\Exception $err) {
                     DB::rollBack();
                     $clientReview = null;
@@ -231,5 +248,4 @@ class ClientReviewController extends Controller
             }
         }
     }
-    
 }

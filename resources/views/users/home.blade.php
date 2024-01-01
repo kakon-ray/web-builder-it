@@ -116,6 +116,7 @@
                 <div class="col-lg-12 pt-4">
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         @foreach ($allClientReview as $item)
+                        @if ($item->categorie == 'student_review')
                             <div class="item carosel_item_container">
                                 <div class="card">
                                     <div class="p-4 text-center">
@@ -143,14 +144,12 @@
                                             @endif
 
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-
-
-
+                        @endif
+                    @endforeach
                     </div>
 
                 </div>
@@ -360,41 +359,40 @@
                 <div class="col-lg-12 pt-4">
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         @foreach ($allClientReview as $item)
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                        <p>{{ $item->description }}</p>
-                                        @if ($item->image)
-                                            <img src="{{ $item->image }}" alt="Client Review">
-                                        @else
-                                            <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
-                                                alt="Client Review">
-                                        @endif
-                                        <h4 class="p-3">{{ $item->name }}</h4>
-                                        <div class="star-rating">
-                                            @if ($item->review_star == 5)
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                            @elseif($item->review_star < 5)
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
+                            @if ($item->categorie == 'client_review')
+                                <div class="item carosel_item_container">
+                                    <div class="card">
+                                        <div class="p-4 text-center">
+                                            <p>{{ $item->description }}</p>
+                                            @if ($item->image)
+                                                <img src="{{ $item->image }}" alt="Client Review">
+                                            @else
+                                                <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
+                                                    alt="Client Review">
                                             @endif
+                                            <h4 class="p-3">{{ $item->name }}</h4>
+                                            <div class="star-rating">
+                                                @if ($item->review_star == 5)
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                @elseif($item->review_star < 5)
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @endif
+
+                                            </div>
 
                                         </div>
-                                       
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         @endforeach
-
-
-
                     </div>
 
                 </div>
