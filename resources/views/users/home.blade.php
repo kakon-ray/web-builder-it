@@ -12,7 +12,8 @@
                     <h5><i class="fas fa-book-open me-2"></i> ওয়েব বিল্ডার আইটিতে আপনাকে স্বাগতম ! </h5>
                     <h2 class="mt-4 mb-0 pb-0">ওয়েব ডেভেলপমেন্ট শিখুন</h2>
                     <h1 class="red-title mt-0 pt-0">লাইভ ক্লাসে</h1>
-                    <p class="cariar-details"> আপনার যাত্রার শুরু থেকে  চাকরি অথবা ফ্রিল্যান্সিং মার্কেটে একজন স্কিলফুল ডেভেলপার না হওয়া পর্যন্ত আমাদের সাপোর্ট পাবেন। </p>
+                    <p class="cariar-details"> আপনার যাত্রার শুরু থেকে চাকরি অথবা ফ্রিল্যান্সিং মার্কেটে একজন স্কিলফুল
+                        ডেভেলপার না হওয়া পর্যন্ত আমাদের সাপোর্ট পাবেন। </p>
                     <div class="cariar-button">
                         <a href="{{ route('user.course.contact') }}" class="btn-one"><i
                                 class="fas fa-book-open pe-2"></i>Admission</a>
@@ -34,7 +35,8 @@
                 <div class="col-lg-6 col-md-10 mx-auto">
                     <div class="text-center mb-5">
                         <h2 class="fw-bold heading">জনপ্রিয় <span class="sm-red-title">কোর্সসমূহ</span></h2>
-                        <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে ওয়েব বিল্ডার আইটি প্রস্তুত আপনার ক্যারিয়ার গড়ার
+                        <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে ওয়েব বিল্ডার আইটি প্রস্তুত আপনার
+                            ক্যারিয়ার গড়ার
                             অগ্রযাত্রায়।</h6>
                     </div>
                 </div>
@@ -103,6 +105,147 @@
             </div>
         </div>
     </section>
+
+        {{-- Student review section --}}
+        <section class="our-portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="text-center py-4 heading">Our <span class="sm-red-title">Students Review</span></h2>
+                    </div>
+                    <div class="col-lg-12 pt-4">
+                        <div id="owl-demo" class="owl-carousel owl-theme">
+    
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                  <div class="p-4 text-center">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                        voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                    </p>
+                                    <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                    <h4 class="p-3">Kakon Ray</h4>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+    
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+    
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                      </p>
+                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                      <h4 class="p-3">Kakon Ray</h4>
+                                    </div>
+                                  </div>
+                            </div>
+    
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </section>
 
     <!-- home cta section -->
     <section id="home_cta">
@@ -174,9 +317,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                  <div class="text-center">
-                    <h2 class="heading"><span class="sm-red-title">Technology</span> Uses</h2>
-                  </div>
+                    <div class="text-center">
+                        <h2 class="heading"><span class="sm-red-title">Technology</span> Uses</h2>
+                    </div>
 
                     <div class="row mt-5">
                         <div class="col-lg-4 my-2">
@@ -293,104 +436,139 @@
             </div>
     </section>
 
+
+    {{-- client review section --}}
     <section class="our-portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="text-center py-4 heading">Our <span class="sm-red-title">Happy Clients Review</span></h2>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12 pt-4">
                     <div id="owl-demo" class="owl-carousel owl-theme">
 
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/banner1.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                              <div class="p-4 text-center">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                    voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                </p>
+                                <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                <h4 class="p-3">Kakon Ray</h4>
+                              </div>
+                            </div>
                         </div>
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/banner2.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/banner3.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/banner4.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/banner1.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/banner2.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/banner3.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/banner4.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
 
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/nobolok-image.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
 
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/kmpi-logo.jpg') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
                         <div class="item carosel_item_container">
-                            <a target="_blank" href="https://multicart-baa75.web.app/">
-                                <img src="{{ asset('img/portfolio/khulna-gejet.png') }}" alt="Owl Image">
-                                <!-- <div class="carosel_item_content">
-                     <h4>Developed By Web Builder IT</h4>
-                   </div> -->
-                            </a>
+                            <div class="card">
+                                <div class="p-4 text-center">
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
+                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
+                                  </p>
+                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
+                                  <h4 class="p-3">Kakon Ray</h4>
+                                </div>
+                              </div>
                         </div>
 
                     </div>
@@ -399,4 +577,6 @@
             </div>
         </div>
     </section>
+
+
 @endsection

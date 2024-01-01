@@ -612,17 +612,14 @@ h6{
   padding: 40px 0;
 }
 /* owl carosels style customize */
-#owl-demo .item{
+.our-portfolio .item{
   margin: 3px;
 }
 #owl-demo .item img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.our-portfolio img {
-  height: 300px !important
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
 }
 
 
