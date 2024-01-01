@@ -11,7 +11,7 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src="{{ asset('img/profile.jpg') }}" alt="avatar" class="rounded-circle img-fluid"
+                            <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}" alt="avatar" class="rounded-circle img-fluid"
                                 style="width: 150px;">
                             <h5 class="my-3">{{ Auth::guard('student')->user()->student_name }}</h5>
                             <p class="text-muted mb-1">Student Of Web Builder IT</p>

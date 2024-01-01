@@ -18,6 +18,7 @@
                         <tr class="text-center">
                             <th class="th-sm">Image</th>
                             <th class="th-sm">Name</th>
+                            <th class="th-sm">Star</th>
                             <th class="th-sm">Desciption</th>
                             <th class="th-sm">Action</th>
                         </tr>
@@ -29,6 +30,7 @@
                                     <img src="{{ $item->image }}" style="width: 100px;height:50px" alt="">
                                 </td>
                                 <td class="th-sm ">{{ $item->name }}</td>
+                                <td class="th-sm ">{{ $item->review_star }}</td>
                                 <td class="th-sm ">{{ $item->description }}</td>
 
                  

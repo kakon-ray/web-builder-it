@@ -625,6 +625,10 @@ h6{
   border-radius: 50%;
 }
 
+.our-portfolio .star-rating .active{
+  color: rgb(248, 207, 0);
+
+}
 
 /* consultation section */
 #home_cta {

@@ -35,6 +35,11 @@
                             value="{{ $reviewDetails->name }}">
                     </div>
                     <div class="my-4">
+                        <label class="form-label">Review Star</label>
+                        <input name="review_star" type="number" min="1" max="5" class="form-control" 
+                        value="{{ $reviewDetails->review_star }}">
+                    </div>
+                    <div class="my-4">
                         <label class="form-label">Review Desciption</label>
                         <textarea class="form-control pt-3" name="description" rows="3" placeholder="Review Desciption"> {{$reviewDetails->description}}</textarea>
                     </div>

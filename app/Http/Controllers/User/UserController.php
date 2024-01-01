@@ -19,6 +19,7 @@ use App\Models\SeminerModel;
 use App\Models\GalleryModel;
 use App\Models\StudentRegModel;
 use App\Models\ActiveCourse;
+use App\Models\ClientReview;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,10 +30,9 @@ class UserController extends Controller
     {
         $allCourse = AddCourse::get()->reverse();
         $allServices = AddServices::get()->reverse();
+        $allClientReview = ClientReview::get()->reverse();
         $gallery_image = GalleryModel::get();
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.home', ['allCourse' => $allCourse, 'allServices' => $allServices, 'gallery_image' => $gallery_image, 'currentStudent' => $currentStudent]);
+        return view('users.home', compact('allCourse','allServices','allClientReview','gallery_image'));
     }
 
     function all_course()

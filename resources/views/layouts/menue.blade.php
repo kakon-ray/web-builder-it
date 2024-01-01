@@ -121,7 +121,7 @@
                                @if (Auth::guard('student')->user())
                                    <div class="menu">
                                        <div id="item">
-                                           <img src="{{ asset('img/profile.jpg') }}" class="profile" alt="logo" />
+                                           <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}" class="profile" alt="logo" />
                                            <span>{{ Auth::guard('student')->user()->student_name }}</span>
                                        </div>
                                        <div id="submenu">

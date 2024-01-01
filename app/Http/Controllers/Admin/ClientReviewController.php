@@ -29,14 +29,15 @@ class ClientReviewController extends Controller
     {
         $arrayRequest = [
             "name" => $request->name,
-            "image" => $request->image,
+            "review_star" => $request->review_star,
             "description" => $request->description,
         ];
 
         $arrayValidate  = [
             'name' => 'required',
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'name' => 'required',
             'description' => ['required', 'max:500'],
+       
         ];
 
         $response = Validator::make($arrayRequest, $arrayValidate);
@@ -57,15 +58,20 @@ class ClientReviewController extends Controller
             try {
 
            
-                    $img = $request->image;
+                    if($request->image){
+                        $img = $request->image;
                     $image =  $img->store('/public/review_image');
                     $image = (explode('/', $image))[2];
                     $host = $_SERVER['HTTP_HOST'];
                     $image = "http://" . $host . "/storage/review_image/" . $image;
+                    }else{
+                        $image = $request->image;
+                    }
                
 
                 $clientReview = ClientReview::create([
                     'name' => $request->name,
+                    'review_star' => $request->review_star,
                     'image' => $image,
                     'description' => $request->description,
 
@@ -141,12 +147,14 @@ class ClientReviewController extends Controller
             if($request->image){
                 $arrayRequest = [
                     'name' => $request->name,
+                    'review_star' => $request->review_star,
                     'description' => $request->description,
                     'image' => $request->image,
                 ];
         
                 $arrayValidate  = [
                     'name' => 'required',
+                    'review_star' => 'required',
                     'description' => ['required', 'max:500'],
                     'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
 
@@ -154,11 +162,13 @@ class ClientReviewController extends Controller
             }else{
                 $arrayRequest = [
                     'name' => $request->name,
+                    'review_star' => $request->review_star,
                     'description' => $request->description,
                 ];
         
                 $arrayValidate  = [
                     'name' => 'required',
+                    'review_star' => 'required',
                     'description' => ['required', 'string', 'max:500'],
                 ];
             }
@@ -194,6 +204,7 @@ class ClientReviewController extends Controller
 
 
                     $clientReview->name = $request->name;
+                    $clientReview->review_star = $request->review_star;
                     $clientReview->image = $image;
                     $clientReview->description = $request->description;
                     $clientReview->save();

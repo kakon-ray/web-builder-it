@@ -10,6 +10,7 @@ class ClientReview extends Model
 
     protected $fillable = [
         'name',
+        'review_star',
         'image',
         'description',
     ];

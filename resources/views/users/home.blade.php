@@ -106,146 +106,57 @@
         </div>
     </section>
 
-        {{-- Student review section --}}
-        <section class="our-portfolio">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="text-center py-4 heading">Our <span class="sm-red-title">Students Review</span></h2>
-                    </div>
-                    <div class="col-lg-12 pt-4">
-                        <div id="owl-demo" class="owl-carousel owl-theme">
-    
+    {{-- Student review section --}}
+    <section class="our-portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-center heading">Our <span class="sm-red-title">Students Review</span></h2>
+                </div>
+                <div class="col-lg-12 pt-4">
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+                        @foreach ($allClientReview as $item)
                             <div class="item carosel_item_container">
                                 <div class="card">
-                                  <div class="p-4 text-center">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                        voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                    </p>
-                                    <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                    <h4 class="p-3">Kakon Ray</h4>
-                                  </div>
+                                    <div class="p-4 text-center">
+                                        <p>{{ $item->description }}</p>
+                                        @if ($item->image)
+                                            <img src="{{ $item->image }}" alt="Client Review">
+                                        @else
+                                            <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
+                                                alt="Client Review">
+                                        @endif
+                                        <h4 class="p-3">{{ $item->name }}</h4>
+                                        <div class="star-rating">
+                                            @if ($item->review_star == 5)
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                            @elseif($item->review_star < 5)
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            @endif
+
+                                        </div>
+                                       
+                                    </div>
                                 </div>
                             </div>
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-    
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-    
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                          voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                      </p>
-                                      <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                      <h4 class="p-3">Kakon Ray</h4>
-                                    </div>
-                                  </div>
-                            </div>
-    
-                        </div>
-    
+                        @endforeach
+
+
+
                     </div>
+
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- home cta section -->
     <section id="home_cta">
@@ -295,7 +206,8 @@
                                     </div>
 
                                 </div>
-                                <a href="{{ route('user.services.details', ['id' => $item->id]) }}" class="common-btn">Read
+                                <a href="{{ route('user.services.details', ['id' => $item->id]) }}"
+                                    class="common-btn">Read
                                     More</a>
                             </div>
                         </div>
@@ -419,7 +331,7 @@
                     <div class="col-lg-10 mx-auto">
                         <div class="row g-4">
                             <div class="col-lg-12 text-center">
-                                <h2 class="text-center pb-3 heading">Gallery</h2>
+                                <h2 class="text-center heading">Gallery</h2>
                             </div>
 
                             @foreach ($gallery_image->slice(0, 6) as $item)
@@ -438,138 +350,50 @@
 
 
     {{-- client review section --}}
+
     <section class="our-portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-center py-4 heading">Our <span class="sm-red-title">Happy Clients Review</span></h2>
+                    <h2 class="text-center heading">Our <span class="sm-red-title">Happy Clients Review</span></h2>
                 </div>
                 <div class="col-lg-12 pt-4">
                     <div id="owl-demo" class="owl-carousel owl-theme">
+                        @foreach ($allClientReview as $item)
+                            <div class="item carosel_item_container">
+                                <div class="card">
+                                    <div class="p-4 text-center">
+                                        <p>{{ $item->description }}</p>
+                                        @if ($item->image)
+                                            <img src="{{ $item->image }}" alt="Client Review">
+                                        @else
+                                            <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
+                                                alt="Client Review">
+                                        @endif
+                                        <h4 class="p-3">{{ $item->name }}</h4>
+                                        <div class="star-rating">
+                                            @if ($item->review_star == 5)
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                            @elseif($item->review_star < 5)
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            @endif
 
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                              <div class="p-4 text-center">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                    voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                </p>
-                                <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                <h4 class="p-3">Kakon Ray</h4>
-                              </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
+                        @endforeach
 
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
 
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
-                        <div class="item carosel_item_container">
-                            <div class="card">
-                                <div class="p-4 text-center">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quod aliquid
-                                      voluptate delectus esse est! Hic, voluptatibus! Laboriosam, rem asperiores mollitia
-                                  </p>
-                                  <img src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="">
-                                  <h4 class="p-3">Kakon Ray</h4>
-                                </div>
-                              </div>
-                        </div>
 
                     </div>
 
@@ -577,6 +401,4 @@
             </div>
         </div>
     </section>
-
-
 @endsection

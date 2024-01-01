@@ -30,9 +30,16 @@
 
                     <div class="my-4">
                         <label class="form-label">Name</label>
-                        <input name="name" type="text" class="form-control" name="text"
+                        <input name="name" type="text" class="form-control"
                             placeholder="Client Name">
                     </div>
+
+                    <div class="my-4">
+                        <label class="form-label">Review Star</label>
+                        <input name="review_star" type="number" min="1" max="5" class="form-control" 
+                            placeholder="Review Star">
+                    </div>
+
                     <div class="my-4">
                         <label class="form-label">Review Desciption</label>
                         <textarea class="form-control pt-3" name="description" rows="3" placeholder="Review Desciption"></textarea>
