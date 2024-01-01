@@ -213,6 +213,7 @@ section {
 .common-btn {
   background-color: var(--main-color);
   border: none;
+  transform: skewX(-20deg);
   color: #fff;
   padding: 11px 20px;
   margin: 0px 0px;
@@ -227,6 +228,10 @@ section {
   -moz-transition: .3s;
   -ms-transition: .3s;
   -o-transition: .3s;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
 }
 .common-btn:hover {
   background-color: var(--main-hover-color);
@@ -245,7 +250,6 @@ section {
 .btn-one {
   display: inline-block;
   font-size: 14px;
-  border-radius: 6px;
   position: relative;
   padding: 10px 20px;
   padding-top: 14px;
@@ -283,7 +287,6 @@ section {
 .btn-two {
   display: inline-block;
   font-size: 14px;
-  border-radius: 6px;
   position: relative;
   padding: 10px 30px;
   padding-top: 14px;

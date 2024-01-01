@@ -16,9 +16,9 @@
                         ডেভেলপার না হওয়া পর্যন্ত আমাদের সাপোর্ট পাবেন। </p>
                     <div class="cariar-button">
                         <a href="{{ route('user.course.contact') }}" class="btn-one"><i
-                                class="fas fa-book-open pe-2"></i>Admission</a>
+                                class="fas fa-book-open pe-2"></i>Admission Form</a>
                         <a href="{{ route('user.services.contact') }}" class="btn-two"><i
-                                class="fas fa-book-open pe-2"></i>Services</a>
+                                class="fas fa-book-open pe-2"></i>Services Ptoject</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
