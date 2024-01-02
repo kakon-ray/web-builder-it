@@ -8,8 +8,8 @@
         <div class="container">
             <div class="gallery">
                 <div class="row g-2">
-                    <div class="col-lg-12">
-                        <h2 class="text-center pb-3">Gallery</h2>
+                    <div class="col-lg-12 text-center">
+                        <h2 class="heading">Gallery</h2>
                     </div>
                     @foreach ($gallery_image as $item)
                         <div class="col-lg-4">

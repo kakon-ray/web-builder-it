@@ -12,10 +12,11 @@ Default CSS
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+
 :root {
-  --main-color: #FF1E1E;
-  --main-color-tow: #db5353;
-  --main-hover-color: #e61212;
+  --main-color: #f3124e;
+  --main-color-tow: #FF3066;
+  --main-hover-color: #FF3066;
   --white-color: #ffffff;
   --black-color: #2b2540;
   --navber-color: #424155;
@@ -32,6 +33,9 @@ body {
 }
 
 /* ======================== scrollbar style  ===========================*/
+.logo{
+  height: 60px;
+}
 ::-webkit-scrollbar {
   background-color: var(--main-color);
   box-shadow: inset 0 0 5px rgb(255, 255, 255);
@@ -211,43 +215,65 @@ section {
 }
 
 .common-btn {
-  background-color: var(--main-color);
-  border: none;
-  transform: skewX(-20deg);
-  color: #fff;
-  padding: 11px 20px;
-  margin: 0px 0px;
-  transition: .3s;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  padding-top: 15px;
-  -webkit-transition: .3s;
-  -moz-transition: .3s;
-  -ms-transition: .3s;
-  -o-transition: .3s;
-  -webkit-transform: skewX(-20deg);
-  -moz-transform: skewX(-20deg);
-  -ms-transform: skewX(-20deg);
-  -o-transform: skewX(-20deg);
+  border: 1px solid var(--main-color);
+  width: 100%;
+  border-radius: 0px;
+  background: var(--white-color);
+  font-size: 18px;
+  text-transform: capitalize;
+  color: var(--main-color);
+  font-weight: 600;
+  padding: 9px;
+  /* transform: skewX(-20deg); */
+  display: block;
+  text-align: center;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
 }
 .common-btn:hover {
-  background-color: var(--main-hover-color);
-  border: none;
+  background: var(--main-color);
   color: #fff;
-  padding: 11px 20px;
-  margin: 0px 0px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  padding-top: 15px;
 }
 
 .btn-one {
+  display: block;
+  border: 1px solid var(--main-color);
+  border-radius: 25px;
+  background-color: #fff;
+  color: #000;
+  font-size: 20px;
+  transition: all .3s ease;
+  text-align: center;
+  padding: 10px  30px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
+.btn-one:hover {
+  background: var(--main-color);
+  color: #fff;
+}
+
+.btn-one:focus {
+  box-shadow: none;
+}
+
+.btn_md {
+  padding: 12px 35px;
+  font-size: 18px;
+}
+
+
+.first-btn {
   display: inline-block;
   font-size: 14px;
   position: relative;
@@ -263,7 +289,7 @@ section {
   -o-transition:0.3s ;
 }
 
-.btn-one:hover {
+.first-btn:hover {
   background: linear-gradient(
     117deg,
     var(--main-hover-color) 0% 25%,
@@ -275,16 +301,7 @@ section {
   color: var(--white-color);
 }
 
-.btn-one:focus {
-  box-shadow: none;
-}
-
-.btn_md {
-  padding: 12px 35px;
-  font-size: 18px;
-}
-
-.btn-two {
+.second-btn {
   display: inline-block;
   font-size: 14px;
   position: relative;
@@ -302,7 +319,7 @@ section {
   border: none;
 }
 
-.btn-two:hover {
+.second-btn:hover {
   background: linear-gradient(
     300deg,
     var(--main-hover-color) 0% 25%,
@@ -314,8 +331,111 @@ section {
   color: var(--white-color);
 }
 
+.course-item-details-link {
+  display: block;
+  border: 1px solid var(--main-color);
+  border-radius: 36px 1px;
+  background-color: #fff;
+  color: #000;
+  font-size: 20px;
+  transition: all .3s ease;
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+.card:hover .course-item-details-link {
+  background: var(--main-color);
+  color: #fff;
+}
+
+
+.btn-two {
+  border: 1px solid var(--main-color);
+  width: 100%;
+  border-radius: 5px;
+  background: var(--main-color);
+  font-size: 18px;
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px;
+  padding-top: 12px;
+  margin-top: 15px;
+  display: block;
+  text-align: center;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+}
+
+.btn-two:hover{
+  background-color: white;
+  color: #000;
+}
+
+.btn-three {
+  border: 1px solid var(--main-color);
+  width: 100%;
+  border-radius: 5px;
+  background: var(--white-color);
+  font-size: 18px;
+  text-transform: capitalize;
+  color: var(--main-color);
+  font-weight: 600;
+  padding: 6px 16px;
+  padding-top: 12px;
+  display: block;
+  text-align: center;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+}
+
+.btn-three:hover{
+  background: var(--main-color);
+  color: #fff;
+}
+
+/* course details start  */
 .course_details_card{
-  background-color: var(--main-color);
+ 
+    background-color: #fff;
+    padding: 30px 30px 40px;
+    border: 1px solid rgba(48, 146, 85, 0.2);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+.course-details-sidebar ul {
+  border-top: 1px solid #d1e6d9;
+  padding-left: 0;
+}
+
+.course-details-sidebar ul li {
+  border-bottom: 1px solid #d1e6d9;
+  padding: 15px 0;
+}
+
+.course-details-sidebar ul li i {
+  color: var(--main-color);
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.course-price-outer .price {
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 20px;
+  font-weight: 700;
+  color: var(--main-color);
+  display: block;
 }
 
 /* footer  */
@@ -450,7 +570,7 @@ section {
   height: 600px;
 }
 
-.fa-book-open{
+.fa-book-open, .fa-computer{
   color: var(--main-color);
 }
 
@@ -513,6 +633,14 @@ h6{
 
 .course-section .card{
   border-radius: 70px 0px ;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+}
+.course-section .card:hover{
+  transform: scale(1.05);
 
 }
 .course-section img{
@@ -528,6 +656,11 @@ h6{
 .btn-danger{
   border-radius: 25px 2px !important;
 
+}
+.course-section .review h5{
+padding: 17px 0px;
+font-weight:600;
+color: var(--main-color);
 }
 
 .review{
@@ -626,7 +759,7 @@ h6{
 }
 
 .our-portfolio .star-rating .active{
-  color: rgb(248, 207, 0);
+  color: var(--main-color);
 
 }
 
@@ -720,8 +853,17 @@ h6{
   width: 100%;
 }
 
+.forntend-navbar .navbar-nav{
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+.forntend-navbar .navbar-nav {
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
 
-.andfood-navbar.is-sticky {
+
+.forntend-navbar.is-sticky {
   position: fixed;
   top: 0;
   left: 0;
@@ -768,6 +910,7 @@ h6{
   position: relative;
   margin-bottom: 20px;
   cursor: pointer;
+  text-transform: uppercase;
 }
 .heading:after {
   content: '';

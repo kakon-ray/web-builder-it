@@ -20,6 +20,7 @@ use App\Models\GalleryModel;
 use App\Models\StudentRegModel;
 use App\Models\ActiveCourse;
 use App\Models\ClientReview;
+use Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 
@@ -38,67 +39,52 @@ class UserController extends Controller
     function all_course()
     {
         $allCourse = AddCourse::get()->reverse();
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.all_course', ['allCourse' => $allCourse, 'currentStudent' => $currentStudent]);
+        return view('users.all_course', ['allCourse' => $allCourse]);
     }
     function all_services()
     {
         $allServices = AddServices::get()->reverse();
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.all_services', ['allServices' => $allServices, 'currentStudent' => $currentStudent]);
+
+        return view('users.all_services', ['allServices' => $allServices]);
     }
     function web_design_details()
     {
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.web_design_details', ['currentStudent' => $currentStudent]);
+
+        return view('users.web_design_details');
     }
     function course_details(Request $request)
     {
         $id = $request->id;
         $course_details = AddCourse::where('id', $id)->first();
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.course_details', ['course_details' => $course_details, 'currentStudent' => $currentStudent]);
+        return view('users.course_details', ['course_details' => $course_details]);
     }
     function services_detials(Request $request)
     {
         $id = $request->id;
         $services_details = AddServices::where('id', $id)->first();
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.services_details', ['services_details' => $services_details, 'currentStudent' => $currentStudent]);
+        return view('users.services_details', ['services_details' => $services_details]);
     }
     function free_seminer()
     {
         $allSeminar = SeminerModel::get();
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.free_seminer', ['allSeminar' => $allSeminar, 'currentStudent' => $currentStudent]);
+        return view('users.free_seminer', ['allSeminar' => $allSeminar]);
     }
 
     function course_admission()
     {
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.course_admission', ['currentStudent' => $currentStudent]);
+        return view('users.course_admission');
     }
 
     function services_contact()
     {
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.services_contact', ['currentStudent' => $currentStudent]);
+
+        return view('users.services_contact');
     }
 
     function gallery_img()
     {
         $gallery_image = GalleryModel::get();
-        $currentStudent = cookie::get('student');
-        $currentStudent =  StudentRegModel::where('email', $currentStudent)->first();
-        return view('users.gallery_img', ['gallery_image' => $gallery_image, 'currentStudent' => $currentStudent]);
+        return view('users.gallery_img', ['gallery_image' => $gallery_image]);
     }
 
 

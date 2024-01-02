@@ -36,21 +36,21 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-outline password-container mb-4">
-                                        <label class="form-label" id="admission4" for="form4Example3">Passwrod Confirmation</label>
+                                        <label class="form-label" id="admission4" for="form4Example3">Passwrod
+                                            Confirmation</label>
                                         <input type="password" id="student_password_confirm" name="password_confirmation"
                                             class="form-control" placeholder="Password Contirmation" required />
                                         <i class="fa-solid fa-eye" id="confirm_password_eye"></i>
                                     </div>
                                 </div>
                             </div>
-                 
+
                             <div class="text-center my-2">
-                                <button type="submit" class="common-btn">রেজিষ্ট্রেশন করুন</button>
+                                <button type="submit" class="common-btn">Register</button>
                             </div>
 
-                            <div class="text-center mt-4 small">
-                                <a class="ms-4 text-primary" href="{{ route('student.login') }}">অ্যাকাউন্ট আছে? লগইন
-                                    করুন</a>
+                            <div class="text-center mt-4">
+                                I have an account <a class="text-primary" href="{{ route('student.login') }}">Login </a>
                             </div>
 
                             <hr>
@@ -62,7 +62,7 @@
                             </a>
 
 
-                        
+
 
                         </form>
                     </div>

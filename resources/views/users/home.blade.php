@@ -9,16 +9,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h5><i class="fas fa-book-open me-2"></i> ওয়েব বিল্ডার আইটিতে আপনাকে স্বাগতম ! </h5>
-                    <h2 class="mt-4 mb-0 pb-0">ওয়েব ডেভেলপমেন্ট শিখুন</h2>
-                    <h1 class="red-title mt-0 pt-0">লাইভ ক্লাসে</h1>
-                    <p class="cariar-details"> আপনার যাত্রার শুরু থেকে চাকরি অথবা ফ্রিল্যান্সিং মার্কেটে একজন স্কিলফুল
+                    <h5><i class="fas fa-computer me-2"></i> Welcome to Web Builder IT ! </h5>
+                    <h2 class="mt-4 mb-0 pb-0">Learn web development with</h2>
+                    <h1 class="red-title mt-0 pt-0">Experts Developers</h1>
+                    <p class="cariar-details"> কোর্স এর শুরু থেকে চাকরি অথবা ফ্রিল্যান্সিং মার্কেটে একজন স্কিলফুল
                         ডেভেলপার না হওয়া পর্যন্ত আমাদের সাপোর্ট পাবেন। </p>
                     <div class="cariar-button">
-                        <a href="{{ route('user.course.contact') }}" class="btn-one"><i
-                                class="fas fa-book-open pe-2"></i>Admission Form</a>
-                        <a href="{{ route('user.services.contact') }}" class="btn-two"><i
-                                class="fas fa-book-open pe-2"></i>Services Ptoject</a>
+                        <a href="{{ route('user.course.contact') }}" class="btn-two mx-2 bg-white text-dark"><i
+                                class="fas fa-book-open pe-2 text-dark"></i>Join Seminer</a>
+                        <a href="{{ route('user.services.contact') }}" class="btn-two">Contact Developer</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -34,7 +33,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-10 mx-auto">
                     <div class="text-center mb-5">
-                        <h2 class="fw-bold heading">জনপ্রিয় <span class="sm-red-title">কোর্সসমূহ</span></h2>
+                        <h2 class="fw-bold heading">OUR <span class="sm-red-title">COURSES</span></h2>
                         <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে ওয়েব বিল্ডার আইটি প্রস্তুত আপনার
                             ক্যারিয়ার গড়ার
                             অগ্রযাত্রায়।</h6>
@@ -45,26 +44,20 @@
 
                 @foreach ($allCourse->slice(0, 8) as $item)
                     @if ($item->status == 1)
-                        <div class="col-lg-3">
-                            <div class="card mt-4">
+                        <div class="col-lg-4 col-12">
+                            <div class="card">
                                 <a href="{{ route('user.course.details', ['id' => $item->id]) }}">
                                     <img src="{{ $item->course_img }}" class="card-img-top" alt="Course">
                                 </a>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $item->course_title }}</h5>
+                                    <h3 class="card-title">{{ $item->course_title }}</h3>
                                     <div class="review">
-                                        <div class="d-flex">
-                                            <i class="far fa-star fa-sm text-warning p-1"></i>
-                                            <i class="far fa-star fa-sm text-warning p-1"></i>
-                                            <i class="far fa-star fa-sm text-warning p-1"></i>
-                                            <i class="far fa-star fa-sm text-warning p-1"></i>
-                                            <i class="far fa-star fa-sm text-warning p-1"></i>
-                                        </div>
-                                        <p>1000 স্টুডেন্ট</p>
+                                        <h5>Course Fee</h5>
+                                        <h5>{{ $item->course_fee }} BDT</h5>
                                     </div>
                                     <a href="{{ route('user.course.details', ['id' => $item->id]) }}"
-                                        class="common-btn pb-2">বিস্তারিত</a>
+                                        class="course-item-details-link">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +68,7 @@
             </div>
             <div class="row pt-5 mt-5">
                 <div class="col-lg-2 mx-auto">
-                    <a href="{{ route('user.all.course') }}" class="common-btn">সকল কোর্স</a>
+                    <a href="{{ route('user.all.course') }}" class="btn-three">All Courses</a>
                 </div>
             </div>
         </div>
@@ -111,45 +104,45 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-center heading">Our <span class="sm-red-title">Students Review</span></h2>
+                    <h2 class="text-center heading">SUCCESS <span class="sm-red-title"> STORY</span></h2>
                 </div>
                 <div class="col-lg-12 pt-4">
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         @foreach ($allClientReview as $item)
-                        @if ($item->categorie == 'student_review')
-                            <div class="item carosel_item_container">
-                                <div class="card">
-                                    <div class="p-4 text-center">
-                                        <p>{{ $item->description }}</p>
-                                        @if ($item->image)
-                                            <img src="{{ $item->image }}" alt="Client Review">
-                                        @else
-                                            <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
-                                                alt="Client Review">
-                                        @endif
-                                        <h4 class="p-3">{{ $item->name }}</h4>
-                                        <div class="star-rating">
-                                            @if ($item->review_star == 5)
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                            @elseif($item->review_star < 5)
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
+                            @if ($item->categorie == 'student_review')
+                                <div class="item carosel_item_container">
+                                    <div class="card">
+                                        <div class="p-4 text-center">
+                                            <p>{{ $item->description }}</p>
+                                            @if ($item->image)
+                                                <img src="{{ $item->image }}" alt="Client Review">
+                                            @else
+                                                <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
+                                                    alt="Client Review">
                                             @endif
+                                            <h4 class="p-3">{{ $item->name }}</h4>
+                                            <div class="star-rating">
+                                                @if ($item->review_star == 5)
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                @elseif($item->review_star < 5)
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @endif
+
+                                            </div>
 
                                         </div>
-
                                     </div>
                                 </div>
-                            </div>
-                        @endif
-                    @endforeach
+                            @endif
+                        @endforeach
                     </div>
 
                 </div>
@@ -176,50 +169,48 @@
 
 
     <!-- services secction -->
+
     <section class="course-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-10 mx-auto">
                     <div class="text-center mb-5">
-                        <h2 class="fw-bold heading">জনপ্রিয় <span class="sm-red-title">সার্ভিস</span></h2>
-                        <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে উমা আই.টি প্রস্তুত আপনার ক্যারিয়ার গড়ার
-                            অগ্রযাত্রায়। আমাদের ১০ টিরও বেশি ট্রেন্ডি কোর্স থেকে আজই বেছে নিন আপনার পছন্দের কোর্স।</h6>
+                        <h2 class="fw-bold heading">OUR <span class="sm-red-title">SERVICES</span></h2>
+
                     </div>
                 </div>
             </div>
             <div class="row">
-                @foreach ($allServices->slice(0, 8) as $item)
-                    <div class="col-lg-3">
-                        <div class="card mt-3">
-                            <img src="{{ $item->services_img }}" class="card-img-top" alt="Course">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $item->services_title }}</h5>
-                                <div class="review">
-                                    <p>ক্লাইন্ট রিভিঊঃ </p>
-                                    <div class="d-flex">
-                                        <i class="far fa-star fa-sm text-warning p-1"></i>
-                                        <i class="far fa-star fa-sm text-warning p-1"></i>
-                                        <i class="far fa-star fa-sm text-warning p-1"></i>
-                                        <i class="far fa-star fa-sm text-warning p-1"></i>
-                                        <i class="far fa-star fa-sm text-warning p-1"></i>
-                                    </div>
 
+                @foreach ($allServices->slice(0, 8) as $item)
+                    <div class="col-lg-4 col-12">
+                        <div class="card">
+                            <a href="{{ route('user.services.details', ['id' => $item->id]) }}">
+                                <img src="{{ $item->services_img }}" class="card-img-top" alt="Course">
+                            </a>
+
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $item->services_title }}</h3>
+                                <div class="review">
+                                    <h5>Contact Us</h5>
+                                    <h5>+8801707500512</h5>
                                 </div>
                                 <a href="{{ route('user.services.details', ['id' => $item->id]) }}"
-                                    class="common-btn">Read
-                                    More</a>
+                                    class="course-item-details-link">View Details</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
 
+
             </div>
             <div class="row pt-5 mt-5">
                 <div class="col-lg-2 mx-auto">
-                    <a href="{{ route('user.all.service') }}" class="common-btn">সকল সার্ভিস</a>
+                    <a href="{{ route('user.all.service') }}" class="btn-three">All Services</a>
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- technology use section -->

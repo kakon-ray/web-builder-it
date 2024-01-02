@@ -8,11 +8,11 @@
                             <a href="index.html"><img src="{{ asset('img/logo.png') }}" class="logo" alt="logo" /></a>
                         </div>
                         <p>
-                            দেশ সেরা সফটওয়্যার ফার্ম এবং আই.টি ইনস্টিটিউট
+                            Best IT Institute and Software Firm in Bangladesh
                         </p>
-                        <p><span>Address: </span>নিরালা, খুলনা।</p>
+                        <p><span>Address: </span>Nirala, Khulna</p>
                         <p><span>Phone: </span> +8801707500512</p>
-                        <p><span>Email: </span> Umamarketofficial@gmail.com</p>
+                        <p><span>Email: </span> webbuilderit.info@gmail.com</p>
 
 
                     </div>
@@ -21,7 +21,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="footer-content">
                         <div class="footer-heading-area">
-                            <h4> সকল সার্ভিস</h4>
+                            <h4> All Services</h4>
                         </div>
                         <div class="footer-link-area">
                             @php

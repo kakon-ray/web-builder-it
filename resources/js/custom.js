@@ -4,9 +4,9 @@
   //   navbar
   $(window).on("scroll", function () {
     if ($(this).scrollTop() > 10) {
-      $(".andfood-navbar").addClass("is-sticky");
+      $(".forntend-navbar").addClass("is-sticky");
     } else {
-      $(".andfood-navbar").removeClass("is-sticky");
+      $(".forntend-navbar").removeClass("is-sticky");
     }
   });
 

@@ -11,8 +11,7 @@
                 <div class="col-lg-10 mx-auto">
 
                     <div class="card p-5 my-3">
-                        <h5 class="pb-3"><i class="fas fa-book-open me-2"></i>দেশ সেরা আই.টি ট্রেনিং ইনস্টিটিউট এবং
-                            সফটয়্যার ফার্ম</h5>
+                        <h5 class="pb-3"><i class="fas fa-computer me-2"></i>Best Software Firm in Our Country ( Contact : +8801707500512 ) </h5>
 
                         <h2 class="my-3">{{ $services_details->services_title }}</h2>
 

@@ -30,10 +30,10 @@
                                 <button type="submit" id="student_login_confirm" class="common-btn">Login</button>
                             </div>
                             <div class="text-center mt-2">
-                                <p class="small">পাসওয়ার্ড ভুলে গেছেন? <a class="text-primary"
-                                        href="{{ route('student.password.reset') }}">পাসওয়ার্ড রিসেট করুন</a></p>
-                                <p class="small">অ্যাকাউন্ট নেই? <a class="text-primary"
-                                        href="{{ route('student.registation') }}">রেজিষ্ট্রেশন করুন</a></p>
+                                <p class="small">Forget Password? <a class="text-primary"
+                                        href="{{ route('student.password.reset') }}">Reset Your Password</a></p>
+                                <p class="small">Do not have an any account? <a class="text-primary"
+                                        href="{{ route('student.registation') }}">Registration</a></p>
                             </div>
 
                             <hr>

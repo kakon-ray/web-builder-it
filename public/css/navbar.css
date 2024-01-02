@@ -3,7 +3,9 @@
 } */
 
 :root {
-  --main-color: #ed3a1d;
+  --main-color: #f3124e;
+  --main-color-tow: #FF3066;
+  --main-hover-color: #FF3066;
   --white-color: #ffffff;
   --black-color: #2b2540;
   --navber-color: #424155;
@@ -11,6 +13,8 @@
   --bg-color: #faf7f2;
   --transition: 0.4s all ease-in-out;
 }
+
+
 .topbar-area .container-fluid,
 .navbar .container-fluid {
   max-width: 1700px !important;
