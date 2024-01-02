@@ -42,7 +42,7 @@
             </div>
             <div class="row">
 
-                @foreach ($allCourse->slice(0, 8) as $item)
+                @foreach ($allCourse->slice(0, 4) as $item)
                     @if ($item->status == 1)
                         <div class="col-lg-4 col-12">
                             <div class="card">
@@ -87,7 +87,7 @@
                         পারবেন। তাছাড়া সেমিনারে উপস্থিত এক্সপার্ট কাউন্সেলরের সঙ্গে কথা বলে আপনি যথাযথ কোর্স বেছে নেওয়ার
                         সিদ্ধান্ত নিতে পারবেন সহজেই।</p>
                     <div class="cariar-button mt-4">
-                        <a href="{{ route('user.free.seminer') }}" class="common-btn pt-3"><i class="fas fa-book-open"></i>
+                        <a href="{{ route('user.free.seminer') }}" class="common-btn pt-3">
                             সকল ফ্রি সেমিনারের সময়সূচী</a>
 
                     </div>
