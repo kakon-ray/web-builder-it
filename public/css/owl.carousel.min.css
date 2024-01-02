@@ -5,9 +5,9 @@
  */
 
  :root {
-    --main-color: #FF1E1E;
-    --main-color-tow: #db5353;
-    --main-hover-color: #e61212;
+    --main-color: #f3124e;
+    --main-color-tow: #FF3066;
+    --main-hover-color: #FF3066;
     --white-color: #ffffff;
     --black-color: #2b2540;
     --navber-color: #424155;
@@ -58,6 +58,13 @@
     color: var(--main-color);
 }
 
-.owl-dots {
-    display: none;
+
+
+ .owl-carousel .owl-nav.disabled {
+    display: block !important;
+    color: var(--main-color);
+}
+
+.owl-carousel .owl-dots.disabled {
+   display: none !important;
 }

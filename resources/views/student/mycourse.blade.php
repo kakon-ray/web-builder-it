@@ -7,7 +7,7 @@
     <div class="container py-4">
         <div class="row">
             <div class="col-lg-12 pt-5 pb-3">
-                <h2 class="text-center ">My<span style="color:red"> Course</span></h2>
+                <h2 class="text-center ">My<span class="sm-red-title"> Course</span></h2>
             </div>
         </div>
         <div class="row">

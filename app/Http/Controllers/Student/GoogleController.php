@@ -46,7 +46,7 @@ class GoogleController extends Controller
     {
         try {
 
-            $google_user = Socialite::driver('google')->user();
+            $google_user = Socialite::driver('google')->stateless()->user();
             $new_user = StudentRegModel::where('email', $google_user->getEmail())->first();
 
             if (!$new_user) {
