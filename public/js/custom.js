@@ -271,45 +271,7 @@ $(document).ready(function(){
      }
 })
   })
-  // Edit coruse alert custome js
-  $('body').on('submit','#editcoursealert',function(e){
-    e.preventDefault();
 
-    $.ajax({
-    url: $(this).attr('action'),
-    method:"POST",
-    data: new FormData(this),
-    contentType:false,
-    cache:false,
-    processData: false,
-    success: function(data){
-      if (data.status == 200) {
-        $.notification(
-          [data.msg],
-          {
-            position: ['top', 'right'],
-            messageType:'success',
-            timeView: 3000,
-          }
-        )
-        
-        setTimeout(function () {
-          window.location.href = '/admin/manage/course';
-        }, 3000);
-
-      }else{
-        $.notification(
-          [data.msg],
-          {
-            position: ['top', 'right'],
-            messageType:'error',
-            timeView: 5000,
-          }
-        )
-      }
-     }
-})
-  })
 
     // add services alert custome js
     $('body').on('submit','#addservicesalert',function(e){

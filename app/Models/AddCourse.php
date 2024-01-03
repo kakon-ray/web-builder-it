@@ -11,7 +11,14 @@ class AddCourse extends Model
 
     protected $fillable = [
         'course_title',
+        'instructor',
+        'duration',
+        'lectures',
+        'language',
+        'projects',
+        'status',
         'course_fee',
+        'new_course_fee',
         'course_img',
         'desc',
     ];

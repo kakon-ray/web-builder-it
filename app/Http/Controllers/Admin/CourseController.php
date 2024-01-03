@@ -51,18 +51,28 @@ class CourseController extends Controller
 
     function add_course_submit(Request $request)
     {
+
         $arrayRequest = [
             "course_title" => $request->course_title,
+            "duration" => $request->duration,
+            "lectures" => $request->lectures,
+            "language" => $request->language,
+            "projects" => $request->projects,
             "course_fee" => $request->course_fee,
             "course_img" => $request->course_img,
-            "description" => $request->description,
+            "desc" => $request->desc,
         ];
 
         $arrayValidate  = [
             'course_title' => 'required',
-            'course_fee' => ['required', 'integer'],
-            'course_img' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'description' => 'required',
+            'duration' => ['required', 'integer'],
+            'lectures' => 'required',
+            'language' => 'required',
+            'projects' => 'required',
+            'course_fee' => 'required',
+            'course_img' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:300'],
+            'desc' => 'required',
+
         ];
 
         $response = Validator::make($arrayRequest, $arrayValidate);
@@ -72,31 +82,54 @@ class CourseController extends Controller
             foreach ($response->getMessageBag()->toArray() as $item) {
                 $msg = $item;
             };
-            $arr = array('status' => 400, 'msg' => $msg);
-            return \Response::json($arr);
-        }
 
+            return response()->json([
+                'status' => 400,
+                'msg' => $msg
+            ]);
+        } else {
+            DB::beginTransaction();
 
-        $img = $request->course_img;
-        $course_img =  $img->store('/public/course_img');
-        $course_img = (explode('/', $course_img))[2];
-        $host = $_SERVER['HTTP_HOST'];
-        $course_img = "http://" . $host . "/storage/course_img/" . $course_img;
+            try {
 
-        // insert data to AddCourse Model
+                $img = $request->course_img;
+                $course_img =  $img->store('/public/course_img');
+                $course_img = (explode('/', $course_img))[2];
+                $host = $_SERVER['HTTP_HOST'];
+                $course_img = "http://" . $host . "/storage/course_img/" . $course_img;
 
-        $addCourse = new AddCourse();
-        $addCourse->course_title = $request->course_title;
-        $addCourse->course_fee = $request->course_fee;
-        $addCourse->course_img = $course_img;
-        $addCourse->desc = $request->description;
+                $addCourse = AddCourse::create([
+                    'course_title' => $request->course_title,
+                    'instructor' => $request->instructor,
+                    'duration' => $request->duration,
+                    'lectures' => $request->lectures,
+                    'language' => $request->language,
+                    'projects' => $request->projects,
+                    'course_fee' => $request->course_fee,
+                    'new_course_fee' => $request->new_course_fee,
+                    'course_img' => $course_img,
+                    'status' => false,
+                    'desc' => $request->desc,
+                ]);
 
-        $responce = $addCourse->save();
+                DB::commit();
 
+            } catch (\Exception $err) {
+                $addCourse = null;
+            }
 
-        if ($responce == true) {
-            $arr = array('status' => 200, 'msg' => 'Successflly Add Course');
-            return \Response::json($arr);
+            if ($addCourse != null) {
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Course Add Successfully'
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 500,
+                    'msg' => 'Internal Server Error',
+                    'err_msg' => $err->getMessage()
+                ]);
+            }
         }
     }
 
@@ -146,71 +179,143 @@ class CourseController extends Controller
         return view('admin/course/edit_course', ['course_details' => $course_details, 'current_user_data' => $current_user_data]);
     }
 
+    function course_details(Request $request)
+    {
+        $course_details = AddCourse::where('id', $request->id)->first();
+        return view('admin/course/course_details', compact('course_details'));
+    }
+
     function edit_course_submit(Request $request)
     {
 
-        $arrayRequest = [
-            "course_title" => $request->course_title,
-            "course_fee" => $request->course_fee,
-            "description" => $request->description,
-        ];
+        $addCourse = AddCourse::find($request->id);
 
-        $arrayValidate  = [
-            'course_title' => 'required',
-            'course_fee' => ['required', 'integer'],
-            'description' => 'required',
-        ];
+        if (is_null($addCourse)) {
+            return response()->json([
+                'msg' => "Letest News dosen't exists",
+                'status' => 404
+            ], 404);
+        }else{
+            if($request->course_img){
+                $arrayRequest = [
+                    "course_title" => $request->course_title,
+                    "duration" => $request->duration,
+                    "lectures" => $request->lectures,
+                    "language" => $request->language,
+                    "projects" => $request->projects,
+                    "course_fee" => $request->course_fee,
+                    "course_img" => $request->course_img,
+                    "desc" => $request->desc,
+                ];
+        
+                $arrayValidate  = [
+                    'course_title' => 'required',
+                    'duration' => ['required', 'integer'],
+                    'lectures' => 'required',
+                    'language' => 'required',
+                    'projects' => 'required',
+                    'course_fee' => 'required',
+                    'course_img' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:300'],
+                    'desc' => 'required',
+        
+                ];
+            }else{
+                $arrayRequest = [
+                    "course_title" => $request->course_title,
+                    "duration" => $request->duration,
+                    "lectures" => $request->lectures,
+                    "language" => $request->language,
+                    "projects" => $request->projects,
+                    "course_fee" => $request->course_fee,
+                    "desc" => $request->desc,
+                ];
+        
+                $arrayValidate  = [
+                    'course_title' => 'required',
+                    'duration' => ['required', 'integer'],
+                    'lectures' => 'required',
+                    'language' => 'required',
+                    'projects' => 'required',
+                    'course_fee' => 'required',
+                    'desc' => 'required',
+        
+                ];
+            }
 
-        $response = Validator::make($arrayRequest, $arrayValidate);
+            $response = Validator::make($arrayRequest, $arrayValidate);
 
-        if ($response->fails()) {
-            $msg = '';
-            foreach ($response->getMessageBag()->toArray() as $item) {
-                $msg = $item;
-            };
-            $arr = array('status' => 400, 'msg' => $msg);
-            return \Response::json($arr);
+            if ($response->fails()) {
+                $msg = '';
+                foreach ($response->getMessageBag()->toArray() as $item) {
+                    $msg = $item;
+                };
+
+                return response()->json([
+                    'status' => 400,
+                    'msg' => $msg
+                ]);
+            } else {
+                DB::beginTransaction();
+
+                try {
+
+                    if ( $request->course_img) {
+                        $img = $request->course_img;
+                        $course_img =  $img->store('/public/course_img');
+                        $course_img = (explode('/', $course_img))[2];
+                        $host = $_SERVER['HTTP_HOST'];
+                        $image = "http://" . $host . "/storage/course_img/" . $course_img;;
+                    } else {
+                        $image = $request->old_image;
+                    }
+
+
+                    $addCourse->course_title = $request->course_title;
+                    $addCourse->instructor = $request->instructor;
+                    $addCourse->duration = $request->duration;
+                    $addCourse->lectures = $request->lectures;
+                    $addCourse->language = $request->language;
+                    $addCourse->projects = $request->projects;
+                    $addCourse->duration = $request->duration;
+                    $addCourse->status = false;
+                    $addCourse->course_fee = $request->course_fee;
+                    $addCourse->new_course_fee = $request->new_course_fee;
+                    $addCourse->course_img =  $image;
+                    $addCourse->desc = $request->desc;
+
+                    $addCourse->save();
+
+                    DB::commit();
+
+
+                } catch (\Exception $err) {
+                    DB::rollBack();
+                    $addCourse = null;
+                }
+
+                if (is_null($addCourse)) {
+                    return response()->json([
+                        'status' => 500,
+                        'msg' => 'Internal Server Error',
+                        'err_msg' => $err->getMessage()
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => 200,
+                        'msg' => 'Course Update Successfylly'
+                    ]);
+                }
+            }
         }
 
-
-        // insert data to AddCourse Model
-
-        if ($request->course_img_link) {
-            $addCourse = AddCourse::find($request->id);
-            $addCourse->course_title = $request->course_title;
-            $addCourse->course_fee = $request->course_fee;
-            $addCourse->course_img = $request->course_img_link;
-            $addCourse->desc = $request->description;
-
-            $responce = $addCourse->save();
-        }
-
-
-
-        $img = $request->course_img;
-        if ($img) {
-            $course_img =  $img->store('/public/course_img');
-            $course_img = (explode('/', $course_img))[2];
-            $host = $_SERVER['HTTP_HOST'];
-            $course_img = "http://" . $host . "/storage/course_img/" . $course_img;
-
-
-            $addCourse = AddCourse::find($request->id);
-            $addCourse->course_title = $request->course_title;
-            $addCourse->course_fee = $request->course_fee;
-            $addCourse->course_img = $course_img;
-            $addCourse->desc = $request->description;
-
-            $responce = $addCourse->save();
-        }
+ 
 
 
 
 
-        if ($responce) {
-            $arr = array('status' => 200, 'msg' => 'Course Edit Successfully');
-            return \Response::json($arr);
-        }
+
+
+        
     }
 
     // add course  ck editor image upload

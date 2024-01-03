@@ -21,7 +21,7 @@
                             <h3 class="fw-bold">24 Hour Support</h3>
                         </div>
                         <div class="card text-center p-4">
-                            <h3 class="fw-bold"> 5 + Professional Project</h3>
+                            <h3 class="fw-bold"> {{$course_details->projects}} + Professional Project</h3>
                         </div>
                     </div>
                     <div class="course_details_desc">
@@ -41,24 +41,31 @@
                             <div class="course_details_card">
                                 <div class="course-details-sidebar">
                                     <div class="course-price-outer">
+                                        @if($course_details->new_course_fee)
+                                        <del style="color: red"><span class="price">{{ $course_details->course_fee }} BDT</span></del>
+                                        <span class="price">{{ $course_details->new_course_fee }} BDT</span>
+
+                                        @else
                                         <span class="price">{{ $course_details->course_fee }} BDT</span>
+                                        @endif
+                                       
                                     </div>
                                     <ul>
                                         <li>
                                             <i class="fas fa-user"></i>
-                                            <strong>Instructor</strong> <span>Muntasir Pranto</span>
+                                            <strong>Instructor</strong> <span>{{$course_details->instructor}}</span>
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i>
-                                            <strong>Duration</strong> <span>4 Month</span>
+                                            <strong>Duration</strong> <span>{{$course_details->duration}} Month</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-video"></i>
-                                            <strong>Lectures</strong> <span>48 + Lectures</span>
+                                            <strong>Lectures</strong> <span>{{$course_details->lectures}} + Lectures</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-book"></i>
-                                            <strong>Language</strong> <span>Bangla</span>
+                                            <strong>Language</strong> <span>{{$course_details->language}}</span>
                                         </li>
 
                                     </ul>

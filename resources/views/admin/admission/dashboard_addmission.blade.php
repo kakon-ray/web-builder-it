@@ -124,19 +124,7 @@
             </div>
         </div>
 
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
 
     <script>
         // modal method start

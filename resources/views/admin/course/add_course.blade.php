@@ -22,29 +22,84 @@
                     @csrf
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="my-4">
-                        <label>Course Title</label>
-                        <input id="course_title" required type="text" class="form-control" name="course_title"
-                            placeholder="Course Title">
+
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <label>Course Title</label>
+                            <input required type="text" class="form-control" name="course_title"
+                                placeholder="Course Title">
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Instructor Name</label>
+                            <input type="text" class="form-control" name="instructor" placeholder="Instructor Name">
+                        </div>
+                    </div>
+                    <div class="row py-4">
+                        <div class="col-lg-4">
+                            <label>Course Duration</label>
+                            <input required type="number" max="6" class="form-control" name="duration"
+                                placeholder="Course Duration">
+                        </div>
+                        <div class="col-lg-4">
+                            <span>Total Lectures</span>
+                            <input name="lectures" type="number" placeholder="Total Lectures" class="form-control">
+                        </div>
+                        <div class="col-lg-4">
+
+                            <label class="form-label">Language</label>
+                            <select class="form-control rounded-0" name="language">
+                                <option value="Bangla" selected>Bangla</option>
+                                <option value="English">English</option>
+                            </select>
+
+                        </div>
+
                     </div>
 
-                    <div class="my-4">
-                        <label>Course Fee</label>
-                        <input id="course_fee" required type="text" class="form-control" name="course_fee"
-                            placeholder="Course Fee">
+                    <div class="row gy-4">
+                        <div class="col-lg-4">
+
+                            <label>Projects</label>
+                            <input required type="number" max="10" class="form-control" name="projects"
+                                placeholder="Total Projects">
+
+                        </div>
+                        <div class="col-lg-4">
+
+                            <label>Course Fee</label>
+                            <input required type="number" class="form-control" name="course_fee" placeholder="Course Fee">
+
+                        </div>
+
+                        <div class="col-lg-4">
+
+                            <label>New Course Fee</label>
+                            <input type="number" class="form-control" name="new_course_fee" placeholder="New Course Fee">
+
+                        </div>
+
+                        <div class="col-lg-8">
+
+                            <label>Course Description</label>
+                            <textarea class="form-control" id="add_course_editor" row="10" name="desc"></textarea>
+
+                        </div>
+                        <div class="col-lg-4">
+
+                            <span>Course Profile Image</span>
+                            <input name="course_img" type="file" class="form-control">
+
+                        </div>
                     </div>
 
-                    <div class="my-4">
-                        <label>Course Description</label>
-                        <textarea class="form-control" id="add_course_editor" row="10" name="description"></textarea>
+
+
+                    <div class="py-4">
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
                     </div>
-                    <div class="my-4">
-                        <span>Course Profile Image</span>
-                        <input id="course_img" name="course_img" type="file" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        Submit
-                    </button>
 
             </div>
             </form>

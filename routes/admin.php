@@ -78,6 +78,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('manage/course', [CourseController::class, 'manage_course'])->name('manage.course');
         Route::get('delete/course', [CourseController::class, 'delete_course']); //this route work to delete course item
         Route::get('edit/course/{id}', [CourseController::class, 'edit_course'])->name('edit.course');
+        Route::get('course/details/{id}', [CourseController::class, 'course_details'])->name('course.details');
         Route::post('edit/course/submit', [CourseController::class, 'edit_course_submit'])->name('edit.course.submit');
         Route::get('active/course', [CourseController::class, 'active_course']);
         Route::get('deactive/course', [CourseController::class, 'deactive_course']);
@@ -142,8 +143,6 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::name('dashboard.')->prefix('dashboard')->group(function () {
-
-
         Route::name('review.')->prefix('review')->group(function () {
             Route::get('manage', [ClientReviewController::class, 'manage_client_review'])->name('manage');
             Route::get('add', [ClientReviewController::class, 'add_client_review'])->name('add');
@@ -152,9 +151,6 @@ Route::middleware(['auth'])->group(function () {
             Route::post('update/submit', [ClientReviewController::class, 'update_client_review_submit'])->name('update.submit');
             Route::get('delete', [ClientReviewController::class, 'client_review_delete'])->name('delete');
         });
-
-
-
 
     });
 });
