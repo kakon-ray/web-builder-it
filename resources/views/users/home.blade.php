@@ -390,4 +390,27 @@
             </div>
         </div>
     </section>
+
+    {{-- blog section --}}
+
+    <section class="our-blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="blog-card">
+                        <a class="blog-button">
+                            <img src="https://webcoder-it.com/blog/1678865998.jpg" alt="Blog Image">
+                        </a>
+                       
+                        <div class="blog-content">
+                            <h4 class="blog-title">Digital Marketing: The Power to Transform Your </h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ad consectetur recusandae amet nemo. Molestiae recusandae deleniti fugit impedit illo.</p>
+
+                            <a class="blog-button">Read More <i class="fas fa-angle-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
