@@ -34,7 +34,7 @@ class UserController extends Controller
         $allServices = AddServices::get()->reverse();
         $allClientReview = ClientReview::get()->reverse();
         $gallery_image = GalleryModel::get();
-        $blog = Blog::get();
+        $blog = Blog::get()->slice(0,3);
         return view('users.home', compact('allCourse','allServices','allClientReview','gallery_image','blog'));
     }
 
@@ -49,6 +49,12 @@ class UserController extends Controller
 
         return view('users.all_services', ['allServices' => $allServices]);
     }
+    function all_blog()
+    {
+        $allBlog = Blog::get()->reverse();
+        return view('users.blog.all_blog',compact('allBlog'));
+    }
+
     function web_design_details()
     {
 

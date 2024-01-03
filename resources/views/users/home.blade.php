@@ -421,6 +421,9 @@
                     </div>
                 @endforeach
 
+                <div class="col-lg-2 mx-auto my-4">
+                    <a href="{{ route('user.all.blog') }}" class="common-btn">All Blog</a>
+                </div>
             </div>
         </div>
     </section>

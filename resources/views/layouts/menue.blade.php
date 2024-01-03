@@ -110,8 +110,12 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link navbar-item {{ request()->routeIs('user.all.blog') ? 'navbar-item-active' : '' }}"
+                                href="{{ route('user.all.blog') }}">Blog</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link navbar-item {{ request()->routeIs('user.services.contact') ? 'navbar-item-active' : '' }}"
-                                href="{{ route('user.services.contact') }}">Contact Us </a>
+                                href="{{ route('user.services.contact') }}">Contact</a>
                         </li>
                     </ul>
                     <div class="others-options">
