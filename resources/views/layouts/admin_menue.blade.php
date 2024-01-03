@@ -223,6 +223,28 @@
                 </div>
             </li>
 
+            <li
+            class="nav-item {{ request()->routeIs('dashboard.blog.manage') || request()->routeIs('dashboard.blog.add') || request()->routeIs('dashboard.blog.update') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages10"
+                aria-expanded="true" aria-controls="collapsePages10">
+                <i class="fas fa-comments"></i>
+                <span>Manage Blog </span>
+            </a>
+
+            <div id="collapsePages10" class="collapse" aria-labelledby="headingPages"
+                data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('dashboard.blog.manage') }}">Manage Blog</a>
+                </div>
+            </div>
+            <div id="collapsePages10" class="collapse" aria-labelledby="headingPages"
+                data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('dashboard.blog.add') }}">Add Blog</a>
+                </div>
+            </div>
+        </li>
+
             @if (Auth::guard('web')->user()->role == 'superadmin')
                 <li class="nav-item {{ request()->routeIs('admin.user.maintain') ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse"

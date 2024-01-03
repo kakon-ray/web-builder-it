@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdmissionController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ClientReviewController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -150,6 +151,15 @@ Route::middleware(['auth'])->group(function () {
             Route::post('add/submit', [ClientReviewController::class, 'add_client_review_submit'])->name('add.submit');
             Route::post('update/submit', [ClientReviewController::class, 'update_client_review_submit'])->name('update.submit');
             Route::get('delete', [ClientReviewController::class, 'client_review_delete'])->name('delete');
+        });
+
+        Route::name('blog.')->prefix('blog')->group(function () {
+            Route::get('manage', [BlogController::class, 'manage_blog'])->name('manage');
+            Route::get('add', [BlogController::class, 'add_blog'])->name('add');
+            Route::get('update', [BlogController::class, 'update_blog'])->name('update');
+            Route::post('add/submit', [BlogController::class, 'add_blog_submit'])->name('add.submit');
+            Route::post('update/submit', [BlogController::class, 'update_blog_submit'])->name('update.submit');
+            Route::get('delete', [BlogController::class, 'blog_delete'])->name('delete');
         });
 
     });

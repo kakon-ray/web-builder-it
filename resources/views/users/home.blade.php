@@ -396,6 +396,9 @@
     <section class="our-blog">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-center heading">Our <span class="sm-red-title">Blog</span></h2>
+                </div>
                 <div class="col-lg-4">
                     <div class="blog-card">
                         <a class="blog-button">
