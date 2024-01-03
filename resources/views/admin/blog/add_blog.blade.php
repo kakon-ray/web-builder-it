@@ -26,7 +26,7 @@
             <div class="card-header text-center">Add Blog</div>
 
             <div class="card-body mt-0">
-                <form method="POST" action="{{ route('dashboard.blog.add.submit') }}" id=""
+                <form method="POST" action="{{ route('dashboard.blog.add.submit') }}" id="submit_blog"
                     enctype="multipart/form-data">
                     @csrf
 

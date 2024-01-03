@@ -26,6 +26,8 @@ Route::name('user.')->prefix('user')->group(function () {
     Route::post('admission', [UserController::class, 'submit_course_admission'])->name('course.message.submit');
     Route::post('submit-services', [UserController::class, 'submit_services_admission'])->name('services.message.submit');
 
+    Route::get('all-blog', [UserController::class, 'all_blog'])->name('all.blog');
+    Route::get('blog/details/{id}', [UserController::class, 'blog_details'])->name('blog.details');
 
     // navigation search bar
     Route::get('search', [SearchController::class,'search'])->name('nav.search');

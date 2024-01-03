@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->integer('review_star')->nullable();
             $table->string('categorie')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

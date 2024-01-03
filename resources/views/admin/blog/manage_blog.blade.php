@@ -58,7 +58,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     axios
-                        .get("/admin/delete/services", {
+                        .get("/dashboard/blog/delete", {
                             params: {
                                 id: id
                             }

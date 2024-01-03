@@ -25,7 +25,7 @@ return new class extends Migration
             $table->decimal('course_fee', 13, 0)->nullable();
             $table->decimal('new_course_fee', 13, 0)->nullable();
             $table->string('course_img')->nullable();
-            $table->string('desc',2000)->nullable();
+            $table->text('desc',2000)->nullable();
             $table->timestamps();
         });
     }

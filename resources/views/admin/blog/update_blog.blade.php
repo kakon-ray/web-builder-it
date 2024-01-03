@@ -26,11 +26,12 @@
             <div class="card-header text-center">Add Blog</div>
 
             <div class="card-body mt-0">
-                <form method="POST" action="{{ route('dashboard.blog.add.submit') }}" id="addservicesalert"
+                <form method="POST" action="{{ route('dashboard.blog.update.submit') }}" id="submit_blog"
                     enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="id" value="{{$blogDetails->id}}">
 
                     <div class="my-4">
                         <label>Blog Title</label>
@@ -45,18 +46,19 @@
                     <div class="my-4">
                         <label class="form-label">Category</label>
                         <select class="form-control rounded-0" name="category">
-                            <option value="web_development" selected>Web Development</option>
-                            <option value="laravel">Laravel</option>
-                            <option value="web_design">Web Design</option>
-                            <option value="front_den">Front End</option>
-                            <option value="back_end">Back End</option>
-                            <option value="programming">Programming</option>
-                            <option value="Other">Other</option>
+                            <option value="web_development" {{$blogDetails->category == 'web_development' ? 'selected' : ''}}>Web Development</option>
+                            <option value="laravel" {{$blogDetails->category == 'laravel' ? 'selected' : ''}}>Laravel</option>
+                            <option value="web_design" {{$blogDetails->category == 'web_design' ? 'selected' : ''}}>Web Design</option>
+                            <option value="front_den" {{$blogDetails->category == 'front_den' ? 'selected' : ''}}>Front End</option>
+                            <option value="back_end" {{$blogDetails->category == 'back_end' ? 'selected' : ''}}>Back End</option>
+                            <option value="programming" {{$blogDetails->category == 'programming' ? 'selected' : ''}}>Programming</option>
+                            <option value="other" {{$blogDetails->category == 'other' ? 'selected' : ''}}>Other</option>
                         </select>
                     </div>
                     
                     <div class="my-4">
                         <label class="form-label">Blog Image</label>
+                        <input type="text" class="d-none" name="old_image" value="{{ $blogDetails->image }}">
                         <input name="image" type="file" class="form-control">
                     </div>
               

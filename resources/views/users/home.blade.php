@@ -399,20 +399,28 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="text-center heading">Our <span class="sm-red-title">Blog</span></h2>
                 </div>
-                <div class="col-lg-4">
-                    <div class="blog-card">
-                        <a class="blog-button">
-                            <img src="https://webcoder-it.com/blog/1678865998.jpg" alt="Blog Image">
-                        </a>
-                       
-                        <div class="blog-content">
-                            <h4 class="blog-title">Digital Marketing: The Power to Transform Your </h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ad consectetur recusandae amet nemo. Molestiae recusandae deleniti fugit impedit illo.</p>
+                @foreach ($blog as $item)
+                    <div class="col-lg-4">
+                        <div class="blog-card">
+                            <a class="blog-button">
+                                <img src="{{ $item->image }}" alt="Blog Image">
+                            </a>
 
-                            <a class="blog-button">Read More <i class="fas fa-angle-double-right"></i></a>
+                            <div class="blog-content">
+                                <h4 class="blog-title">{{ $item->title }}</h4>
+                                <p>
+                                    @php
+                                        echo substr($item->description, 0, 100);
+                                    @endphp
+                                </p>
+
+                                <p><a href="{{ route('user.blog.details', $item->id) }}" class="blog-button">Read More <i
+                                            class="fas fa-angle-double-right"></i></a></p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>

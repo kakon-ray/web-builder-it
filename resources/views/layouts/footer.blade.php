@@ -21,7 +21,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="footer-content">
                         <div class="footer-heading-area">
-                            <h4> All Services</h4>
+                            <h4 class="heading"> All Services</h4>
                         </div>
                         <div class="footer-link-area">
                             @php
@@ -45,16 +45,16 @@
                 <div class="col-lg-3 col-md-12 col-12">
                     <div class="footer-content">
                         <div class="footer-heading-area">
-                            <h4>অন্যান্য</h4>
+                            <h4 class="heading">Other</h4>
                         </div>
                         <div class="footer-link-area">
                             <ul>
-                                <li><a href="/">হোম</a></li>
-                                <li><a href="{{ route('user.course.contact') }}">ভর্তি</a></li>
-                                <li><a href="{{ route('user.services.contact') }}">সার্ভিস</a></li>
-                                <li><a href="{{ route('user.free.seminer') }}">ফ্রি সেমিনার</a></li>
-                                <li><a href="{{ route('user.all.course') }}"> কোর্স</a></li>
-                                <li><a href="{{ route('user.gallery') }}">গ্যালারি</a></li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="{{ route('user.course.contact') }}">Admission</a></li>
+                                <li><a href="{{ route('user.services.contact') }}">Services</a></li>
+                                <li><a href="{{ route('user.free.seminer') }}">Seminer</a></li>
+                                <li><a href="{{ route('user.all.course') }}"> Courses</a></li>
+                                <li><a href="{{ route('user.gallery') }}">Gallery</a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="footer-content">
                         <div class="footer-heading-area">
-                            <h4>Latest tweets</h4>
+                            <h4 class="heading">Latest tweets</h4>
                         </div>
                         <div class="footer-link-area">
 

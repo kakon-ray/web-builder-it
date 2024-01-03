@@ -158,7 +158,7 @@ class ClientReviewController extends Controller
 
         if (is_null($clientReview)) {
             return response()->json([
-                'msg' => "Letest News dosen't exists",
+                'msg' => "Client Review dosen't exists",
                 'status' => 404
             ], 404);
         } else {

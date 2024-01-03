@@ -19,6 +19,7 @@ use App\Models\SeminerModel;
 use App\Models\GalleryModel;
 use App\Models\StudentRegModel;
 use App\Models\ActiveCourse;
+use App\Models\Blog;
 use App\Models\ClientReview;
 use Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -33,7 +34,8 @@ class UserController extends Controller
         $allServices = AddServices::get()->reverse();
         $allClientReview = ClientReview::get()->reverse();
         $gallery_image = GalleryModel::get();
-        return view('users.home', compact('allCourse','allServices','allClientReview','gallery_image'));
+        $blog = Blog::get();
+        return view('users.home', compact('allCourse','allServices','allClientReview','gallery_image','blog'));
     }
 
     function all_course()
@@ -63,6 +65,13 @@ class UserController extends Controller
         $id = $request->id;
         $services_details = AddServices::where('id', $id)->first();
         return view('users.services_details', ['services_details' => $services_details]);
+    }
+
+    function blog_details(Request $request)
+    {
+        $allBlog = Blog::all()->reverse();
+        $blogDetails = Blog::find($request->id);
+        return view('users.blog.blog_details', compact('blogDetails','allBlog'));
     }
     function free_seminer()
     {
