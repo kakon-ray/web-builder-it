@@ -47,7 +47,7 @@
                         <div class="col-lg-4 col-12">
                             <div class="card">
                                 <a href="{{ route('user.course.details', ['id' => $item->id]) }}">
-                                    <img src="{{ $item->course_img }}" class="card-img-top" alt="Course">
+                                    <img src="{{ $item->course_img }}" class="card-img-top p-3" alt="Course">
                                 </a>
 
                                 <div class="card-body">
@@ -186,7 +186,7 @@
                     <div class="col-lg-4 col-12">
                         <div class="card">
                             <a href="{{ route('user.services.details', ['id' => $item->id]) }}">
-                                <img src="{{ $item->services_img }}" class="card-img-top" alt="Course">
+                                <img src="{{ $item->services_img }}" class="card-img-top p-3" alt="Course">
                             </a>
 
                             <div class="card-body">

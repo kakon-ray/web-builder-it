@@ -30,7 +30,7 @@
                         @endphp
                     </div>
                     <div class="cariar-button">
-                        <a href="{{ url('user/free-seminer') }}" class="btn-two">Free Seminer</a>
+                        <a href="{{ url('user/free-seminer') }}" class="btn-three">Join Web Development Free Seminer</a>
                     </div>
                 </div>
                 <div class="col-lg-4">

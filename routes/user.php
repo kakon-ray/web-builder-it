@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\AdminController;
 
 
 // user route
-Route::get('', [UserController::class, 'home'])->name('home');
+Route::get('/', [UserController::class, 'home'])->name('home');
 
 Route::name('user.')->prefix('user')->group(function () {
 
