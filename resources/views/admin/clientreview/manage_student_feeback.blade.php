@@ -26,9 +26,9 @@
                         @foreach ($allReview as $item)
                             <tr class="text-center">
                                 <td class="th-sm ">
-                                    <img src="{{ $item->image }}" style="width: 100px;height:50px" alt="">
+                                    <img src="{{ $item->students->image }}" style="width: 100px;height:50px" alt="">
                                 </td>
-                                <td class="th-sm ">{{ $item->name }}</td>
+                                <td class="th-sm ">{{ $item->students->student_name }}</td>
                                 <td class="th-sm ">{{ $item->review_star }}</td>
                                 <td class="th-sm ">{{ $item->description }}</td>
 

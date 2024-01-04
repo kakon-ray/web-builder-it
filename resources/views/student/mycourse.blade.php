@@ -6,7 +6,7 @@
 @section('content')
     <div class="container py-4">
         <div class="row">
-            <div class="col-lg-12 pt-5 pb-3">
+            <div class="col-lg-12 pb-3">
                 <h2 class="text-center ">My<span class="sm-red-title"> Course</span></h2>
             </div>
         </div>
@@ -36,16 +36,14 @@
                                 @if ($item->status == false)
                                     <div class="d-flex justify-content-between">
                                         <a href="{{ route('student.checkout', ['id' => $item->id]) }}"
-                                            class="common-btn">পেমেন্ট
-                                            করুন</a>
+                                            class="common-btn">Pay Now</a>
                                     </div>
                                 @else
                                     <div class="d-flex justify-content-between">
                                         <a href="{{ route('student.checkout', ['id' => $item->id]) }}"
-                                            class="common-btn">পেমেন্ট
-                                            করুন</a>
+                                            class="common-btn">Pay Now</a>
                                         <a href="{{ route('student.classroom', ['id' => $item->id]) }}"
-                                            class="common-btn">ক্লাসরুম</a>
+                                            class="common-btn">Classroom</a>
                                     </div>
                                 @endif
                             </div>

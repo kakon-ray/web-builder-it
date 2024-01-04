@@ -8,7 +8,7 @@
         <div class="container table-responsive">
 
             <div class="row">
-                <div class="col-lg-12 pt-5 pb-3">
+                <div class="col-lg-12 pt-3 pb-3">
                     <h2 class="text-center ">My<span style="color:red"> Order</span></h2>
                 </div>
                 <div class="col-lg-12">

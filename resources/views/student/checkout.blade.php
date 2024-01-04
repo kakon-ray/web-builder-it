@@ -28,15 +28,16 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <h5>{{ $course_details->course_title }}</h5>
+                                    <h3>{{ $course_details->course_title }}</h3>
                                     <div class="d-flex flex-row">
-                                        <div class="text-danger mb-1 me-2">
+                                        <div class="text-danger mb-1 py-2">
+                                            <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                         </div>
-                                        <span>310</span>
+
                                     </div>
 
                                     @php
@@ -45,10 +46,12 @@
 
                                 </div>
                                 <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-
+                                    @if ($course_details->new_course_fee)
+                                        <h6 class="mb-1 me-1">{{ $course_details->new_course_fee }} (BDT)</h6>
+                                        <span class="text-danger"><s>{{ $course_details->course_fee }}</s></span>
+                                    @else
                                     <h6 class="mb-1 me-1">{{ $course_details->course_fee }} (BDT)</h6>
-                                    <span class="text-danger"><s>20,000 (BDT)</s></span>
-
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -74,13 +77,13 @@
                         {{-- digital pement getway start --}}
                         <div class="digital">
 
-                            <div class="col-md-12 order-md-1">
+                            <div class="col-md-12 order-md-1 d-none">
                                 <h4 class="mb-3">Billing address</h4>
                                 <form action="{{ route('student.pay') }}" method="POST" class="needs-validation">
                                     <input type="hidden" value="{{ csrf_token() }}" name="_token" />
                                     <input type="text" name="active_course_id" value="{{ $active_course_id }}"
                                         class="d-none" />
-                                   
+
                                     <input type="text" class="d-none" name="amount"
                                         value="{{ $course_details->course_fee }}">
 
@@ -148,9 +151,9 @@
                         {{-- manual pement getway start  --}}
                         <div class="manual">
 
-                            <div class="text-center">
+                            <div class="text-center pb-3">
                                 <p>ম্যানুয়াল পেমেন্ট করলে আমাদের বিকাশ মার্চেন্ট নাম্বারে টাকা পাঠাতে হবে।</p>
-                                <p> 01896 060828</p>
+                                <p> 01707500512</p>
                             </div>
                             <div class="border p-4">
                                 <form action="{{ route('student.add.pement.submit') }}" method="POST"
@@ -162,7 +165,7 @@
                                             placeholder="যে নাম্বার থেকে টাকা পাঠিয়েছেন" />
                                         <input type="text" name="active_course_id" value="{{ $active_course_id }}"
                                             class="d-none" />
-                                    
+
                                     </div>
 
                                     <div class="form-outline mb-4">

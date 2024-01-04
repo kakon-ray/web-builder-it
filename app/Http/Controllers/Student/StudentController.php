@@ -195,17 +195,14 @@ class StudentController extends Controller
 
     function classroom(Request $request)
     {
+        $activeCourseDetails = ActiveCourse::where('id', $request->id)->with('add_course')->get()[0];
         $activeCourse = ActiveCourse::where('id', $request->id)->get();
 
         foreach ($activeCourse as $item) {
             $student_tutorial = Tutorial::where('course_id', $item->course_id)->with('add_course')->get();
         }
         // return $tutorial;
-        if (isset($student_tutorial)) {
-            return view('student.classroom', ['student_tutorial' => $student_tutorial]);
-        } else {
-            return view('student.classroom');
-        }
+        return view('student.classroom', compact('student_tutorial','activeCourseDetails'));
     }
     function my_order(Request $request)
     {

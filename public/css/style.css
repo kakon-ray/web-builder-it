@@ -134,8 +134,8 @@ h2 {
 }
 
 h3 {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 23px;
+  font-weight: 900;
 }
 
 h4 {
@@ -251,7 +251,7 @@ section {
   font-size: 20px;
   transition: all .3s ease;
   text-align: center;
-  padding: 10px  30px;
+  padding: 5px  30px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   -ms-border-radius: 25px;
@@ -982,6 +982,9 @@ color: var(--main-color);
 }
 .our-blog .blog-card:hover{
   transform: scale(1.02);
+}
+.our-blog .blog-card img{
+  height: 200px;
 }
 
 .our-blog .blog-card .blog-content p{

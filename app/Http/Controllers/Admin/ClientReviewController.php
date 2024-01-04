@@ -255,7 +255,8 @@ class ClientReviewController extends Controller
 
     public function manage_student_feedabck()
     {
-        $allReview = CourseReview::all();
+
+        $allReview = CourseReview::with('students')->get()->reverse();
         return view('admin.clientreview.manage_student_feeback', compact('allReview'));
     }
     public function delete_student_feedabck(Request $request)

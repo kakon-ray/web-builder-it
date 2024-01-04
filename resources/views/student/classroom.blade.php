@@ -8,14 +8,11 @@
     <section style="background-color: #eee;">
         <div class="container table-responsive">
             <div class="row">
-                <div class="col-lg-12 pt-5">
-                    @foreach ($student_tutorial as $item)
-                        <h2 class="text-center "><span style="color:#FF1E1E;"> {{ $item->add_course->course_title }}
-                            </span>Tutorial</h2>
-                        @if ($item->add_course->course_title)
-                        @break
-                    @endif
-                @endforeach
+                <div class="col-lg-12 text-center pt-3">
+                    <h2 class="heading"><span class="sm-red-title">{{$activeCourseDetails->add_course->course_title}}</span> Tutorial</h2>
+                </div>
+                <div class="col-lg-12 pt-3">
+                  
             </div>
             <div class="col-lg-12">
                 <table id="VisitorDt" class="table table-striped dataTable" cellspacing="0" width="100%">
