@@ -64,7 +64,7 @@ class UserController extends Controller
     function course_details(Request $request)
     {
         $course_details = AddCourse::find($request->id);
-        $allReview = CourseReview::get()->where('course_id',$request->id)->reverse();
+        $allReview = CourseReview::where('course_id',$request->id)->with('students')->get();
         return view('users.course_details', compact('course_details','allReview'));
     }
     function services_detials(Request $request)

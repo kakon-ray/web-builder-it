@@ -103,14 +103,14 @@
                         <h3 class="heading">Our Students Feedback</h3>
                         @foreach ($allReview as $item)
                             <div class="blog-content revew-content">
-                                @if ($item->image)
-                                    <img src="{{ $item->image }}" class="img-fluid" alt="Blog Image">
+                                @if ($item->students->image)
+                                    <img src="{{ $item->students->image }}" class="img-fluid" alt="Blog Image">
                                 @else
                                     <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}" class="img-fluid"
                                         alt="Blog Image">
                                 @endif
                                 <div>
-                                    <h5>{{ $item->name }}</h5>
+                                    <h5>{{ $item->students->student_name }}</h5>
                                     <div class="star-rating">
                                         @if ($item->review_star == 5)
                                             <i class="fa fa-star active" aria-hidden="true"></i>

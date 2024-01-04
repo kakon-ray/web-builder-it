@@ -20,6 +20,15 @@ class CourseReview extends Model
     ];
 
 
+    public function add_course(){
+        return $this->belongsTo(AddCourse::class,'course_id');
+    }
+
+    public function students(){
+        return $this->belongsTo(StudentRegModel::class,'student_id');
+    }
+
+
 
     
 }
