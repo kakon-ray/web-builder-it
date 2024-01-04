@@ -83,3 +83,7 @@
     -ms-transform: scale(1.02);
     -o-transform: scale(1.02);
 }
+
+.carosel_item_container{
+    padding: 20px 0px;
+}

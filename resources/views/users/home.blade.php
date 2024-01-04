@@ -68,7 +68,7 @@
             </div>
             <div class="row pt-5 mt-5">
                 <div class="col-lg-2 mx-auto">
-                    <a href="{{ route('user.all.course') }}" class="btn-three">All Courses</a>
+                    <a href="{{ route('user.all.course') }}" class="common-btn">All Courses</a>
                 </div>
             </div>
         </div>
@@ -104,9 +104,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-center heading">SUCCESS <span class="sm-red-title"> STORY</span></h2>
+                    <h2 class="text-center heading">STUDENTS SUCCESS <span class="sm-red-title"> STORY</span></h2>
                 </div>
-                <div class="col-lg-12 pt-4">
+                <div class="col-lg-12">
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         @foreach ($allClientReview as $item)
                             @if ($item->categorie == 'student_review')
@@ -182,7 +182,7 @@
             </div>
             <div class="row">
 
-                @foreach ($allServices->slice(0, 8) as $item)
+                @foreach ($allServices->slice(0, 3) as $item)
                     <div class="col-lg-4 col-12">
                         <div class="card">
                             <a href="{{ route('user.services.details', ['id' => $item->id]) }}">
@@ -206,7 +206,7 @@
             </div>
             <div class="row pt-5 mt-5">
                 <div class="col-lg-2 mx-auto">
-                    <a href="{{ route('user.all.service') }}" class="btn-three">All Services</a>
+                    <a href="{{ route('user.all.service') }}" class="common-btn">All Services</a>
                 </div>
             </div>
         </div>
@@ -347,7 +347,7 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="text-center heading">Our <span class="sm-red-title">Happy Clients Review</span></h2>
                 </div>
-                <div class="col-lg-12 pt-4">
+                <div class="col-lg-12">
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         @foreach ($allClientReview as $item)
                             @if ($item->categorie == 'client_review')

@@ -30,8 +30,8 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <div class="my-4">
-                        <label class="form-label">Name</label>
-                        <input name="name" type="text" class="form-control" placeholder="Client Name">
+                        <label class="form-label">Client or Student Name</label>
+                        <input name="name" type="text" class="form-control" placeholder="Name">
                     </div>
 
                     <div class="my-4">

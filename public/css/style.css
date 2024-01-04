@@ -354,7 +354,7 @@ section {
 .btn-two {
   border: 1px solid var(--main-color);
   width: 100%;
-  border-radius: 5px;
+  border-radius: 0px;
   background: var(--main-color);
   font-size: 18px;
   text-transform: capitalize;
@@ -370,6 +370,10 @@ section {
   -moz-transition: .5s;
   -ms-transition: .5s;
   -o-transition: .5s;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
 }
 
 .btn-two:hover{
@@ -380,7 +384,7 @@ section {
 .btn-three {
   border: 1px solid var(--main-color);
   width: 100%;
-  border-radius: 5px;
+  border-radius: 0px;
   background: var(--white-color);
   font-size: 18px;
   text-transform: capitalize;
@@ -395,6 +399,10 @@ section {
   -moz-transition: .5s;
   -ms-transition: .5s;
   -o-transition: .5s;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
 }
 
 .btn-three:hover{

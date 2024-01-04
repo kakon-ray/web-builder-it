@@ -69,7 +69,7 @@
                                 </a>
                                 <div class="dropdown-menu" id="panel">
                                     <ul class="dropdown-container">
-                                        @foreach ($allCourse as $item)
+                                        @foreach ($allCourse->slice(0,9)->reverse() as $item)
                                             @if ($item->status == true)
                                                 <li>
                                                     <a class="dropdown-item navbar-item"
@@ -91,7 +91,7 @@
                                 </a>
                                 <div class="dropdown-menu" id="panel2">
                                     <ul class="dropdown-container">
-                                        @foreach ($allServices as $item)
+                                        @foreach ($allServices->slice(0,9)->reverse() as $item)
                                             <li>
                                                 <a class="dropdown-item navbar-item"
                                                     href="{{ route('user.services.details', ['id' => $item->id]) }}">{{ $item->services_title }}</a>
