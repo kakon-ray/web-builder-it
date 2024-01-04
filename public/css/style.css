@@ -456,7 +456,7 @@ section {
 }
 .footer-area {
   padding: 90px 0;
-  background-color:#211e1e;
+  background-color:#000000;
   color:var(--white-color)
 }
 
@@ -1044,4 +1044,15 @@ height: auto;
   top: -7px;
   right: 5px;
   color: red;
+}
+
+.revew-content .active{
+  color: #f9ba00;
+
+}
+.revew-content .star-rating{
+  padding-top: 5px;
+}
+.revew-content h5{
+  padding-top: 10px;
 }

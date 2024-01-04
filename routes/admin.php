@@ -151,6 +151,11 @@ Route::middleware(['auth'])->group(function () {
             Route::post('add/submit', [ClientReviewController::class, 'add_client_review_submit'])->name('add.submit');
             Route::post('update/submit', [ClientReviewController::class, 'update_client_review_submit'])->name('update.submit');
             Route::get('delete', [ClientReviewController::class, 'client_review_delete'])->name('delete');
+
+            // student feedback review
+            Route::get('student/manage', [ClientReviewController::class, 'manage_student_feedabck'])->name('student.manage');
+            Route::get('student/delete', [ClientReviewController::class, 'delete_student_feedabck']);
+
         });
 
         Route::name('blog.')->prefix('blog')->group(function () {

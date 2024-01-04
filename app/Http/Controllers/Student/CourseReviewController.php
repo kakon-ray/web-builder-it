@@ -44,7 +44,7 @@ class CourseReviewController extends Controller
                     'course_id' => $request->course_id,
                     'student_id' => $request->student_id,
                     'name' => $request->name,
-                    'review_star' => $request->ratevalue,
+                    'review_star' => $request->ratevalue + 1,
                     'image' => $request->image,
                     'description' => $request->description,
 

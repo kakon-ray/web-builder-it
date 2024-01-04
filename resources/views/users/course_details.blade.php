@@ -96,35 +96,50 @@
                             <a href="{{ route('student.login') }}">
                                 <div class="alert alert-success" role="alert">
                                     If you want to give any feedback about this course you need to <a
-                                        href="{{ route('student.login') }}"> Login </a>
+                                        href="{{ route('student.login') }}" class="text-primary"> Login </a>
                                 </div>
                             </a>
                         @endif
                         <h3 class="heading">Our Students Feedback</h3>
                         @foreach ($allReview as $item)
+                            <div class="blog-content revew-content">
+                                @if ($item->image)
+                                    <img src="{{ $item->image }}" class="img-fluid" alt="Blog Image">
+                                @else
+                                    <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}" class="img-fluid"
+                                        alt="Blog Image">
+                                @endif
+                                <div>
+                                    <h5>{{ $item->name }}</h5>
+                                    <div class="star-rating">
+                                        @if ($item->review_star == 5)
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                        @elseif($item->review_star < 5)
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        @endif
 
-                                <div class="blog-content revew-content">
-                                    @if ($item->image)
-                                        <img src="{{ $item->image }}" class="img-fluid" alt="Blog Image">
-                                    @else
-                                        <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}" class="img-fluid"
-                                            alt="Blog Image">
-                                    @endif
-                                    <div>
-                                        <h5>{{ $item->name }}</h5>
-                                        <p>{{ $item->description }}</p>
                                     </div>
+                                    <p>{{ $item->description }}</p>
+                                </div>
 
+                                @if (Auth::guard('student')->user())
                                     @if (Auth::guard('student')->user()->id == $item->student_id)
                                         <p class="review-delete" type="button"
                                             onclick="delete_sutdnet_review({!! $item->id !!})">
                                             <i class="fas fa-trash"></i>
                                         </p>
                                     @endif
+                                @endif
 
-                                </div>
-
-                          
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -134,7 +149,9 @@
                             <h2 class="pb-3">Course Review</h2>
                             <form action="{{ route('student.review.submit') }}" method="POST" id="review_alert">
                                 @csrf
+                                {{-- rating box start --}}
                                 <div id="rateBox"></div>
+                                {{-- rating box end --}}
 
                                 <input type="text" class="d-none" name="student_id"
                                     value="{{ Auth::guard('student')->user()->id }}">
@@ -142,7 +159,8 @@
                                     value="{{ Auth::guard('student')->user()->student_name }}">
                                 <input type="text" class="d-none" name="image"
                                     value="{{ Auth::guard('student')->user()->image }}">
-                                <input type="text" class="d-none" name="course_id" value="{{ $course_details->id }}">
+                                <input type="text" class="d-none" name="course_id"
+                                    value="{{ $course_details->id }}">
                                 <input type="text" name="ratevalue" value="4" class="d-none" id="ratevalue">
 
                                 <div class="form-outline my-3">

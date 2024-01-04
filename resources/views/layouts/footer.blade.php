@@ -5,7 +5,7 @@
                 <div class="col-lg-3 col-12 col-md-12 col-sm-12">
                     <div class="footer-first-area">
                         <div class="img-logo">
-                            <a href="index.html"><img src="{{ asset('img/logo.png') }}" class="logo" alt="logo" /></a>
+                            <a href="index.html"><img src="{{ asset('img/footerlogo.png') }}" class="logo" alt="logo" /></a>
                         </div>
                         <p>
                             Best IT Institute and Software Firm in Bangladesh

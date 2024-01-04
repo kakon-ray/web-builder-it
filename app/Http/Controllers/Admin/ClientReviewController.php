@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClientReview;
+use App\Models\CourseReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -245,6 +246,50 @@ class ClientReviewController extends Controller
                         'msg' => 'Client Review Update Successfylly'
                     ]);
                 }
+            }
+        }
+    }
+
+
+    // student feedback 
+
+    public function manage_student_feedabck()
+    {
+        $allReview = CourseReview::all();
+        return view('admin.clientreview.manage_student_feeback', compact('allReview'));
+    }
+    public function delete_student_feedabck(Request $request)
+    {
+        $courseReview = CourseReview::find($request->id);
+
+        if (is_null($courseReview)) {
+
+            return response()->json([
+                'msg' => "Review Doesnt Exists",
+                'status' => 404
+            ], 404);
+        } else {
+
+            DB::beginTransaction();
+
+            try {
+
+                $courseReview->delete();
+                DB::commit();
+
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Delete Student Feed Back',
+                ], 200);
+            } catch (\Exception $err) {
+
+                DB::rollBack();
+
+                return response()->json([
+                    'msg' => "Internal Server Error",
+                    'status' => 500,
+                    'err_msg' => $err->getMessage()
+                ], 500);
             }
         }
     }
