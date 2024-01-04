@@ -128,11 +128,17 @@
                                                     <i class="fa fa-star active" aria-hidden="true"></i>
                                                     <i class="fa fa-star active" aria-hidden="true"></i>
                                                     <i class="fa fa-star active" aria-hidden="true"></i>
-                                                @elseif($item->review_star < 5)
+                                                @elseif($item->review_star == 4)
                                                     <i class="fa fa-star active" aria-hidden="true"></i>
                                                     <i class="fa fa-star active" aria-hidden="true"></i>
                                                     <i class="fa fa-star active" aria-hidden="true"></i>
                                                     <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @elseif($item->review_star < 4)
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                 @endif
 
@@ -364,18 +370,24 @@
                                             <h4 class="p-3">{{ $item->name }}</h4>
                                             <div class="star-rating">
                                                 @if ($item->review_star == 5)
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                @elseif($item->review_star < 5)
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                @endif
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                            @elseif($item->review_star == 4)
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            @elseif($item->review_star < 4)
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star active" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            @endif
 
                                             </div>
 

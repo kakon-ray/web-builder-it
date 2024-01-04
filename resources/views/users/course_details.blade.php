@@ -94,7 +94,7 @@
                     <div class="our-student-feedback blog-details-right-sidebar">
                         @if (!Auth::guard('student')->user())
                             <a href="{{ route('student.login') }}">
-                                <div class="alert alert-success" role="alert">
+                                <div class="alert alert-warning" role="alert">
                                     If you want to give any feedback about this course you need to <a
                                         href="{{ route('student.login') }}" class="text-primary"> Login </a>
                                 </div>
@@ -118,11 +118,25 @@
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star active" aria-hidden="true"></i>
-                                        @elseif($item->review_star < 5)
+                                        @elseif($item->review_star == 4)
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                      
+                                        @elseif($item->review_star == 3)
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                      
+                                        @elseif($item->review_star < 3)
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star active" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         @endif
 

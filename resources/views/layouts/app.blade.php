@@ -40,7 +40,7 @@
         <!-- Favicon -->
         <link rel="stylesheet" href="{{ asset('css/favicon.png') }}" />
 
-          <!-- Star Rating -->
+        <!-- Star Rating -->
         <link rel="stylesheet" href="{{ asset('css/rate.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/iconfont.css') }}" />
 
@@ -60,39 +60,6 @@
         <!-- Style css -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
-      
-
-
-        <style>
-            .swalstyle {
-                width: 300px !important;
-                height: 230px !important;
-                font-size: 10px !important;
-                padding: 0px !important;
-                margin: 0px !important;
-            }
-
-            .swal2-title{
-                padding: 0px !important;
-                margin: 0px !important;   
-                height: 30px !important;  
-            }
-
-            .swal2-html-container{
-                padding: 0px !important;
-                margin: 0px !important;
-                height: 30px !important;  
-            }
-
-            .swal2-icon{
-                font-size: 7px !important;
-                padding: 0px !important;
-            }
-            .swal2-actions{
-                padding: 0px !important;
-                margin-top: -20px !important;
-            }
-        </style>
 
     </head>
 
@@ -105,10 +72,6 @@
         @yield('content')
 
         @include('layouts.footer')
-
-
-
-
 
 
         <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
