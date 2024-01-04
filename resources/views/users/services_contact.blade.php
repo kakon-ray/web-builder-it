@@ -37,6 +37,7 @@
                                 <select class="form-select" id="services_name" name="services_name"
                                     aria-label="Default select example">
                                     <option selected>Open this select menu</option>
+                                    <option value="Complete Website">Complete Website</option>
                                     <option value="Web Design">Web Design</option>
                                     <option value="Web Development">Web Development</option>
                                     <option value="Laravel + Bootstrap + Ajax + Jquery">Laravel + Bootstrap + Ajax + Jquery

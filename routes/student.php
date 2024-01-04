@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Student\AuthController;
+use App\Http\Controllers\Student\CourseReviewController;
 use App\Http\Controllers\Student\PasswordResetController;
 use App\Http\Controllers\Student\GoogleController;
 use App\Http\Controllers\Student\FacebookController;
@@ -37,6 +38,11 @@ Route::name('student.')->prefix('student')->group(function () {
         Route::get('checkout/{id}', [StudentController::class, 'checkout'])->name('checkout');
         Route::post('active/course/add', [StudentController::class, 'active_course_add'])->name('active.course.add');
         Route::post('profile/update', [StudentController::class, 'student_profile_update'])->name('profile.update');
+
+        // review add student
+        Route::post('review/submit', [CourseReviewController::class, 'student_review_submit'])->name('review.submit');
+        Route::get('review/delete', [CourseReviewController::class, 'student_review_delete']);
+
 
         // pement controller and pement getway work
         Route::post('add/pement/submit', [PaymentController::class, 'add_pement_submit'])->name('add.pement.submit');

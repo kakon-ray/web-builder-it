@@ -1,5 +1,6 @@
 //student registation password show
 $(document).ready(function () {
+  
   const student_password = document.querySelector("#student_password")
   const student_password_confirm = document.querySelector("#student_password_confirm")
   const eye = document.querySelector("#eye")
@@ -19,6 +20,8 @@ $(document).ready(function () {
 
 
 })
+
+
 //student login password show
 $(document).ready(function () {
   // student login password show
@@ -34,29 +37,8 @@ $(document).ready(function () {
 
 
 })
-//chackout page toggle button show
 
-$(document).ready(function () {
-  $('.digital').hide()
-  $('.manualcard').css("background-color", "#cec0c0");
-  $('input[type="radio"]').click(function () {
-    var selected = $("input[name='checkout']:checked").val();
-    if (selected == 'digital') {
-      $('.digital').show()
-      $('.digitalcard').css("background-color", "#cec0c0");
-      $('.manualcard').css("background-color", "white");
-      $('.manual').hide()
-    }
-    if (selected == 'manual') {
-      $('.digital').hide()
-      $('.manual').show()
-      $('.manualcard').css("background-color", "#cec0c0");
-      $('.digitalcard').css("background-color", "white");
 
-    }
-
-  });
-});
 
 
 // ajax alert
@@ -223,6 +205,7 @@ $(document).ready(function () {
       }
     })
   })
+
   $('body').on('submit', '#activecoursealert', function (e) {
     e.preventDefault();
 
@@ -258,6 +241,7 @@ $(document).ready(function () {
       }
     })
   })
+
   $('body').on('submit', '#manualpementalert', function (e) {
     e.preventDefault();
 
@@ -283,6 +267,7 @@ $(document).ready(function () {
 
 
         } else {
+          
           Swal.fire({
             icon: "error",
             title: data.msg,
@@ -290,6 +275,46 @@ $(document).ready(function () {
             customClass: 'swalstyle',
             showConfirmButton: false,
           });
+        }
+      }
+    })
+  })
+  $('body').on('submit', '#review_alert', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: $(this).attr('action'),
+      method: "POST",
+      data: new FormData(this),
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function (data) {
+        if (data.status == 200) {
+          $.notification(
+            [data.msg],
+            {
+              position: ['bottom', 'right'],
+              messageType: 'success',
+            }
+          )
+          setTimeout(function () {
+            location.reload();
+          }, 1500);
+
+
+        } else {
+          $.notification(
+            [data.msg],
+            {
+              position: ['bottom', 'right'],
+              messageType: 'error',
+            }
+          )
+          setTimeout(function () {
+            location.reload();
+          }, 1500);
+
         }
       }
     })
@@ -303,6 +328,7 @@ $(document).ready(function () {
 // modal item show video tutorial
 
 $(document).ready(function () {
+
   $(".googlecloudvideo").click(    
     function(e) {
       let video_link =  $(this).data("video_link");
@@ -319,8 +345,53 @@ $(document).ready(function () {
  });
 })
 
+// star rating jquery
+$(document).ready(function () {
+  
+  $("#rateBox").rate({
+    length: 5,
+    value: 5,
+    readonly: false,
+    size: '48px',
+    selectClass: 'fxss_rate_select',
+    incompleteClass: 'fxss_rate_no_all_select',
+    customClass: 'custom_class',
+    callback: function(object){
+      $('#ratevalue').val(object.index); 
+    }
+  });
+
+
+})
+
+
+//chackout page toggle button show
+
+$(document).ready(function () {
+  $('.digital').hide()
+  $('.manualcard').css("background-color", "#cec0c0");
+  $('input[type="radio"]').click(function () {
+    var selected = $("input[name='checkout']:checked").val();
+    if (selected == 'digital') {
+      $('.digital').show()
+      $('.digitalcard').css("background-color", "#cec0c0");
+      $('.manualcard').css("background-color", "white");
+      $('.manual').hide()
+    }
+    if (selected == 'manual') {
+      $('.digital').hide()
+      $('.manual').show()
+      $('.manualcard').css("background-color", "#cec0c0");
+      $('.digitalcard').css("background-color", "white");
+
+    }
+
+  });
+});
 
 // profile page show and hiddin button
+$(document).ready(function () {
+  
 $("#overview_content").show();
 $("#profile_form").hide();
 
@@ -333,3 +404,9 @@ $("#show_form").click(function () {
   $("#profile_form").show();
   $("#overview_content").hide();
 });
+
+})
+
+
+
+

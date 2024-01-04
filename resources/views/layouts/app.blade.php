@@ -27,18 +27,25 @@
 
         <!-- navbar css  -->
         <link rel="stylesheet" href="{{ asset('css/search.css') }}" />
+
         <!-- navbar css  -->
         <link rel="stylesheet" href="{{ asset('css/navbar.css') }}" />
+
         <!-- image gallery -->
         <link rel="stylesheet" href="{{ asset('css/simple-lightbox.min.css') }}" />
 
         <!-- Responsive css -->
         <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" />
+
         <!-- Favicon -->
         <link rel="stylesheet" href="{{ asset('css/favicon.png') }}" />
 
-        <!-- Style css -->
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+          <!-- Star Rating -->
+        <link rel="stylesheet" href="{{ asset('css/rate.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/iconfont.css') }}" />
+
+        {{-- website link --}}
+        {{-- https://www.jqueryscript.net/other/star-rating-fxss.html --}}
 
 
         <!-- Toggle dropdown profile css -->
@@ -50,11 +57,40 @@
         <!-- student css -->
         <link rel="stylesheet" href="{{ asset('css/student.css') }}" />
 
+        <!-- Style css -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+
+      
+
+
         <style>
             .swalstyle {
                 width: 300px !important;
-                height: 220px !important;
+                height: 230px !important;
                 font-size: 10px !important;
+                padding: 0px !important;
+                margin: 0px !important;
+            }
+
+            .swal2-title{
+                padding: 0px !important;
+                margin: 0px !important;   
+                height: 30px !important;  
+            }
+
+            .swal2-html-container{
+                padding: 0px !important;
+                margin: 0px !important;
+                height: 30px !important;  
+            }
+
+            .swal2-icon{
+                font-size: 7px !important;
+                padding: 0px !important;
+            }
+            .swal2-actions{
+                padding: 0px !important;
+                margin-top: -20px !important;
             }
         </style>
 
@@ -107,14 +143,23 @@
         <!-- jquery tost -->
         <script src="{{ asset('js/notifications.js') }}"></script>
 
+        <!-- toggle dropdown profile js -->
+        <script src="{{ asset('js/toggle_dropdown_profile.js') }}"></script>
+
+        <!-- star rating review js -->
+        <script src="{{ asset('js/rate.js') }}"></script>
+        <script src="{{ asset('js/iconfont.js') }}"></script>
+
+
         <!-- Custom js -->
         <script src="{{ asset('js/custom.js') }}"></script>
 
         <!-- Student Custom js -->
         <script src="{{ asset('js/student_custom.js') }}"></script>
 
-        <!-- toggle dropdown profile js -->
-        <script src="{{ asset('js/toggle_dropdown_profile.js') }}"></script>
+
+
+
 
 
     </body>

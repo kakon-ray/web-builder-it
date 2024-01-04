@@ -21,6 +21,7 @@ use App\Models\StudentRegModel;
 use App\Models\ActiveCourse;
 use App\Models\Blog;
 use App\Models\ClientReview;
+use App\Models\CourseReview;
 use Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
@@ -62,15 +63,14 @@ class UserController extends Controller
     }
     function course_details(Request $request)
     {
-        $id = $request->id;
-        $course_details = AddCourse::where('id', $id)->first();
-        return view('users.course_details', ['course_details' => $course_details]);
+        $course_details = AddCourse::find($request->id);
+        $allReview = CourseReview::get()->where('course_id',$request->id)->reverse();
+        return view('users.course_details', compact('course_details','allReview'));
     }
     function services_detials(Request $request)
     {
-        $id = $request->id;
-        $services_details = AddServices::where('id', $id)->first();
-        return view('users.services_details', ['services_details' => $services_details]);
+        $services_details = AddServices::find($request->id);
+        return view('users.services_details', compact('services_details'));
     }
 
     function blog_details(Request $request)
@@ -81,8 +81,8 @@ class UserController extends Controller
     }
     function free_seminer()
     {
-        $allSeminar = SeminerModel::get();
-        return view('users.free_seminer', ['allSeminar' => $allSeminar]);
+        $allSeminar = SeminerModel::get()->reverse();
+        return view('users.free_seminer', compact('allSeminar'));
     }
 
     function course_admission()
@@ -99,7 +99,7 @@ class UserController extends Controller
     function gallery_img()
     {
         $gallery_image = GalleryModel::get()->reverse();
-        return view('users.gallery_img', ['gallery_image' => $gallery_image]);
+        return view('users.gallery_img', compact('gallery_image'));
     }
 
 

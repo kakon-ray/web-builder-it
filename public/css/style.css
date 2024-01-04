@@ -302,33 +302,24 @@ section {
 }
 
 .second-btn {
-  display: inline-block;
-  font-size: 14px;
-  position: relative;
-  padding: 10px 30px;
-  padding-top: 14px;
-  color: var(--white-color);
-  background: linear-gradient(
-    300deg,
-    var(--main-color) 0% 25%,
-    var(--main-color) 25% 50%,
-    var(--main-color) 50% 75%,
-    var(--main-color) 75% 88%,
-    transparent 89%
-  );
-  border: none;
+  border: 1px solid var(--main-color);
+  border-radius: 0px;
+  background: var(--main-color);
+  font-size: 18px;
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 20px;
+  padding-top: 12px;
+  margin-top: 15px;
+  display: block;
+  text-align: center;
+  transition: .5s;
 }
 
 .second-btn:hover {
-  background: linear-gradient(
-    300deg,
-    var(--main-hover-color) 0% 25%,
-    var(--main-hover-color) 25% 50%,
-    var(--main-hover-color) 50% 75%,
-    var(--main-hover-color) 75% 88%,
-    transparent 89%
-  );
-  color: var(--white-color);
+  background-color: white;
+  color: #000;
 }
 
 .course-item-details-link {
@@ -1019,7 +1010,38 @@ color: var(--main-color);
   border: 0.5px solid rgb(215, 211, 211);
   padding: 5px;
 }
+
+
+
 .blog-details-right-sidebar img{
 width: 100px;
 height: auto;
+}
+
+
+
+/* ============================== student review ============================*/
+.our-student-feedback .heading::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom:-3px;
+  background: var(--main-color);
+  transition: all .5s ease;
+  height: 2px;
+  left: 50%;
+  -moz-transform: translateX(-50%) skewX(-65deg);
+  -webkit-transform: translateX(-50%) skewX(-65deg);
+  -o-transform: translateX(-50%) skewX(-65deg);
+  -ms-transform: translateX(-50%) skewX(-65deg);
+  transform: translateX(-50%) skewX(-65deg);
+}
+.revew-content{
+  position: relative;
+}
+.review-delete {
+  position: absolute;
+  top: -7px;
+  right: 5px;
+  color: red;
 }
