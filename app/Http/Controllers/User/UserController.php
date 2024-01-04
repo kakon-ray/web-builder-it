@@ -33,7 +33,7 @@ class UserController extends Controller
         $allCourse = AddCourse::get()->reverse();
         $allServices = AddServices::get()->reverse();
         $allClientReview = ClientReview::get()->reverse();
-        $gallery_image = GalleryModel::get();
+        $gallery_image = GalleryModel::get()->reverse();
         $blog = Blog::get()->slice(0,3);
         return view('users.home', compact('allCourse','allServices','allClientReview','gallery_image','blog'));
     }
@@ -98,7 +98,7 @@ class UserController extends Controller
 
     function gallery_img()
     {
-        $gallery_image = GalleryModel::get();
+        $gallery_image = GalleryModel::get()->reverse();
         return view('users.gallery_img', ['gallery_image' => $gallery_image]);
     }
 
