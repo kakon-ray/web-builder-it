@@ -181,26 +181,27 @@ $(document).ready(function () {
       processData: false,
       success: function (data) {
         if (data.status == 200) {
-          Swal.fire({
-            icon: "success",
-            title: data.msg,
-            timer: 1500,
-            customClass: 'swalstyle',
-            showConfirmButton: false,
-          });
+          $.notification(
+            [data.msg],
+            {
+              position: ['bottom', 'right'],
+              messageType: 'success',
+            }
+          )
           setTimeout(function () {
             location.reload()
           }, 1500);
+       
 
 
         } else {
-          Swal.fire({
-            icon: "error",
-            title: data.msg,
-            timer: 1500,
-            customClass: 'swalstyle',
-            showConfirmButton: false,
-          });
+          $.notification(
+            [data.msg],
+            {
+              position: ['bottom', 'right'],
+              messageType: 'error',
+            }
+          )
         }
       }
     })
@@ -254,13 +255,13 @@ $(document).ready(function () {
       processData: false,
       success: function (data) {
         if (data.status == 200) {
-          Swal.fire({
-            icon: "success",
-            title: data.msg,
-            timer: 1500,
-            customClass: 'swalstyle',
-            showConfirmButton: false,
-          });
+          $.notification(
+            [data.msg],
+            {
+              position: ['bottom', 'right'],
+              messageType: 'success',
+            }
+          )
           setTimeout(function () {
             location.href = '/student/my-order';
           }, 1500);
@@ -268,13 +269,14 @@ $(document).ready(function () {
 
         } else {
           
-          Swal.fire({
-            icon: "error",
-            title: data.msg,
-            timer: 1500,
-            customClass: 'swalstyle',
-            showConfirmButton: false,
-          });
+          $.notification(
+            [data.msg],
+            {
+              position: ['bottom', 'right'],
+              messageType: 'error',
+            }
+          )
+
         }
       }
     })

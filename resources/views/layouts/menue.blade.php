@@ -136,7 +136,7 @@
                                     </div>
                                 </div>
                             @else(!isset($currentStudent))
-                                <a href="{{ route('student.login') }}" class="btn-three">Student Login</a>
+                                <a href="{{ route('student.login') }}" class="btn-one"> Login</a>
                             @endif
 
                         </div>

@@ -100,46 +100,97 @@ class StudentController extends Controller
 
     function student_profile_update(Request $request)
     {
-
-
-        $arrayRequest = [
-            "student_name" => $request->student_name,
-            "phone" => $request->phone,
-            "address" => $request->address,
-        ];
-
-        $arrayValidate  = [
-            'student_name' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-        ];
-
-        $response = Validator::make($arrayRequest, $arrayValidate);
-
-        if ($response->fails()) {
-            $msg = '';
-            foreach ($response->getMessageBag()->toArray() as $item) {
-                $msg = $item;
-            };
-            $arr = array('status' => 400, 'msg' => $msg);
-            return \Response::json($arr);
-        }
-
         $studentRegModel = StudentRegModel::find($request->id);
-        $studentRegModel->student_name = $request->student_name;
-        $studentRegModel->phone = $request->phone;
-        $studentRegModel->address = $request->address;
+        if (is_null($studentRegModel)) {
+            return response()->json([
+                'msg' => "Student Doesnt Exists",
+                'status' => 404
+            ], 404);
+        }else{
+            if ($request->image) {
+                $arrayRequest = [
+                    "student_name" => $request->student_name,
+                    "phone" => $request->phone,
+                    "address" => $request->address,
+                    "image" => $request->image,
+                ];
+    
+                $arrayValidate  = [
+                    'student_name' => 'required',
+                    'phone' => 'required',
+                    'address' => 'required',
+                    'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:300'],
+                ];
+            } else {
+                $arrayRequest = [
+                    "student_name" => $request->student_name,
+                    "phone" => $request->phone,
+                    "address" => $request->address,
+                ];
+    
+                $arrayValidate  = [
+                    'student_name' => 'required',
+                    'phone' => 'required',
+                    'address' => 'required',
+    
+                ];
+            }
+    
+            $response = Validator::make($arrayRequest, $arrayValidate);
+    
+            if ($response->fails()) {
+                $msg = '';
+                foreach ($response->getMessageBag()->toArray() as $item) {
+                    $msg = $item;
+                };
+                $arr = array('status' => 400, 'msg' => $msg);
+                return \Response::json($arr);
+            }
+    
+            DB::beginTransaction();
+
+            try{
+
+                if ($request->image) {
+                    $img = $request->image;
+                    $image =  $img->store('/public/student_image');
+                    $image = (explode('/', $image))[2];
+                    $host = $_SERVER['HTTP_HOST'];
+                    $image = "http://" . $host . "/storage/student_image/" . $image;
+                } else {
+                    $image = $request->old_image;
+                }
 
 
-        $responce = $studentRegModel->save();
+                $studentRegModel->student_name = $request->student_name;
+                $studentRegModel->phone = $request->phone;
+                $studentRegModel->address = $request->address;
+                $studentRegModel->image = $image;
+                $studentRegModel->save();
 
-        if ($responce) {
-            $arr = array('status' => 200, 'msg' => 'Your Profile Updated');
-            return \Response::json($arr);
-        } else {
-            $arr = array('status' => 400, 'msg' => 'Profile Updated Faild');
-            return \Response::json($arr);
+                DB::commit();
+
+            }catch(\Exception $err){
+
+                DB::rollBack();
+                $studentRegModel = null;
+            
+            }
+    
+            if (is_null($studentRegModel)) {
+                return response()->json([
+                    'status' => 500,
+                    'msg' => 'Internal Server Error',
+                    'err_msg' => $err->getMessage()
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Student Update Successfylly'
+                ]);
+            }
         }
+
     }
 
     function classroom(Request $request)
@@ -150,12 +201,11 @@ class StudentController extends Controller
             $student_tutorial = Tutorial::where('course_id', $item->course_id)->with('add_course')->get();
         }
         // return $tutorial;
-        if(isset($student_tutorial)){
+        if (isset($student_tutorial)) {
             return view('student.classroom', ['student_tutorial' => $student_tutorial]);
-        }else{
+        } else {
             return view('student.classroom');
         }
-        
     }
     function my_order(Request $request)
     {

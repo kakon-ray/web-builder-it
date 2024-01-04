@@ -213,10 +213,10 @@ class ClientReviewController extends Controller
 
                     if ($request->image) {
                         $img = $request->image;
-                        $image =  $img->store('/public/doctor_image');
+                        $image =  $img->store('/public/review_image');
                         $image = (explode('/', $image))[2];
                         $host = $_SERVER['HTTP_HOST'];
-                        $image = "http://" . $host . "/storage/doctor_image/" . $image;
+                        $image = "http://" . $host . "/storage/review_image/" . $image;
                     } else {
                         $image = $request->old_image;
                     }

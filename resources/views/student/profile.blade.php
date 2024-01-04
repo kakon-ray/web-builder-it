@@ -11,8 +11,14 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}" alt="avatar" class="rounded-circle img-fluid"
-                                style="width: 150px;">
+                            @if (Auth::guard('student')->user()->image)
+                                <img src="{{Auth::guard('student')->user()->image}}" alt="avatar"
+                                    class="rounded-circle img-fluid" style="width: 150px;">
+                            @else
+                                <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}" alt="avatar"
+                                    class="rounded-circle img-fluid" style="width: 150px;">
+                            @endif
+
                             <h5 class="my-3">{{ Auth::guard('student')->user()->student_name }}</h5>
                             <p class="text-muted mb-1">Student Of Web Builder IT</p>
 
@@ -94,7 +100,7 @@
 
                             </div>
                             <div class="row mb-4">
-                                <div class="col">
+                                <div class="col-lg-6">
                                     <div class="form-outline">
                                         <label class="form-label" for="email">Student Email</label>
                                         <input type="text" value="{{ Auth::guard('student')->user()->email }}"
@@ -103,7 +109,7 @@
                                             value="{{ Auth::guard('student')->user()->email }}" class="d-none" />
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-lg-6">
                                     <div class="form-outline">
                                         <label class="form-label" for="address">Student Address</label>
                                         <input type="text" id="address" name="address"
@@ -111,8 +117,16 @@
                                             class="form-control" />
                                     </div>
                                 </div>
+                                <div class="col-lg-6 pt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="address">Student Image</label>
+                                        <input type="text" class="d-none" name="old_image" value="{{Auth::guard('student')->user()->image}}"/>
+                                        <input type="file" name="image" />
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text-center"><button class="common-btn" type="submit">Submit</button></div>
+                            <div class="text-center"><button class="second-btn rounded" type="submit">Update</button>
+                            </div>
 
                         </form>
                     </div>
