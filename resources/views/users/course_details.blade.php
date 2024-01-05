@@ -99,7 +99,7 @@
                                 </div>
                             </a>
                         @endif
-                        <h3 class="heading">Our Students Feedback</h3>
+                        <h3 class="heading2">Our Students Feedback</h3>
                         @foreach ($allReview as $item)
                             <div class="blog-content revew-content">
                                 @if ($item->students->image)

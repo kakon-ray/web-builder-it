@@ -964,6 +964,29 @@ color: var(--main-color);
 }
 
 
+.heading2{
+  display:inline-block;
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.heading2::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom:-3px;
+  background: var(--main-color);
+  transition: all .5s ease;
+  height: 2px;
+  left: 50%;
+  -moz-transform: translateX(-50%) skewX(-65deg);
+  -webkit-transform: translateX(-50%) skewX(-65deg);
+  -o-transform: translateX(-50%) skewX(-65deg);
+  -ms-transform: translateX(-50%) skewX(-65deg);
+  transform: translateX(-50%) skewX(-65deg);
+}
+
 /* =====================================================================
      Hedding Title Style border bottom using after end
 ======================================================================== */
@@ -1028,21 +1051,7 @@ height: auto;
 
 
 /* ============================== student review ============================*/
-.our-student-feedback .heading::after{
-  content: '';
-  position: absolute;
-  width: 100%;
-  bottom:-3px;
-  background: var(--main-color);
-  transition: all .5s ease;
-  height: 2px;
-  left: 50%;
-  -moz-transform: translateX(-50%) skewX(-65deg);
-  -webkit-transform: translateX(-50%) skewX(-65deg);
-  -o-transform: translateX(-50%) skewX(-65deg);
-  -ms-transform: translateX(-50%) skewX(-65deg);
-  transform: translateX(-50%) skewX(-65deg);
-}
+
 .revew-content{
   position: relative;
 }

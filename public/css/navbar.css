@@ -140,7 +140,8 @@
   transform-origin: 0% 50%;
 }
 .nav-responsive {
-  display: none;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -242,15 +243,18 @@
   }
   .navbar-brand {
     margin-right: 0px;
-  }
+    width: 150px;
+}
 }
 @media (max-width: 992px) {
   .others-options {
     margin-top: 20px;
   }
   .nav-responsive {
-    display: block;
-  }
+    display: flex;
+    align-items: center;
+
+}
 
   .navbar-collapse {
     position: absolute;

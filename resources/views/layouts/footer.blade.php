@@ -21,7 +21,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="footer-content">
                         <div class="footer-heading-area">
-                            <h4 class="heading"> All Services</h4>
+                            <h4 class="heading2"> All Services</h4>
                         </div>
                         <div class="footer-link-area">
                             @php
@@ -45,7 +45,7 @@
                 <div class="col-lg-3 col-md-12 col-12">
                     <div class="footer-content">
                         <div class="footer-heading-area">
-                            <h4 class="heading">Other</h4>
+                            <h4 class="heading2">Other</h4>
                         </div>
                         <div class="footer-link-area">
                             <ul>
@@ -62,7 +62,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="footer-content">
                         <div class="footer-heading-area">
-                            <h4 class="heading">Latest tweets</h4>
+                            <h4 class="heading2">Latest tweets</h4>
                         </div>
                         <div class="footer-link-area">
 

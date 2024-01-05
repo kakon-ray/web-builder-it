@@ -13,9 +13,9 @@ Default CSS
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-  --main-color: #FF1E1E;
-  --main-color-tow: #db5353;
-  --main-hover-color: #e61212;
+  --main-color: #f3124e;
+  --main-color-tow: #FF3066;
+  --main-hover-color: #FF3066;
   --white-color: #ffffff;
   --black-color: #2b2540;
   --navber-color: #424155;
@@ -23,6 +23,7 @@ Default CSS
   --bg-color: #faf7f2;
   --transition: 0.4s all ease-in-out;
 }
+
 
 /*======================== go to website button ===========================*/
 .goto-website {
