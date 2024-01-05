@@ -34,7 +34,7 @@
                 <div class="col-lg-6 col-md-10 mx-auto">
                     <div class="text-center mb-5">
                         <h2 class="fw-bold heading">OUR <span class="sm-red-title">COURSES</span></h2>
-                        <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কারিকুলাম নিয়ে ওয়েব বিল্ডার আইটি প্রস্তুত আপনার
+                        <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কোর্স নিয়ে ওয়েব বিল্ডার আইটি প্রস্তুত আপনার
                             ক্যারিয়ার গড়ার
                             অগ্রযাত্রায়।</h6>
                     </div>
@@ -166,7 +166,7 @@
                     <p>We Have Made it Easy for Clients to Reach Us and Get Their <br>Solutions Weaved.</p>
                 </div>
                 <div class="col-lg-4 d-flex align-items-center">
-                    <a href="{{ url('user/services-contact') }}" class="theme-btn-cta">Request A Free Consultation</a>
+                    <a href="{{ route('user.services.contact') }}" class="theme-btn-cta">Request A Free Consultation</a>
                 </div>
             </div>
         </div>
