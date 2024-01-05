@@ -970,7 +970,7 @@ color: var(--main-color);
 .heading2{
   display:inline-block;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   cursor: pointer;
   text-transform: uppercase;
 }
@@ -978,7 +978,7 @@ color: var(--main-color);
   content: '';
   position: absolute;
   width: 100%;
-  bottom:-3px;
+  bottom:5px;
   background: var(--main-color);
   transition: all .5s ease;
   height: 2px;

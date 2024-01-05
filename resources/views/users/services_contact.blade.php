@@ -11,8 +11,8 @@
 
                 <div class="col-lg-6">
                     <div class="card p-5">
-                        <div class="text-center pb-3">
-                            <h4 class="pb-2 heading"> CONTACT OUR EXPERTS DEVELOPER</h4>
+                        <div class="text-center pb-5">
+                            <h4 class="pb-2 heading2"> CONTACT OUR EXPERTS DEVELOPER</h4>
                         </div>
 
                         <form action="{{ route('user.services.message.submit') }}" id="servicesalert" method="POST">

@@ -17,7 +17,10 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card p-5">
-                        <h5 class="pb-4">Fill the form to participate in the seminarন</h5>
+                        <div class="text-center pb-5">
+                            <h6 class="pb-2 heading2"> Fill the form to participate in the seminar</h6>
+                        </div>
+                     
                         <form action="{{ route('user.course.message.submit') }}" id="courseadmissionalert" method="POST">
                             @csrf
                             <!-- Name input -->
