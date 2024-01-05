@@ -48,13 +48,15 @@
                     <div class="my-4">
                         <label class="form-label">Category</label>
                         <select class="form-control rounded-0" name="category">
-                            <option value="web_development" selected>Web Development</option>
-                            <option value="laravel">Laravel</option>
-                            <option value="web_design">Web Design</option>
-                            <option value="front_den">Front End</option>
-                            <option value="back_end">Back End</option>
-                            <option value="programming">Programming</option>
-                            <option value="Other">Other</option>
+                            <option value="Web Development" selected>Web Development</option>
+                            <option value="Laravel">Laravel</option>
+                            <option value="Web Design">Web Design</option>
+                            <option value="Front End Development">Front End Development</option>
+                            <option value="Back End Development">Back End</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Digital Marketing">Digital Marketing</option>
+                            <option value="Video Editing">Video Editing</option>
+                            <option value="Laravel Website">Laravel Website</option>
                         </select>
                     </div>
 

@@ -74,7 +74,11 @@
                         </tr>
                         <tr>
                             <td class="th-sm ">desc</td>
-                            <td class="th-sm ">{{ $course_details->desc }}</td>
+                            <td class="th-sm ">
+                                @php
+                                    echo $course_details->desc
+                                @endphp
+                            </td>
                         </tr>
 
 

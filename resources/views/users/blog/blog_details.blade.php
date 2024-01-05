@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'Web Design Details | Web Builder IT' }}
+    {{$blogDetails->category }} | {{ $blogDetails->title }}
 @endsection
 
 @section('content')

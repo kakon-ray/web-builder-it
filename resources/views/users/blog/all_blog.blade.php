@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'All Course | Web Builder IT' }}
+    {{ 'All Blog | Web Builder IT' }}
 @endsection
 
 @section('content')

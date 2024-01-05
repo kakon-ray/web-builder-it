@@ -46,13 +46,15 @@
                     <div class="my-4">
                         <label class="form-label">Category</label>
                         <select class="form-control rounded-0" name="category">
-                            <option value="web_development" {{$blogDetails->category == 'web_development' ? 'selected' : ''}}>Web Development</option>
-                            <option value="laravel" {{$blogDetails->category == 'laravel' ? 'selected' : ''}}>Laravel</option>
-                            <option value="web_design" {{$blogDetails->category == 'web_design' ? 'selected' : ''}}>Web Design</option>
-                            <option value="front_den" {{$blogDetails->category == 'front_den' ? 'selected' : ''}}>Front End</option>
-                            <option value="back_end" {{$blogDetails->category == 'back_end' ? 'selected' : ''}}>Back End</option>
-                            <option value="programming" {{$blogDetails->category == 'programming' ? 'selected' : ''}}>Programming</option>
-                            <option value="other" {{$blogDetails->category == 'other' ? 'selected' : ''}}>Other</option>
+                            <option value="Web Development" {{$blogDetails->category == 'Web Development' ? 'selected' : ''}}>Web Development</option>
+                            <option value="Laravel" {{$blogDetails->category == 'Laravel' ? 'selected' : ''}}>Laravel</option>
+                            <option value="Web Design" {{$blogDetails->category == 'Web Design' ? 'selected' : ''}}>Web Design</option>
+                            <option value="Front End Development" {{$blogDetails->category == 'Front End Development' ? 'selected' : ''}}>Front End Development</option>
+                            <option value="Back End Development" {{$blogDetails->category == 'Back End Development' ? 'selected' : ''}}>Back End Development</option>
+                            <option value="Programming" {{$blogDetails->category == 'Programming' ? 'selected' : ''}}>Programming</option>
+                            <option value="Digital Marketing" {{$blogDetails->category == 'Digital Marketing' ? 'selected' : ''}}>Digital Marketing</option>
+                            <option value="Video Editing" {{$blogDetails->category == 'Video Editing' ? 'selected' : ''}}>Video Editing</option>
+                            <option value="Laravel Website" {{$blogDetails->category == 'Laravel Website' ? 'selected' : ''}}>Laravel Website</option>
                         </select>
                     </div>
                     
