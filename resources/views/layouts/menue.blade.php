@@ -39,7 +39,7 @@
                    </a>
 
 
-                
+
                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
                        <ul class="navbar-nav ms-auto mb-lg-0">
                            <li class="nav-item">
@@ -115,53 +115,56 @@
                        </div>
                    </div>
                    <div class="nav-responsive">
-                    <a href="#!" data-bs-toggle="modal" data-bs-target="#search-modal" class="search-box"><i
-                            class="fas fa-search"></i></a>
-                    <div class="d-flex align-item-center">
-                        @if (Auth::guard('student')->user())
-                            <div class="menu">
-                                <div id="item">
-                                    @if (Auth::guard('student')->user()->image)
-                                        <img src="{{ Auth::guard('student')->user()->image }}" class="profile"
-                                            alt="logo" />
-                                        <i class="fas fa-chevron-down"></i>
-                                        <span class="active-color"></span>
-                                    @else
-                                        <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
-                                            class="profile" alt="logo" />
-                                        <i class="fas fa-chevron-down"></i>
-                                        <span class="active-color"></span>
-                                    @endif
+                       <a href="#!" data-bs-toggle="modal" data-bs-target="#search-modal" class="search-box"><i
+                               class="fas fa-search"></i></a>
+                       <div class="d-flex align-item-center">
+                           @if (Auth::guard('student')->user())
+                               <div class="menu">
+                                   <div id="item">
+                                       @if (Auth::guard('student')->user()->image)
+                                           <img src="{{ Auth::guard('student')->user()->image }}" class="profile"
+                                               alt="logo" />
+                                           <i class="fas fa-chevron-down"></i>
+                                           <span class="active-color"></span>
+                                       @else
+                                           <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
+                                               class="profile" alt="logo" />
+                                           <i class="fas fa-chevron-down"></i>
+                                           <span class="active-color"></span>
+                                       @endif
 
-                                </div>
-                                <div id="submenu">
-                                    <div class="text-center p-2">
-                                        @if (Auth::guard('student')->user()->image)
-                                            <img src="{{ Auth::guard('student')->user()->image }}" class="profile"
-                                                alt="logo" />
-                                        @else
-                                            <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
-                                                class="profile" alt="logo" />
-                                        @endif
-                                        <p>{{ Auth::guard('student')->user()->student_name }}</p>
-                                    </div>
-                                    <a href="{{ route('student.profile') }}">Profile</a>
-                                    <a href="{{ route('student.my.order') }}">My Order</a>
-                                    <a href="{{ route('student.mycourse') }}">My Course</a>
-                                    <a type="button" id="student_logout">Logout</a>
-                                </div>
-                            </div>
-                        @else(!isset($currentStudent))
-                            <a href="{{ route('student.login') }}" class="btn-one"> Login</a>
-                        @endif
+                                   </div>
+                                   <div id="submenu">
+                                       <a href="{{ route('student.profile') }}">
+                                           <div class="text-center p-2">
+                                               @if (Auth::guard('student')->user()->image)
+                                                   <img src="{{ Auth::guard('student')->user()->image }}"
+                                                       class="profile" alt="logo" />
+                                               @else
+                                                   <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
+                                                       class="profile" alt="logo" />
+                                               @endif
+                                               <p>{{ Auth::guard('student')->user()->student_name }}</p>
+                                           </div>
+                                       </a>
 
-                    </div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
+                                       <a class="student-item" href="{{ route('student.profile') }}">Profile</a>
+                                       <a class="student-item" href="{{ route('student.my.order') }}">My Order</a>
+                                       <a class="student-item" href="{{ route('student.mycourse') }}">My Course</a>
+                                       <a class="student-item" type="button" id="student_logout">Logout</a>
+                                   </div>
+                               </div>
+                           @else(!isset($currentStudent))
+                               <a href="{{ route('student.login') }}" class="btn-one"> Login</a>
+                           @endif
+
+                       </div>
+                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                           aria-expanded="false" aria-label="Toggle navigation">
+                           <i class="fas fa-bars"></i>
+                       </button>
+                   </div>
                </div>
            </nav>
        </div>
