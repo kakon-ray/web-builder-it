@@ -29,7 +29,7 @@
 
                 @if (isset($allServices))
                     @foreach ($allServices->slice(0, 8) as $item)
-                        <div class="col-lg-4 col-12">
+                        <div class="col-lg-4 col-12 my-3">
                             <div class="card">
                                 <a href="{{ route('user.services.details', ['id' => $item->id]) }}">
                                     <img src="{{ $item->services_img }}" class="card-img-top" alt="Course">

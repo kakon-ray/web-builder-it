@@ -73,7 +73,7 @@
                         <div class="col-lg-12">
                             <div class="card my-1 p-4">
                                 <address>
-                                    Contact: +8801707500512<br />
+                                    Contact WhatsApp: <a href="tel:+8801707500512">+8801707500512</a><br />
                                     Office Location: Nirala Mor, Khulna
 
                                 </address>

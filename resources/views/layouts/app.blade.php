@@ -34,9 +34,6 @@
         <!-- image gallery -->
         <link rel="stylesheet" href="{{ asset('css/simple-lightbox.min.css') }}" />
 
-        <!-- Responsive css -->
-        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" />
-
         <!-- Favicon -->
         <link rel="stylesheet" href="{{ asset('css/favicon.png') }}" />
 
@@ -59,6 +56,9 @@
 
         <!-- Style css -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+
+        <!-- Responsive css -->
+        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" />
 
 
     </head>

@@ -44,7 +44,7 @@
 
                 @foreach ($allCourse->slice(0, 4) as $item)
                     @if ($item->status == 1)
-                        <div class="col-lg-4 col-12">
+                        <div class="col-lg-4 col-12 my-3">
                             <div class="card">
                                 <a href="{{ route('user.course.details', ['id' => $item->id]) }}">
                                     <img src="{{ $item->course_img }}" class="card-img-top p-3" alt="Course">
@@ -189,7 +189,7 @@
             <div class="row">
 
                 @foreach ($allServices->slice(0, 3) as $item)
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-4 col-12 my-3">
                         <div class="card">
                             <a href="{{ route('user.services.details', ['id' => $item->id]) }}">
                                 <img src="{{ $item->services_img }}" class="card-img-top p-3" alt="Course">
@@ -199,7 +199,7 @@
                                 <h3 class="card-title">{{ $item->services_title }}</h3>
                                 <div class="review">
                                     <h5>Contact Us</h5>
-                                    <h5>+8801707500512</h5>
+                                    <h5><a href="tel:+8801707500512">+8801707500512</a></h5>
                                 </div>
                                 <a href="{{ route('user.services.details', ['id' => $item->id]) }}"
                                     class="course-item-details-link">View Details</a>
@@ -351,7 +351,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-center heading">Our <span class="sm-red-title">Happy Clients Review</span></h2>
+                    <h2 class="text-center heading">Our Happy <span class="sm-red-title">Clients Review</span></h2>
                 </div>
                 <div class="col-lg-12">
                     <div id="owl-demo" class="owl-carousel owl-theme">
@@ -409,7 +409,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-center heading">Our <span class="sm-red-title">Blog</span></h2>
+                    <h2 class="text-center heading">Our Letest <span class="sm-red-title">Blog</span></h2>
                 </div>
                 @foreach ($blog as $item)
                     <div class="col-lg-4">

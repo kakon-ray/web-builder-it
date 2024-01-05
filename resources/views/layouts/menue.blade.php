@@ -8,10 +8,10 @@
                        <div class="top-nav-container">
                            <ul class="topbar-list">
                                <li>
-                                   <a href="+01123456789"><i class="fas fa-phone"></i><span>+8801707500512</span></a>
+                                   <a href="tel:+8801707500512"><i class="fas fa-phone"></i><span>+8801707500512</span></a>
                                </li>
                                <li>
-                                   <a href="+01123456789"><i
+                                   <a href="mailto:demo@example.com"><i
                                            class="fas fa-envelope"></i><span>webbuilderit.info@gmail.com</span></a>
                                </li>
 

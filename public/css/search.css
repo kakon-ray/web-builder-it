@@ -1,7 +1,9 @@
 /* search bar  */
-.search-box{
-  padding-top: 4px;
+.search-box {
+  padding-top: 10px;
+  padding-right: 15px;
 }
+
 .search-overlay .search-overlay-form {
   transition: all 0.9s ease-in-out 1.4s;
   opacity: 1;
