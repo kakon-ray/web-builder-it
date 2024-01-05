@@ -21,7 +21,7 @@
                 @else
                     <div class="col-lg-12 col-md-10 mx-auto">
                         <div class="text-center mb-5">
-                            <h2 class="fw-bold">Course<span class="sm-red-title">Not Found</span></h2>
+                            <h2 class="fw-bold">Course<span class="sm-red-title"> Not Found</span></h2>
 
                         </div>
                     </div>

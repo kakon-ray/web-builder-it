@@ -252,6 +252,7 @@ section {
   transition: all .3s ease;
   text-align: center;
   padding: 5px  30px;
+  margin: 10px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   -ms-border-radius: 25px;
@@ -690,12 +691,14 @@ color: var(--main-color);
 
 
 /* free seminer details */
-
-.main-card{
-  background-color: var(--main-color-tow);
-  color: rgb(255, 255, 255);
+.seminer-card{
+  background-color: var(--main-color);
+  color: var(--white-color);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 .all-course {
   margin: 20px 0;
 }
