@@ -158,10 +158,10 @@ class BlogController extends Controller
 
                     if ($request->image) {
                         $img = $request->image;
-                        $image =  $img->store('/public/doctor_image');
+                        $image =  $img->store('/public/blog_img');
                         $image = (explode('/', $image))[2];
                         $host = $_SERVER['HTTP_HOST'];
-                        $image = "http://" . $host . "/storage/doctor_image/" . $image;
+                        $image = "http://" . $host . "/storage/blog_img/" . $image;
                     } else {
                         $image = $request->old_image;
                     }
