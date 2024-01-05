@@ -83,16 +83,12 @@
             <div class="row">
                 <div class="co-lg-6 col-md-6 col-12">
                     <div class="copyright-left">
-                        <p>Copyright © 2022 All Rights Reserved</p>
+                        <p>DEVELOPED BY - KAKON RAY</p>
                     </div>
                 </div>
                 <div class="co-lg-6 col-md-6 col-12">
                     <div class="copyright-right">
-                        <a href="https://www.facebook.com/profile.php?id=61554649395332" target="_blank"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61554649395332"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61554649395332"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61554649395332"><i class="fab fa-linkedin-in"></i></a>
+                        <p class="text-light">Copyright © 2023-2024 Web Builder IT</p>
                     </div>
                 </div>
             </div>
