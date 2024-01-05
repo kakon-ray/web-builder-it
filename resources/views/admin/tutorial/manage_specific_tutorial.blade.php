@@ -25,8 +25,7 @@
                         <th class="th-sm">Tutorial Name</th>
                         <th class="th-sm">Document Preview</th>
                         <th class="th-sm">Preview</th>
-                        <th class="th-sm">Edit Tutorial</th>
-                        <th class="th-sm">Delete</th>
+                        <th class="th-sm">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,8 +61,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content ">
                                             <div class="modal-header">
-                                                <a type="button" class="btn-close"
-                                                    onclick="close_model()"></a>
+                                                <a type="button" class="btn-close" onclick="close_model()"></a>
                                             </div>
                                             <div class="modal-body text-start">
                                                 <div style="position: relative;width:100%;height:400px">
@@ -87,8 +85,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content ">
                                             <div class="modal-header">
-                                                <a type="button" class="btn-close"
-                                                    onclick="close_model()"></a>
+                                                <a type="button" class="btn-close" onclick="close_model()"></a>
                                             </div>
                                             <div class="modal-body text-start">
                                                 <div style="position: relative;width:100%;height:400px">
@@ -114,11 +111,10 @@
                                 <a type="button"
                                     href="{{ route('admin.edit.specific.tutorial', ['id' => $item->id]) }}"
                                     class="btn btn-success btn-circle btn-sm"><i class="fas fa-edit"></i></a>
-                            </td>
-                            <td class="th-sm">
                                 <a type="button" onclick="delete_tutorial({!! $item->id !!})"
                                     class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
                             </td>
+
                         </tr>
                     @endforeach
 

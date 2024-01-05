@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col-lg-12 pb-4 d-flex justify-content-between">
                 <h3 class="text-center ">Manage<span style="color:#4e73df;"> Seminer Item</span></h3>
-                <a href="{{ route('admin.add.seminer')}}" type="button"
-                class="btn btn-primary"><i class="fas fa-plus me-2"></i>Add New Seminer</a>
+                <a href="{{ route('admin.add.seminer') }}" type="button" class="btn btn-primary"><i
+                        class="fas fa-plus me-2"></i>Add New Seminer</a>
             </div>
 
             <div class="col-lg-12 table-responsive">
@@ -19,8 +19,7 @@
                             <th class="th-sm">Seminar Name</th>
                             <th class="th-sm">Seminar Date</th>
                             <th class="th-sm">Seminar Time</th>
-                            <th class="th-sm">Edit</th>
-                            <th class="th-sm">Delete</th>
+                            <th class="th-sm">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,18 +27,14 @@
                             <tr class="text-center">
                                 <td class="th-sm ">{{ $item->seminer_title }}</td>
                                 <td class="th-sm ">{{ $item->seminer_date }}</td>
-                                <td class="th-sm ">{{ $item->seminer_time }}</td>
+                                <td class="th-sm ">@php echo date("g:i a", strtotime("$item->seminer_time UTC")) @endphp</td>
 
                                 <td class="th-sm">
                                     <a href="{{ route('admin.edit.seminar', ['id' => $item->id]) }}" type="button"
                                         class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
-                                </td>
-
-                                <td class="th-sm">
                                     <button type="button" onclick="delete_seminar({!! $item->id !!})"
                                         class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
                                 </td>
-
                             </tr>
                         @endforeach
 

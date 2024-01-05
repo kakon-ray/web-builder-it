@@ -21,16 +21,16 @@
                     <div class="col-lg-12">
                         <div class="card m-4 rounded-0">
                             <div class="row">
-                                <div class="col-lg-2 p-3 seminer-card">
-                                    <h3 class="pt-2">{{ $item->seminer_date }}</h3>
+                                <div class="col-lg-3 p-3 seminer-card">
+                                    <h3 class="pt-2">Date: {{ $item->seminer_date }}</h3>
                                 </div>
                                 <div class="col-lg-8 p-3 px-4">
-                                    <h3>{{ $item->seminer_title }} Seminer</h3>
+                                    <h3>{{ $item->seminer_title }} - Online Seminer</h3>
                                     <p>Web Builder IT</p>
-                                    <p>Seminer Time: <b> {{ $item->seminer_time }}</b></p>
+                                    <h4>Time: <b> @php echo date("g:i a", strtotime("$item->seminer_time UTC")) @endphp </b></h4>
                                 </div>
 
-                                <div class="col-lg-2 p-3 seminer-card">
+                                <div class="col-lg-1 p-3 seminer-card">
                                     <span> Confirm </span>
                                 </div>
                             </div>
