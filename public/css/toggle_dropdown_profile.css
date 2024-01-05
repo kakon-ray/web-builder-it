@@ -23,10 +23,11 @@ Default CSS
   --bg-color: #faf7f2;
   --transition: 0.4s all ease-in-out;
 }
+
 /*======================== go to website button ===========================*/
-.goto-website{
+.goto-website {
   position: relative;
-  background-color:var(--main-color);
+  background-color: var(--main-color);
   padding: 7.5px 23px;
   margin: 5px;
   color: var(--bg-color);
@@ -39,9 +40,10 @@ Default CSS
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
-.goto-website:hover{
+
+.goto-website:hover {
   position: relative;
-  background-color:var(--main-hover-color);
+  background-color: var(--main-hover-color);
   padding: 7.5px 23px;
   margin: 5px;
   color: var(--bg-color);
@@ -54,6 +56,7 @@ Default CSS
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
+
 /*======================== main navbar dropdown ===========================*/
 
 .menu {
@@ -70,19 +73,19 @@ Default CSS
   -o-border-radius: 5px;
 }
 
-  .menu .profile{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+.menu .profile {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 #submenu {
   left: -48%;
-  top: 123%;
+  top: 117%;
   display: none;
   position: absolute;
   background-color: var(--white-color);
@@ -90,36 +93,75 @@ Default CSS
   min-width: 160px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-  #submenu a {
-    color: rgb(0, 0, 0);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  #submenu a:hover {
-    background-color: var(--main-color);
-    color:var(--white-color);
-  }
-  
-  /* admin toggle profile */
 
-  #admin_submenu {
-    left: 0%;
-    top: 101%;
-    display: none;
-    position: absolute;
-    background-color: var(--white-color);
-    z-index: 1;
-    min-width: 180px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+#submenu a {
+  color: rgb(0, 0, 0);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
-    #admin_submenu a {
-      color: rgb(0, 0, 0);
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    #admin_submenu a:hover {
-      background-color: var(--main-color);
-      color:white
-    }
+
+#submenu a:hover {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+
+/* admin toggle profile */
+
+#admin_submenu {
+  left: 0%;
+  top: 101%;
+  display: none;
+  position: absolute;
+  background-color: var(--white-color);
+  z-index: 1;
+  min-width: 180px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#admin_submenu a {
+  color: rgb(0, 0, 0);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#admin_submenu a:hover {
+  background-color: var(--main-color);
+  color: white
+}
+
+/* navbar profile */
+#item {
+  position: relative;
+}
+
+#item .fa-chevron-down {
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: #e8e1e1;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+#item .active-color {
+  position: absolute;
+  background-color: green;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  width: 12px;
+  height: 12px;
+  font-size: 55px;
+  top: 0px;
+  right: 0px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

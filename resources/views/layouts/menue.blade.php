@@ -128,9 +128,13 @@
                                            @if (Auth::guard('student')->user()->image)
                                                <img src="{{ Auth::guard('student')->user()->image }}" class="profile"
                                                    alt="logo" />
+                                                   <i class="fas fa-chevron-down"></i>
+                                                   <span class="active-color"></span>
                                            @else
                                                <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
                                                    class="profile" alt="logo" />
+                                                   <i class="fas fa-chevron-down"></i>
+                                                   <span class="active-color"></span>
                                            @endif
 
                                        </div>
