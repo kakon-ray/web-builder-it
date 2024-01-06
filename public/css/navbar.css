@@ -95,6 +95,16 @@
   margin-right: 35px;
   padding-bottom: 0px;
   margin-bottom: 0;
+  font-weight: 700;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+.navbar .nav-item .nav-link:hover{
+  color: var(--main-color);
+  font-weight: 700;
 }
 .navbar .navbar-nav {
   margin-left: 25px;
@@ -150,6 +160,11 @@
   transform: scaleX(1);
 }
 
+.navbar-item-active{
+ color: var(--main-color) !important;
+ font-weight: 700;
+
+}
 /*================== nav manue hover style end ==================*/
 
 
