@@ -981,7 +981,7 @@ color: var(--main-color);
 .heading2{
   display:inline-block;
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: 30px;
   cursor: pointer;
   text-transform: uppercase;
 }
