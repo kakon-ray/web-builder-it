@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="text-center my-2">
-                                <button type="submit" id="student_login_confirm" class="common-btn">Login</button>
+                                <button type="submit" id="student_login_confirm" class="common-btn rounded">Login</button>
                             </div>
                             <div class="text-center mt-2">
                                 <p class="small">Forget Password? <a class="text-primary"

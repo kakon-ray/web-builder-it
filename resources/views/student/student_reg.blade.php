@@ -46,7 +46,7 @@
                             </div>
 
                             <div class="text-center my-2">
-                                <button type="submit" class="common-btn">Register</button>
+                                <button type="submit" class="common-btn rounded">Register</button>
                             </div>
 
                             <div class="text-center mt-4">
