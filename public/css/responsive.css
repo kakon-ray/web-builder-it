@@ -5,6 +5,18 @@
 
 
 /* small device */
+@media only screen and (max-width: 372px) {
+  .btn-one {
+    margin: -9px;
+  }
+
+  .navbar-brand {
+    margin-right: 0px;
+    width: 100px;
+  }
+
+}
+
 @media only screen and (max-width: 500px) {
   .cariar-button {
     display: flex;
@@ -32,9 +44,9 @@
     padding-top: 10px;
   }
 
-  .topbar-area {
+  /* .topbar-area {
     display: none;
-  }
+  } */
 
   .owl-carousel {
     display: none;
