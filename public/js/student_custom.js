@@ -414,3 +414,21 @@ $("#show_form").click(function () {
 
 
 
+// password change show password
+$(document).ready(function(){
+  
+  $('#showPassChange').on('click', function(){
+
+     var passInput=$(".show_passwod_change");
+
+     if(passInput.attr('type')==='password')
+       {
+         passInput.attr('type','text');
+     }else{
+        passInput.attr('type','password');
+     }
+
+ })
+
+
+})

@@ -38,6 +38,7 @@ Route::name('student.')->prefix('student')->group(function () {
         Route::get('checkout/{id}', [StudentController::class, 'checkout'])->name('checkout');
         Route::post('active/course/add', [StudentController::class, 'active_course_add'])->name('active.course.add');
         Route::post('profile/update', [StudentController::class, 'student_profile_update'])->name('profile.update');
+        Route::post('password/update', [StudentController::class, 'student_password_update'])->name('password.update');
 
         // review add student
         Route::post('review/submit', [CourseReviewController::class, 'student_review_submit'])->name('review.submit');

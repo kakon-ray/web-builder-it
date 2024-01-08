@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'My Course | Web Builder IT ' }}
+    {{ 'Profile | Web Builder IT ' }}
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                     <div class="card mb-4">
                         <div class="card-body text-center">
                             @if (Auth::guard('student')->user()->image)
-                                <img src="{{Auth::guard('student')->user()->image}}" alt="avatar"
+                                <img src="{{ Auth::guard('student')->user()->image }}" alt="avatar"
                                     class="rounded-circle img-fluid" style="width: 150px;">
                             @else
                                 <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}" alt="avatar"
@@ -24,7 +24,7 @@
 
                             <div class="d-flex justify-content-center mb-2">
                                 <button type="button" id="show_overview" class="common-btn py-2 m-2">Overview</button>
-                                <button type="button" id="show_form" class="common-btn py-2 m-2">Edit</button>
+                                <button type="button" id="show_form" class="common-btn py-2 m-2">Edit Profile</button>
                             </div>
                         </div>
                     </div>
@@ -73,64 +73,117 @@
                         </div>
                     </div>
 
-                    <div class="card py-4 px-5" id="profile_form">
-                        <h4 class="text-center pb-5">Update Your Profile</h4>
-
-                        <form action="{{ route('student.profile.update') }}" method="POST" id="studentprofileupdate">
-                            @csrf
-                            <input type="text" name="id" value="{{ Auth::guard('student')->user()->id }}"
-                                class="d-none" />
-                            <div class="row mb-4">
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="form3Example2">Student Name</label>
-                                        <input type="text" id="name" name="student_name"
-                                            value="{{ Auth::guard('student')->user()->student_name }}"
-                                            class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="form3Example1">Phone Number</label>
-                                        <input type="text" id="phone" name="phone"
-                                            value="{{ Auth::guard('student')->user()->phone }}" placeholder="Phone Number"
-                                            class="form-control" />
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-lg-6">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="email">Student Email</label>
-                                        <input type="text" value="{{ Auth::guard('student')->user()->email }}"
-                                            class="form-control" disabled />
-                                        <input type="text" id="email" name="email"
-                                            value="{{ Auth::guard('student')->user()->email }}" class="d-none" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="address">Student Address</label>
-                                        <input type="text" id="address" name="address"
-                                            value="{{ Auth::guard('student')->user()->address }}" placeholder="Address"
-                                            class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="address">Student Image</label>
-                                        <input type="text" class="d-none" name="old_image" value="{{Auth::guard('student')->user()->image}}"/>
-                                        <input type="file" name="image" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center"><button class="second-btn rounded" type="submit">Update</button>
+                    <div id="profile_form">
+                        <div class="card p-5">
+                            <div class="pb-4">
+                                <h5 class="heading2 pb-2">Update Profile</h5>
                             </div>
 
-                        </form>
+                            <form action="{{ route('student.profile.update') }}" method="POST" id="studentprofileupdate">
+                                @csrf
+                                <input type="text" name="id" value="{{ Auth::guard('student')->user()->id }}"
+                                    class="d-none" />
+                                <div class="row gy-3">
+                                    <div class="col-lg-6">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example2">Student Name</label>
+                                            <input type="text" id="name" name="student_name"
+                                                value="{{ Auth::guard('student')->user()->student_name }}"
+                                                class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example1">Phone Number</label>
+                                            <input type="text" id="phone" name="phone"
+                                                value="{{ Auth::guard('student')->user()->phone }}"
+                                                placeholder="Phone Number" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="email">Student Email</label>
+                                            <input type="text" value="{{ Auth::guard('student')->user()->email }}"
+                                                class="form-control" disabled />
+                                            <input type="text" id="email" name="email"
+                                                value="{{ Auth::guard('student')->user()->email }}" class="d-none" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="address">Student Address</label>
+                                            <input type="text" id="address" name="address"
+                                                value="{{ Auth::guard('student')->user()->address }}" placeholder="Address"
+                                                class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="address">Student Image</label>
+                                            <input type="text" class="d-none" name="old_image"
+                                                value="{{ Auth::guard('student')->user()->image }}" />
+                                            <input type="file" name="image" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="text-center pt-3"><button class="second-btn rounded"
+                                        type="submit">Update</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="card p-5 mt-3">
+                            <div class="pb-4">
+                                <h5 class="heading2 pb-2">Password Change</h5>
+                            </div>
+
+                            <form action="{{ route('student.password.update') }}" method="POST" id="studentprofileupdate">
+                                @csrf
+                                <input type="text" name="id" value="{{ Auth::guard('student')->user()->id }}"
+                                    class="d-none" />
+                                <div class="row gy-3">
+                                    <div class="col-lg-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example2">Old Password</label>
+                                            <input type="password" name="old_password" class="form-control show_passwod_change"
+                                                placeholder="Old Password" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example2">New Password</label>
+                                            <input type="password" name="password" class="form-control show_passwod_change"
+                                                placeholder="New Password" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example2">Confirm New Password</label>
+                                            <input type="password" name="password_confirmation" class="form-control show_passwod_change"
+                                                placeholder="Confrim New Password" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-outline">
+                                            <input type="checkbox" id="showPassChange" class="mt-3"><span class="ps-1">Show
+                                                Password</span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="text-center pt-3"><button class="second-btn rounded"
+                                        type="submit">Update</button>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -106,7 +106,7 @@ class StudentController extends Controller
                 'msg' => "Student Doesnt Exists",
                 'status' => 404
             ], 404);
-        }else{
+        } else {
             if ($request->image) {
                 $arrayRequest = [
                     "student_name" => $request->student_name,
@@ -114,7 +114,7 @@ class StudentController extends Controller
                     "address" => $request->address,
                     "image" => $request->image,
                 ];
-    
+
                 $arrayValidate  = [
                     'student_name' => 'required',
                     'phone' => 'required',
@@ -127,17 +127,17 @@ class StudentController extends Controller
                     "phone" => $request->phone,
                     "address" => $request->address,
                 ];
-    
+
                 $arrayValidate  = [
                     'student_name' => 'required',
                     'phone' => 'required',
                     'address' => 'required',
-    
+
                 ];
             }
-    
+
             $response = Validator::make($arrayRequest, $arrayValidate);
-    
+
             if ($response->fails()) {
                 $msg = '';
                 foreach ($response->getMessageBag()->toArray() as $item) {
@@ -146,10 +146,10 @@ class StudentController extends Controller
                 $arr = array('status' => 400, 'msg' => $msg);
                 return \Response::json($arr);
             }
-    
+
             DB::beginTransaction();
 
-            try{
+            try {
 
                 if ($request->image) {
                     $img = $request->image;
@@ -169,14 +169,12 @@ class StudentController extends Controller
                 $studentRegModel->save();
 
                 DB::commit();
-
-            }catch(\Exception $err){
+            } catch (\Exception $err) {
 
                 DB::rollBack();
                 $studentRegModel = null;
-            
             }
-    
+
             if (is_null($studentRegModel)) {
                 return response()->json([
                     'status' => 500,
@@ -190,7 +188,70 @@ class StudentController extends Controller
                 ]);
             }
         }
+    }
+    function student_password_update(Request $request)
+    {
+        $studentRegModel = StudentRegModel::find($request->id);
 
+        if (is_null($studentRegModel)) {
+            return response()->json([
+                'msg' => "Student Doesnt Exists",
+                'status' => 404
+            ]);
+        } else {
+            if (Hash::check($request->old_password,$studentRegModel->password)) {
+                $arrayRequest = [
+                    "password" => $request->password,
+                    "password_confirmation" => $request->password_confirmation,
+                ];
+
+                $arrayValidate  = [
+                    'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                ];
+                $response = Validator::make($arrayRequest, $arrayValidate);
+
+                if ($response->fails()) {
+                    $msg = '';
+                    foreach ($response->getMessageBag()->toArray() as $item) {
+                        $msg = $item;
+                    };
+                    $arr = array('status' => 400, 'msg' => $msg);
+                    return \Response::json($arr);
+                }
+
+                DB::beginTransaction();
+
+                try {
+
+                    $studentRegModel->password = Hash::make($request->password);
+                    $studentRegModel->save();
+
+                    DB::commit();
+                } catch (\Exception $err) {
+                    DB::rollBack();
+                    $studentRegModel = null;
+                }
+
+                if (is_null($studentRegModel)) {
+                    return response()->json([
+                        'status' => 500,
+                        'msg' => 'Internal Server Error',
+                        'err_msg' => $err->getMessage()
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => 200,
+                        'msg' => 'Password Update Successfylly'
+                    ]);
+                }
+        
+            } else {
+                return response()->json([
+                    'msg' => "Password not Match",
+                    'status' => 404
+                ]);
+            }
+        }
     }
 
     function classroom(Request $request)
@@ -202,7 +263,7 @@ class StudentController extends Controller
             $student_tutorial = Tutorial::where('course_id', $item->course_id)->with('add_course')->get();
         }
         // return $tutorial;
-        return view('student.classroom', compact('student_tutorial','activeCourseDetails'));
+        return view('student.classroom', compact('student_tutorial', 'activeCourseDetails'));
     }
     function my_order(Request $request)
     {
