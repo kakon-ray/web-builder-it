@@ -224,7 +224,8 @@
                 <div id="collapsePages9" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white mb-1 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('dashboard.review.student.manage') }}">Manage Student Review</a>
+                        <a class="collapse-item" href="{{ route('dashboard.review.student.manage') }}">Manage Student
+                            Review</a>
                     </div>
                 </div>
             </li>
@@ -361,7 +362,7 @@
                                                 </div>
                                             </div>
                                             <div>
-                                                <div class="small text-gray-500">December 12, 2019</div>
+                                                <div class="small text-gray-500">{{ $item->created_at }}</div>
                                                 <span class="font-weight-bold">{{ $item->name }}...</span>
                                             </div>
                                         </a>
@@ -395,14 +396,14 @@
                                     @foreach ($services_message as $item)
                                         <a class="dropdown-item d-flex align-items-center"
                                             href="{{ route('admin.services.message') }}">
-                                            <div class="dropdown-list-image mr-3">
-                                                <img class="rounded-circle"
-                                                    src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                                    alt="...">
-                                                <div class="status-indicator bg-success"></div>
+                                            <div class="mr-3">
+                                                <div class="icon-circle bg-primary">
+                                                    <i class="fas fa-file-alt text-white"></i>
+                                                </div>
                                             </div>
                                             <div>
-                                                <div class="small text-gray-500">{{ $item->name }}...</div>
+                                                <div class="small text-gray-500">{{ $item->created_at }}</div>
+                                                <span class="font-weight-bold">{{ $item->name }}...</span>
                                             </div>
                                         </a>
                                     @endforeach
