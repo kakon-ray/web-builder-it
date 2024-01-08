@@ -73,7 +73,8 @@
 
         @include('layouts.footer')
 
-
+        <a type="button" class="scroll-back-top"> <i class="fas fa-arrow-up"></i> </a>
+        
         <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
         <script>
             CKEDITOR.replace('summary-ckeditor');
@@ -119,9 +120,6 @@
 
         <!-- Student Custom js -->
         <script src="{{ asset('js/student_custom.js') }}"></script>
-
-
-
 
 
 

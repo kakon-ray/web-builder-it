@@ -1113,3 +1113,43 @@ height: auto;
   padding: 0px !important;
   margin-top: -20px !important;
 }
+
+
+
+/* =========================== style scroll back top button =================================== */
+
+
+.scroll-back-top {
+  position: fixed;
+  right: 1rem;
+  bottom: -100px;
+  transition: 0.6s;
+  width: 2.75rem;
+  height: 2.75rem;
+  text-align: center;
+  color: #fff;
+  background: var(--main-color);
+  line-height: 46px;
+  z-index: 99;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -ms-transition: 0.6s;
+  -o-transition: 0.6s;
+}
+
+.scroll-back-top:focus, .scroll-back-top:hover {
+  color: white;
+}
+
+.scroll-back-top:hover {
+  background: var(--main-hover-color);
+}
+
+.scroll-back-top i {
+  font-weight: 800;
+}

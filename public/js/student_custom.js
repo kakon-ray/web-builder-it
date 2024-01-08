@@ -432,3 +432,25 @@ $(document).ready(function(){
 
 
 })
+
+
+// Scroll to top button appear
+
+$(document).ready(function () {
+
+  $(document).on('scroll', function () {
+    var scrollDistance = $(this).scrollTop();
+    if (scrollDistance > 100) {
+      $(".scroll-back-top").css({"bottom": "50px"});
+    } else if(scrollDistance < 100){
+      $(".scroll-back-top").css({"bottom": "-100px"});
+    }
+  });
+  
+  // Smooth scrolling using jQuery easing
+  $(document).on('click', 'a.scroll-back-top', function (e) {
+    document.documentElement.scrollTop = 0;
+    e.preventDefault();
+  });
+
+})
