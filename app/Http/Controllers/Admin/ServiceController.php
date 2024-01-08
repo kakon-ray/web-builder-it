@@ -113,7 +113,7 @@ class ServiceController extends Controller
 
     function manage_services(Request $request)
     {
-        $allServices = AddServices::get();
+        $allServices = AddServices::get()->reverse();
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         return view('admin/services/manage_services', ['allServices' => $allServices, 'current_user_data' => $current_user_data]);
     }
