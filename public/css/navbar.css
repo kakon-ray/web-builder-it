@@ -176,6 +176,8 @@
 }
 .dropdown-container {
   background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 15px;
 }
 .dropdown:hover .dropdown-menu {
   display: block;
@@ -186,6 +188,8 @@
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {
   position: absolute;
+  padding-top: 22px;
+  text-transform: capitalize;
 }
 
 .andfood-navbar.is-sticky {
