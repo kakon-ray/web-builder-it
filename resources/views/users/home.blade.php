@@ -42,7 +42,7 @@
             </div>
             <div class="row">
 
-                @foreach ($allCourse->slice(0, 4) as $item)
+                @foreach ($allCourse->slice(0, 6) as $item)
                     @if ($item->status == 1)
                         <div class="col-lg-4 col-12 my-3">
                             <div class="card">
@@ -188,7 +188,7 @@
             </div>
             <div class="row">
 
-                @foreach ($allServices->slice(0, 3) as $item)
+                @foreach ($allServices->slice(0, 6) as $item)
                     <div class="col-lg-4 col-12 my-3">
                         <div class="card">
                             <a href="{{ route('user.services.details', ['id' => $item->id]) }}">

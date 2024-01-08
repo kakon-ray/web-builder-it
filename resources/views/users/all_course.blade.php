@@ -27,7 +27,7 @@
                     </div>
                 @endif
                 @if (isset($allCourse))
-                    @foreach ($allCourse->slice(0, 8) as $item)
+                    @foreach ($allCourse as $item)
                         @if ($item->status == 1)
                             <div class="col-lg-4 col-12 my-3">
                                 <div class="card">

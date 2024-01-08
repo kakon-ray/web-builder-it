@@ -77,6 +77,14 @@ body {
  overflow-x: hidden;
 }
 
+
+/* all card style change */
+.card {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: none;
+}
+
+
 img {
   max-width: 100%;
   height: auto;
@@ -875,6 +883,8 @@ color: var(--main-color);
 .gallery img{
   height: 300px;
   width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 10px;
 }
 
 .forntend-navbar .navbar-nav{
