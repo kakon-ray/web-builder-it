@@ -36,25 +36,36 @@
 }
 
 h1{
-  font-size: 26px;
+  font-size: 30px;
 }
 
 h2{
-  font-size: 23px;
+  font-size: 24px;
 }
 
 h3{
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .course-section .card-title{
-  font-size: 18px;
+  font-size: 20px;
 }
 
 h4{
+  font-size: 18px;
+}
+
+ul li{
   font-size: 14px;
 }
 
+p{
+  font-size: 14px;
+}
+
+.course_details_desc ul li {
+  font-size: 14px;
+}
 
 .heading{
   font-size: 23px;
@@ -64,7 +75,7 @@ h4{
 }
 
 .red-title{
-  font-size: 23px;
+  font-size: 30px;
 }
 .sm-red-title{
   font-size: 23px;
