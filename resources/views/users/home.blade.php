@@ -10,8 +10,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <h5><i class="fas fa-computer me-2"></i> Welcome to Web Builder IT ! </h5>
-                    <h2 class="mt-4 mb-0 pb-0">Learn web development with</h2>
-                    <h1 class="red-title mt-0 pt-0">Experts Developers</h1>
+                    <h2 class="mt-4 mb-0 pb-0">Learn Web Development with</h2>
+                    <h1 class="red-title fw-bold">Experts Developers</h1>
                     <p class="cariar-details"> কোর্স এর শুরু থেকে চাকরি অথবা ফ্রিল্যান্সিং মার্কেটে একজন স্কিলফুল
                         ডেভেলপার না হওয়া পর্যন্ত আমাদের সাপোর্ট পাবেন। </p>
                     <div class="cariar-button">
@@ -44,29 +44,30 @@
 
                 @foreach ($allCourse->slice(0, 6) as $item)
                     @if ($item->status == 1)
-                        <div class="col-lg-4 col-12 my-3">
-                            <div class="card">
-                                <a href="{{ route('user.course.details', ['id' => $item->id]) }}">
-                                    <img src="{{ $item->course_img }}" class="card-img-top p-3" alt="Course">
-                                </a>
+                    <div class="col-lg-4 col-12 my-3">
+                        <div class="card">
+                            <a href="{{ route('user.course.details', ['id' => $item->id]) }}">
+                                <img src="{{ $item->course_img }}" class="card-img-top p-3" alt="Course">
+                            </a>
 
-                                <div class="card-body">
-                                    <h3 class="card-title">{{ $item->course_title }}</h3>
-                                    <div class="review">
-                                        <h5>Course Fee</h5>
-                                        <h5>{{ $item->course_fee }} BDT</h5>
-                                    </div>
-                                    <a href="{{ route('user.course.details', ['id' => $item->id]) }}"
-                                        class="course-item-details-link">View Details</a>
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $item->course_title }}</h3>
+                                <div class="review">
+                                    <h5>Course Fee</h5>
+                                  
+                                    <h5>@if($item->new_course_fee) <del class="text-dark px-3"> {{$item->course_fee}} BDT</del> {{ $item->new_course_fee }} BDT @else {{$item->course_fee}} BDT  @endif </h5>
                                 </div>
+                                <a href="{{ route('user.course.details', ['id' => $item->id]) }}"
+                                    class="course-item-details-link">View Details</a>
                             </div>
                         </div>
+                    </div>
                     @endif
                 @endforeach
 
 
             </div>
-            <div class="row pt-5 mt-4">
+            <div class="row pt-5">
                 <div class="col-lg-2 mx-auto">
                     <a href="{{ route('user.all.course') }}" class="common-btn">All Courses</a>
                 </div>
@@ -81,7 +82,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 my-auto">
-                    <h2 class="mt-4 mb-0 pb-0 heading">অংশ নিন <span class="sm-red-title">ফ্রি সেমিনারে</span></h2>
+                    <h2 class="mt-4 mb-0 pb-0 fw-bold heading2">অংশ নিন <span class="sm-red-title">ফ্রি সেমিনারে</span></h2>
                     <p class="cariar-details py-3">ফ্রিল্যান্সিং-এর জন্য কোন কোর্স করবেন, সিদ্ধান্ত নিতে পারছেন না? জয়েন
                         করুন আমাদের ফ্রি সেমিনারে। বিষয়ভিত্তিক এই সেমিনারগুলোতে প্রতিটি কোর্সের সম্ভাবনা সম্পর্কে জানতে
                         পারবেন। তাছাড়া সেমিনারে উপস্থিত এক্সপার্ট কাউন্সেলরের সঙ্গে কথা বলে আপনি যথাযথ কোর্স বেছে নেওয়ার
@@ -104,7 +105,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-center heading">STUDENTS SUCCESS <span class="sm-red-title"> STORY</span></h2>
+                    <h2 class="fw-bold heading">STUDENTS <span class="sm-red-title">  SUCCESS   STORY</span></h2>
                 </div>
                 <div class="col-lg-12">
                     <div id="owl-demo" class="owl-carousel owl-theme">
@@ -210,7 +211,7 @@
 
 
             </div>
-            <div class="row pt-5 mt-4">
+            <div class="row pt-5">
                 <div class="col-lg-2 mx-auto">
                     <a href="{{ route('user.all.service') }}" class="common-btn">All Services</a>
                 </div>
@@ -226,14 +227,14 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="text-center">
-                        <h2 class="heading"><span class="sm-red-title">Technology</span> Uses</h2>
+                        <h2 class="heading fw-bold"><span class="sm-red-title">Technology</span> Uses</h2>
                     </div>
 
                     <div class="row mt-4">
                         <div class="col-lg-4 my-2">
                             <a href="{{ url('user/services-contact') }}">
                                 <div class="card">
-                                    <div class="d-flex align-items-center gap-4 p-4">
+                                    <div class="d-flex align-items-center gap-2 p-4">
                                         <img src="{{ asset('img/technology use/laravel.png') }}" alt="JavaScript">
                                         <h3>Laravel <br> Frameworks</h3>
                                     </div>
@@ -245,7 +246,7 @@
                         <div class="col-lg-4 my-2">
                             <a href="{{ url('user/services-contact') }}">
                                 <div class="card">
-                                    <div class="d-flex align-items-center gap-4 p-4">
+                                    <div class="d-flex align-items-center gap-2 p-4">
                                         <img src="{{ asset('img/technology use/js.png') }}" alt="JavaScript">
                                         <h3> JavaScript <br> Frameworks</h3>
                                     </div>
@@ -255,7 +256,7 @@
                         <div class="col-lg-4 my-2">
                             <a href="{{ url('user/services-contact') }}">
                                 <div class="card">
-                                    <div class="d-flex align-items-center gap-4 p-4">
+                                    <div class="d-flex align-items-center gap-2 p-4">
                                         <img src="{{ asset('img/technology use/react.png') }}" alt="JavaScript">
                                         <h3>React Js </h3>
                                     </div>
@@ -265,7 +266,7 @@
                         <div class="col-lg-4 my-2">
                             <a href="{{ url('user/services-contact') }}">
                                 <div class="card">
-                                    <div class="d-flex align-items-center gap-4 p-4">
+                                    <div class="d-flex align-items-center gap-2 p-4">
                                         <img src="{{ asset('img/technology use/jqery.png') }}" alt="JavaScript">
                                         <h3>Jquery</h3>
                                     </div>
@@ -275,7 +276,7 @@
                         <div class="col-lg-4 my-2">
                             <a href="{{ url('user/services-contact') }}">
                                 <div class="card">
-                                    <div class="d-flex align-items-center gap-4 p-4">
+                                    <div class="d-flex align-items-center gap-2 p-4">
                                         <img src="{{ asset('img/technology use/node.png') }}" alt="JavaScript">
                                         <h3>NodeJs </h3>
                                     </div>
@@ -285,7 +286,7 @@
                         <div class="col-lg-4 my-2">
                             <a href="{{ url('user/services-contact') }}">
                                 <div class="card">
-                                    <div class="d-flex align-items-center gap-4 p-4">
+                                    <div class="d-flex align-items-center gap-2 p-4">
                                         <img src="{{ asset('img/technology use/express.png') }}" alt="JavaScript">
                                         <h3>Express.js <br> Frameworks</h3>
                                     </div>
@@ -295,7 +296,7 @@
                         <div class="col-lg-4 my-2">
                             <a href="{{ url('user/services-contact') }}">
                                 <div class="card">
-                                    <div class="d-flex align-items-center gap-4 p-4">
+                                    <div class="d-flex align-items-center gap-2 p-4">
                                         <img src="{{ asset('img/technology use/wordpress.png') }}" alt="JavaScript">
                                         <h3>Wordpress <br> Website</h3>
                                     </div>
@@ -305,7 +306,7 @@
                         <div class="col-lg-4 my-2">
                             <a href="{{ url('user/services-contact') }}">
                                 <div class="card">
-                                    <div class="d-flex align-items-center gap-4 p-4">
+                                    <div class="d-flex align-items-center gap-2 p-4">
                                         <img src="{{ asset('img/technology use/wordpress.png') }}" alt="JavaScript">
                                         <h3>Wordpress <br> Development</h3>
                                     </div>
@@ -327,7 +328,7 @@
                     <div class="col-lg-10 mx-auto">
                         <div class="row g-4">
                             <div class="col-lg-12 text-center">
-                                <h2 class="text-center heading">Gallery</h2>
+                                <h2 class="text-center heading fw-bold">Gallery</h2>
                             </div>
 
                             @foreach ($gallery_image->slice(0, 6) as $item)
@@ -351,7 +352,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-center heading">Our Happy <span class="sm-red-title">Clients Review</span></h2>
+                    <h2 class="text-center heading fw-bold">Our Happy <span class="sm-red-title">Clients Review</span></h2>
                 </div>
                 <div class="col-lg-12">
                     <div id="owl-demo" class="owl-carousel owl-theme">
@@ -409,12 +410,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center pb-4">
-                    <h2 class="text-center heading">Our Letest <span class="sm-red-title">Blog</span></h2>
+                    <h2 class="fw-bold heading">Our Letest <span class="sm-red-title">Blog</span></h2>
                 </div>
                 @foreach ($blog as $item)
                     <div class="col-lg-4">
                         <div class="blog-card">
-                            <a class="blog-button">
+                            <a href="{{ route('user.blog.details', $item->id) }}">
                                 <img src="{{ $item->image }}" alt="Blog Image">
                             </a>
 

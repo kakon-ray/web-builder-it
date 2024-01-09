@@ -185,7 +185,7 @@
 
                                </select>
                                <input type="text" required class="input-search" name="item"
-                                   placeholder="Search here" />
+                                   placeholder="Search here Courses and Services" />
                                <button><i class="fas fa-search"></i></button>
                            </form>
                        </div>
