@@ -691,6 +691,9 @@ h2 {
 .course-section p {
   font-size: 13px;
 }
+.course-section .card-title{
+  font-size: 20px;
+}
 
 .btn-danger {
   border-radius: 25px 2px !important;
