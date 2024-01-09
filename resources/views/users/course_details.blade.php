@@ -20,7 +20,7 @@
                             <h3 class="fw-bold">24 Hour Support</h3>
                         </div>
                         <div class="card text-center p-4">
-                            <h3 class="fw-bold"> {{ $course_details->projects }} + Professional Project</h3>
+                            <h3 class="fw-bold"> {{ $course_details->projects }}  Projects</h3>
                         </div>
                     </div>
                     <div class="course_details_desc">
@@ -80,9 +80,9 @@
                                     </form>
                                 @else
                                     <a type="button" href="{{ route('student.login') }}" class="btn-two">Admission</a>
+                                    
                                 @endif
-
-
+                                <a type="button" href="tel:+8801707500512" class="btn-two">Contact: +8801707500512</a>
 
                             </div>
                         </div>

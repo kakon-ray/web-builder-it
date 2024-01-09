@@ -6,8 +6,8 @@
 @section('content')
     <div class="container py-4">
         <div class="row">
-            <div class="col-lg-12 pb-3">
-                <h2 class="text-center ">My<span class="sm-red-title"> Course</span></h2>
+            <div class="col-lg-12 pb-3 text-center">
+                <h2 class="heading fw-bold">My<span class="sm-red-title"> Course</span></h2>
             </div>
         </div>
         <div class="row">

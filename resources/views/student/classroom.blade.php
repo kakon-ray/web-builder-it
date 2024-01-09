@@ -9,7 +9,7 @@
         <div class="container table-responsive">
             <div class="row">
                 <div class="col-lg-12 text-center pt-3">
-                    <h2 class="heading"><span class="sm-red-title">{{$activeCourseDetails->add_course->course_title}}</span> Tutorial</h2>
+                    <h2 class="heading2 fw-bold"><span class="sm-red-title">{{$activeCourseDetails->add_course->course_title}}</span> Tutorial</h2>
                 </div>
                 <div class="col-lg-12 pt-3">
                   

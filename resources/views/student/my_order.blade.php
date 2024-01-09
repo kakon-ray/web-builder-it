@@ -9,7 +9,7 @@
 
             <div class="row">
                 <div class="col-lg-12 pt-3 pb-3 text-center">
-                    <h2 class="text-center heading">My<span class="sm-red-title"> Order</span></h2>
+                    <h2 class="fw-bold heading">My<span class="sm-red-title"> Order</span></h2>
                 </div>
                 <div class="col-lg-12 table-responsive">
                     <table id="VisitorDt" class="table table-striped dataTable" cellspacing="0" width="100%">

@@ -237,8 +237,8 @@ section {
   color: var(--main-color);
   font-weight: 600;
   padding: 9px;
-  /* transform: skewX(-20deg); */
-  display: block;
+  /*transform: skewX(-20deg);
+  */display: block;
   text-align: center;
   transition: .5s;
   -webkit-transition: .5s;
@@ -317,7 +317,7 @@ section {
 
 .second-btn {
   border: 1px solid var(--main-color);
-  border-radius: 0px;
+  border-radius: 3px;
   background: var(--main-color);
   font-size: 18px;
   text-transform: capitalize;
@@ -329,6 +329,10 @@ section {
   display: block;
   text-align: center;
   transition: .5s;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
 .second-btn:hover {
@@ -359,7 +363,7 @@ section {
 .btn-two {
   border: 1px solid var(--main-color);
   width: 100%;
-  border-radius: 0px;
+  border-radius: 3px;
   background: var(--main-color);
   font-size: 18px;
   text-transform: capitalize;
@@ -375,10 +379,10 @@ section {
   -moz-transition: .5s;
   -ms-transition: .5s;
   -o-transition: .5s;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  -o-border-radius: 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
 .btn-two:hover {
@@ -389,7 +393,7 @@ section {
 .btn-three {
   border: 1px solid var(--main-color);
   width: 100%;
-  border-radius: 0px;
+  border-radius: 3px;
   background: var(--white-color);
   font-size: 18px;
   text-transform: capitalize;
@@ -404,10 +408,10 @@ section {
   -moz-transition: .5s;
   -ms-transition: .5s;
   -o-transition: .5s;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  -o-border-radius: 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
 .btn-three:hover {
@@ -1035,7 +1039,6 @@ h2 {
 .heading2 {
   display: inline-block;
   position: relative;
-  margin-bottom: 30px;
   cursor: pointer;
   text-transform: uppercase;
 }
