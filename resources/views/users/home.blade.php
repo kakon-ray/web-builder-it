@@ -32,7 +32,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-10 mx-auto">
-                    <div class="text-center mb-5">
+                    <div class="text-center mb-4">
                         <h2 class="fw-bold heading">OUR <span class="sm-red-title">COURSES</span></h2>
                         <h6 class="pt-2">অভিজ্ঞ মেন্টর আর আপডেটেড কোর্স নিয়ে ওয়েব বিল্ডার আইটি প্রস্তুত আপনার
                             ক্যারিয়ার গড়ার
@@ -66,7 +66,7 @@
 
 
             </div>
-            <div class="row pt-5 mt-5">
+            <div class="row pt-5 mt-4">
                 <div class="col-lg-2 mx-auto">
                     <a href="{{ route('user.all.course') }}" class="common-btn">All Courses</a>
                 </div>
@@ -100,7 +100,7 @@
     </section>
 
     {{-- Student review section --}}
-    <section class="our-portfolio">
+    <section class="our-portfolio my-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -165,7 +165,7 @@
                     <h2 class="pt-3">Ready to start your dream project?</h2>
                     <p>We Have Made it Easy for Clients to Reach Us and Get Their <br>Solutions Weaved.</p>
                 </div>
-                <div class="col-lg-4 d-flex align-items-center">
+                <div class="col-lg-4 d-flex align-items-center mt-4">
                     <a href="{{ route('user.services.contact') }}" class="theme-btn-cta">Request A Free Consultation</a>
                 </div>
             </div>
@@ -180,7 +180,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-10 mx-auto">
-                    <div class="text-center mb-5">
+                    <div class="text-center mb-4">
                         <h2 class="fw-bold heading">OUR <span class="sm-red-title">SERVICES</span></h2>
 
                     </div>
@@ -210,7 +210,7 @@
 
 
             </div>
-            <div class="row pt-5 mt-5">
+            <div class="row pt-5 mt-4">
                 <div class="col-lg-2 mx-auto">
                     <a href="{{ route('user.all.service') }}" class="common-btn">All Services</a>
                 </div>
@@ -229,7 +229,7 @@
                         <h2 class="heading"><span class="sm-red-title">Technology</span> Uses</h2>
                     </div>
 
-                    <div class="row mt-5">
+                    <div class="row mt-4">
                         <div class="col-lg-4 my-2">
                             <a href="{{ url('user/services-contact') }}">
                                 <div class="card">
@@ -408,7 +408,7 @@
     <section class="our-blog">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center pb-4">
                     <h2 class="text-center heading">Our Letest <span class="sm-red-title">Blog</span></h2>
                 </div>
                 @foreach ($blog as $item)
