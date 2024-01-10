@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h5><i class="fas fa-computer me-2"></i> Welcome to Web Builder IT ! </h5>
+                    <h5><i class="fas fa-computer me-2"></i> ওয়েব ডেভেলপমেন্ট শেখার জন্য বাংলাদেশের সেরা আইটি ইনস্টিটিউট ! </h5>
                     <h2 class="pt-4">Learn Web Development with</h2>
                     <h1 class="red-title fw-bold pb-3">Experts Developers</h1>
                     <p class="cariar-details"> কোর্স এর শুরু থেকে চাকরি অথবা ফ্রিল্যান্সিং মার্কেটে একজন স্কিলফুল

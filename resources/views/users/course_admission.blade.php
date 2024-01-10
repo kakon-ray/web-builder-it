@@ -43,15 +43,13 @@
                                     aria-label="Default select example">
                                     <option selected>Open this select menu</option>
                                     <option value="Web Design">Web Design</option>
-                                    <option value="Web Development">Web Development</option>
-                                    <option value="Web Development">Wordpress</option>
-                                    <option value="UI/UX Deisgn">UI/UX Deisgn</option>
-                                    <option value="Grapic Design">Grapic Design</option>
-                                    <option value="Grapic Design">SEO</option>
-                                    <option value="Digital Marketing">Digital Marketing</option>
-                                    <option value="Facebook Marketing">Facebook Marketing</option>
-                                    <option value="Youtube Marketing">Youtube Marketing</option>
-
+                                    <option value="Back-End Web Development By Laravel">Back-End Web Development By Laravel</option>
+                                    <option value="Full Stack Web Development By Laravel">Full Stack Web Development By Laravel</option>
+                                    <option value="Front-End Web Development By React JS">Front-End Web Development By React JS</option>
+                                    <option value="React + Laravel Full Stack Web Development">React + Laravel Full Stack Web Development</option>
+                                    <option value="Freelancing Master Course">Freelancing Master Course</option>
+                                    <option value="Job Success Course">Job Success Course</option>
+        
                                 </select>
                             </div>
 
