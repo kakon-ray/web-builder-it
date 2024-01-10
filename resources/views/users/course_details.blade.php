@@ -9,7 +9,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <h5 class="pb-3"><i class="fas fa-book-open me-2"></i>Best IT Institute and Software Firm in Bangladesh</h5>
+                    <h5 class="pb-3"><i class="fas fa-book-open me-2"></i>Best IT Institute and Software Firm in Bangladesh
+                    </h5>
                     <h2 class="mt-4 mb-0 pb-0">{{ $course_details->course_title }}</h2>
 
                     <div class="d-flex flex-wrap gap-3 my-5">
@@ -19,9 +20,12 @@
                         <div class="card text-center p-4">
                             <h3 class="fw-bold">24 Hour Support</h3>
                         </div>
-                        <div class="card text-center p-4">
-                            <h3 class="fw-bold"> {{ $course_details->projects }}  Projects</h3>
-                        </div>
+                        @if ($course_details->projects > 0)
+                            <div class="card text-center p-4">
+                                <h3 class="fw-bold"> {{ $course_details->projects }} Projects</h3>
+                            </div>
+                        @endif
+
                     </div>
                     <div class="course_details_desc">
                         @php
@@ -48,10 +52,13 @@
 
                                     </div>
                                     <ul>
-                                        <li>
-                                            <i class="fas fa-user"></i>
-                                            <strong>Instructor</strong> <span>{{ $course_details->instructor }}</span>
-                                        </li>
+                                        @if (isset($course_details->instructor))
+                                            <li>
+                                                <i class="fas fa-user"></i>
+                                                <strong>Instructor</strong> <span>{{ $course_details->instructor }}</span>
+                                            </li>
+                                        @endif
+
                                         <li>
                                             <i class="far fa-clock"></i>
                                             <strong>Duration</strong> <span>{{ $course_details->duration }} Month</span>
@@ -80,7 +87,6 @@
                                     </form>
                                 @else
                                     <a type="button" href="{{ route('student.login') }}" class="btn-two">Admission</a>
-                                    
                                 @endif
                                 <a type="button" href="tel:+8801707500512" class="btn-two">Contact: +8801707500512</a>
 
@@ -123,14 +129,12 @@
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
-                                      
                                         @elseif($item->review_star == 3)
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
-                                      
                                         @elseif($item->review_star < 3)
                                             <i class="fa fa-star active" aria-hidden="true"></i>
                                             <i class="fa fa-star active" aria-hidden="true"></i>
