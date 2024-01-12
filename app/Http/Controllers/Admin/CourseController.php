@@ -151,7 +151,7 @@ class CourseController extends Controller
 
     function manage_course(Request $request)
     {
-        $allCourse = AddCourse::get()->reverse();
+        $allCourse = AddCourse::get();
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         return view('admin/course/manage_course', ['allCourse' => $allCourse, 'current_user_data' => $current_user_data]);
     }

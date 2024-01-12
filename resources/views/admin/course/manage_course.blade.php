@@ -15,9 +15,10 @@
             <table id="VisitorDt" class="table table-bordered dataTable" cellspacing="0" width="100%">
                 <thead class="table-dark">
                     <tr>
-                        <th class="th-sm text-center">Course Title</th>
-                        <th class="th-sm text-center">Course Fee</th>
-                        <th class="th-sm text-center">Course Image</th>
+                        <th class="th-sm text-center">ID</th>
+                        <th class="th-sm text-center">Title</th>
+                        <th class="th-sm text-center">Pement</th>
+                        <th class="th-sm text-center">Image</th>
                         <th class="th-sm text-center">Status</th>
                         <th class="th-sm text-center">Action</th>
                     </tr>
@@ -25,6 +26,7 @@
                 <tbody>
                     @foreach ($allCourse as $item)
                         <tr>
+                            <td class="th-sm text-center">{{ $item->id }}</td>
                             <td class="th-sm text-center">{{ $item->course_title }}</td>
                             <td class="th-sm text-center">{{ $item->course_fee }}</td>
                             <td class="th-sm text-center">

@@ -16,8 +16,9 @@
                 <table id="VisitorDt" class="table table-bordered dataTable" cellspacing="0" width="100%">
                     <thead class="table-dark ">
                         <tr>
-                            <th class="th-sm text-center">Course Title</th>
-                            <th class="th-sm text-center">Course Image</th>
+                            <th class="th-sm text-center">ID</th>
+                            <th class="th-sm text-center">Title</th>
+                            <th class="th-sm text-center">Image</th>
                             <th class="th-sm text-center">Action</th>
 
                         </tr>
@@ -25,6 +26,7 @@
                     <tbody>
                         @foreach ($allServices as $item)
                             <tr class="text-center">
+                                <td class="th-sm ">{{ $item->id }}</td>
                                 <td class="th-sm ">{{ $item->services_title }}</td>
                                 <td class="th-sm ">
                                     <img src="{{ $item->services_img }}" style="height:50px" alt="Course Image">
