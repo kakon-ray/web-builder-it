@@ -44,17 +44,22 @@
                         </div>
                     </div>
                     <div class="row py-4">
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
+                            <label>Batch</label>
+                            <input required class="form-control" name="batch" type="number"
+                                value="{{ $course_details->batch }}">
+                        </div>
+                        <div class="col-lg-3">
                             <label>Course Duration</label>
                             <input required type="number" max="6" class="form-control" name="duration"
                                 value="{{ $course_details->duration }}">
                         </div>
-                        <div class="col-lg-4">
-                            <span>Total Lectures</span>
+                        <div class="col-lg-3">
+                            <label>Total Lectures</label>
                             <input name="lectures" type="number" value="{{ $course_details->lectures }}"
                                 class="form-control">
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
 
                             <label class="form-label">Language</label>
                             <select class="form-control rounded-0" name="language">

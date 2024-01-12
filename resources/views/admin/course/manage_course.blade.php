@@ -16,6 +16,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th class="th-sm text-center">ID</th>
+                        <th class="th-sm text-center">Batch</th>
                         <th class="th-sm text-center">Title</th>
                         <th class="th-sm text-center">Pement</th>
                         <th class="th-sm text-center">Image</th>
@@ -27,6 +28,7 @@
                     @foreach ($allCourse as $item)
                         <tr>
                             <td class="th-sm text-center">{{ $item->id }}</td>
+                            <td class="th-sm text-center">Batch-{{ $item->batch }}</td>
                             <td class="th-sm text-center">{{ $item->course_title }}</td>
                             <td class="th-sm text-center">{{ $item->course_fee }}</td>
                             <td class="th-sm text-center">

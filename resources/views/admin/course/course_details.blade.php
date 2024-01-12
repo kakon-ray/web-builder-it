@@ -16,83 +16,86 @@
         }
     </style>
 
- 
-        <div class="container-fluid">
-            <div class="card p-3 table-responsive">
-                <div class="card-title text-center">
-                    <h3>Admission Student Details</h3>
-                </div>
-                <table id="VisitorDt" class="table table-bordered dataTable
+
+    <div class="container-fluid">
+        <div class="card p-3 table-responsive">
+            <div class="card-title text-center">
+                <h3>Admission Student Details</h3>
+            </div>
+            <table id="VisitorDt" class="table table-bordered dataTable
           cellspacing="0" width="100%">
 
-                    <tbody>
+                <tbody>
 
-                        <tr>
-                            <td class="th-sm ">Course Title</td>
-                            <td class="th-sm ">{{ $course_details->course_title }}</td>
-                        </tr>
+                    <tr>
+                        <td class="th-sm ">Batch Name</td>
+                        <td class="th-sm "> Batch {{ $course_details->batch }}</td>
+                    </tr>
+                    <tr>
+                        <td class="th-sm ">Course Title</td>
+                        <td class="th-sm ">{{ $course_details->course_title }}</td>
+                    </tr>
 
-                        <tr>
-                      
-                            <td class="th-sm ">Instructor Name</td>
-                            <td class="th-sm ">{{ $course_details->instructor }}</td>
-                        </tr>
-                        <tr>
-                      
-                            <td class="th-sm ">Course Duration</td>
-                            <td class="th-sm ">{{ $course_details->duration }}</td>
-                        </tr>
+                    <tr>
 
-                        <tr>
-                            <td class="th-sm ">Total Lectures</td>
-                            <td class="th-sm ">{{ $course_details->lectures }}</td>
-                        </tr>
+                        <td class="th-sm ">Instructor Name</td>
+                        <td class="th-sm ">{{ $course_details->instructor }}</td>
+                    </tr>
+                    <tr>
 
-                        <tr>
-                            <td class="th-sm ">Language</td>
-                            <td class="th-sm ">{{ $course_details->language }}</td>
-                        </tr>
+                        <td class="th-sm ">Course Duration</td>
+                        <td class="th-sm ">{{ $course_details->duration }}</td>
+                    </tr>
 
-                        <tr>
-                            <td class="th-sm ">Projects</td>
-                            <td class="th-sm ">{{ $course_details->projects }}</td>
-                        </tr>
+                    <tr>
+                        <td class="th-sm ">Total Lectures</td>
+                        <td class="th-sm ">{{ $course_details->lectures }}</td>
+                    </tr>
 
-                        <tr>
-                            <td class="th-sm ">Course Fee</td>
-                            <td class="th-sm ">{{ $course_details->course_fee }}</td>
-                        </tr>
-                        <tr>
-                            <td class="th-sm ">New Course Fee</td>
-                            <td class="th-sm ">{{ $course_details->new_course_fee }}</td>
-                        </tr>
+                    <tr>
+                        <td class="th-sm ">Language</td>
+                        <td class="th-sm ">{{ $course_details->language }}</td>
+                    </tr>
 
-                        <tr>
-                            <td class="th-sm ">Course Image</td>
-                            <td class="th-sm "><img src="{{ $course_details->course_img }}" style="height:100px"
+                    <tr>
+                        <td class="th-sm ">Projects</td>
+                        <td class="th-sm ">{{ $course_details->projects }}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="th-sm ">Course Fee</td>
+                        <td class="th-sm ">{{ $course_details->course_fee }}</td>
+                    </tr>
+                    <tr>
+                        <td class="th-sm ">New Course Fee</td>
+                        <td class="th-sm ">{{ $course_details->new_course_fee }}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="th-sm ">Course Image</td>
+                        <td class="th-sm "><img src="{{ $course_details->course_img }}" style="height:100px"
                                 class="img-fluid" alt=""></td>
-                        </tr>
-                        <tr>
-                            <td class="th-sm ">desc</td>
-                            <td class="th-sm ">
-                                @php
-                                    echo $course_details->desc
-                                @endphp
-                            </td>
-                        </tr>
+                    </tr>
+                    <tr>
+                        <td class="th-sm ">desc</td>
+                        <td class="th-sm ">
+                            @php
+                                echo $course_details->desc;
+                            @endphp
+                        </td>
+                    </tr>
 
 
-                    </tbody>
+                </tbody>
 
 
 
-                </table>
-            </div>
-
-
+            </table>
         </div>
+
+
+    </div>
 
 
 
 @endsection()
-

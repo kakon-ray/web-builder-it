@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('add_courses', function (Blueprint $table) {
             $table->id();
+            $table->string('batch')->nullable();
             $table->string('course_title')->nullable();
             $table->string('instructor')->nullable();
             $table->string('duration')->nullable();

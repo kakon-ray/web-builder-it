@@ -36,17 +36,21 @@
                         </div>
                     </div>
                     <div class="row py-4">
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
+                            <label>Batch Name</label>
+                            <input required type="number"  class="form-control" name="batch"
+                                placeholder="1">
+                        </div>
+                        <div class="col-lg-3">
                             <label>Course Duration</label>
                             <input required type="number" max="6" class="form-control" name="duration"
-                                placeholder="Course Duration">
+                                placeholder="6">
                         </div>
-                        <div class="col-lg-4">
-                            <span>Total Lectures</span>
-                            <input name="lectures" type="number" placeholder="Total Lectures" class="form-control">
+                        <div class="col-lg-3">
+                            <label>Total Lectures</label>
+                            <input required class="form-control" name="lectures"  type="number" placeholder="36">
                         </div>
-                        <div class="col-lg-4">
-
+                        <div class="col-lg-3">
                             <label class="form-label">Language</label>
                             <select class="form-control rounded-0" name="language">
                                 <option value="Bangla" selected>Bangla</option>

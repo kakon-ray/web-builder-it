@@ -53,6 +53,7 @@ class CourseController extends Controller
     {
 
         $arrayRequest = [
+            "batch" => $request->batch,
             "course_title" => $request->course_title,
             "duration" => $request->duration,
             "lectures" => $request->lectures,
@@ -64,6 +65,7 @@ class CourseController extends Controller
         ];
 
         $arrayValidate  = [
+            'batch' => 'required',
             'course_title' => 'required',
             'duration' => ['required', 'integer'],
             'lectures' => 'required',
@@ -99,6 +101,7 @@ class CourseController extends Controller
                 $course_img = "http://" . $host . "/storage/course_img/" . $course_img;
 
                 $addCourse = AddCourse::create([
+                    'batch' => $request->batch,
                     'course_title' => $request->course_title,
                     'instructor' => $request->instructor,
                     'duration' => $request->duration,
@@ -198,6 +201,7 @@ class CourseController extends Controller
         }else{
             if($request->course_img){
                 $arrayRequest = [
+                    "batch" => $request->batch,
                     "course_title" => $request->course_title,
                     "duration" => $request->duration,
                     "lectures" => $request->lectures,
@@ -209,6 +213,7 @@ class CourseController extends Controller
                 ];
         
                 $arrayValidate  = [
+                    'batch' => 'required',
                     'course_title' => 'required',
                     'duration' => ['required', 'integer'],
                     'lectures' => 'required',
@@ -221,6 +226,7 @@ class CourseController extends Controller
                 ];
             }else{
                 $arrayRequest = [
+                    "batch" => $request->batch,
                     "course_title" => $request->course_title,
                     "duration" => $request->duration,
                     "lectures" => $request->lectures,
@@ -231,6 +237,7 @@ class CourseController extends Controller
                 ];
         
                 $arrayValidate  = [
+                    'batch' => 'required',
                     'course_title' => 'required',
                     'duration' => ['required', 'integer'],
                     'lectures' => 'required',
@@ -270,6 +277,7 @@ class CourseController extends Controller
                     }
 
 
+                    $addCourse->batch = $request->batch;
                     $addCourse->course_title = $request->course_title;
                     $addCourse->instructor = $request->instructor;
                     $addCourse->duration = $request->duration;

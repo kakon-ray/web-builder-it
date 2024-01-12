@@ -10,6 +10,7 @@ class AddCourse extends Model
     use HasFactory;
 
     protected $fillable = [
+        'batch',
         'course_title',
         'instructor',
         'duration',
