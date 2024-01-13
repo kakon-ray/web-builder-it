@@ -31,7 +31,7 @@ class UserController extends Controller
 
     function home()
     {
-        $allCourse = AddCourse::get()->reverse();
+        $allCourse = AddCourse::where('status',true)->get()->reverse();
         $allServices = AddServices::get()->reverse();
         $allClientReview = ClientReview::get()->reverse();
         $gallery_image = GalleryModel::get()->reverse();

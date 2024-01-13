@@ -27,7 +27,7 @@
                         <div class="footer-link-area">
                             @php
 
-                                $allCourse = DB::table('add_courses')
+                                $allCourse = DB::table('add_courses')->where('status',true)
                                     ->get()
                                     ->reverse();
                                 $allServices = DB::table('add_services')

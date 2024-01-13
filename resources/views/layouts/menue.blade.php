@@ -49,7 +49,7 @@
 
                            @php
 
-                               $allCourse = DB::table('add_courses')->get()->reverse();
+                               $allCourse = DB::table('add_courses')->where('status',true)->get()->reverse();
                                $allServices = DB::table('add_services')->get()->reverse();
 
                            @endphp
