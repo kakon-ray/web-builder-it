@@ -57,7 +57,7 @@
                            <li class="nav-item position-relative" id="flip">
                                <div id="dropdown-container">
                                    <a class="nav-link navbar-item d-flex align-items-center" href="#">
-                                       All Courses <i class="fas fa-chevron-down ms-2"></i>
+                                       Our Courses <i class="fas fa-chevron-down ms-2"></i>
                                    </a>
                                    <div class="dropdown-menu" id="panel">
                                        <ul class="dropdown-container">
@@ -79,7 +79,7 @@
                            <li class="nav-item position-relative" id="flip2">
                                <div id="dropdown-container2">
                                    <a class="nav-link navbar-item d-flex align-items-center" href="#">
-                                       All Services<i class="fas fa-chevron-down ms-2"></i>
+                                    Our Services<i class="fas fa-chevron-down ms-2"></i>
                                    </a>
                                    <div class="dropdown-menu" id="panel2">
                                        <ul class="dropdown-container">
