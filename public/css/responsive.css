@@ -3,6 +3,25 @@
   /*Set your own width %; */
 }
 
+/* small device */
+@media only screen and (max-width: 280px) {
+.nav-responsive {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+}
+
+/* small device */
+@media only screen and (max-width: 360px) {
+.nav-responsive {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+}
 
 /* small device */
 @media only screen and (max-width: 372px) {
