@@ -36,6 +36,9 @@ use Illuminate\Support\Str;
 // login with google
 use Laravel\Socialite\Facades\Socialite;
 
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
+
 class StudentController extends Controller
 {
 
@@ -151,12 +154,18 @@ class StudentController extends Controller
 
             try {
 
+
+                $slug = Str::slug($request->student_name, '-');
+
                 if ($request->image) {
-                    $img = $request->image;
-                    $image =  $img->store('/public/student_image');
-                    $image = (explode('/', $image))[2];
+                    $file = $request->file('image');
+                    $filename = $slug . '.' . $file->getClientOriginalExtension();
+
+                    $img = Image::make($file);
+                    $img->resize(500, 500)->save(public_path('uploads/' . $filename));
+
                     $host = $_SERVER['HTTP_HOST'];
-                    $image = "http://" . $host . "/storage/student_image/" . $image;
+                    $image = "http://" . $host . "/uploads/" . $filename;
                 } else {
                     $image = $request->old_image;
                 }
@@ -199,7 +208,7 @@ class StudentController extends Controller
                 'status' => 404
             ]);
         } else {
-            if (Hash::check($request->old_password,$studentRegModel->password)) {
+            if (Hash::check($request->old_password, $studentRegModel->password)) {
                 $arrayRequest = [
                     "password" => $request->password,
                     "password_confirmation" => $request->password_confirmation,
@@ -244,7 +253,6 @@ class StudentController extends Controller
                         'msg' => 'Password Update Successfylly'
                     ]);
                 }
-        
             } else {
                 return response()->json([
                     'msg' => "Password not Match",
