@@ -7,30 +7,18 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 // course admission and service admission
-use App\Models\CourseModel;
 use App\Models\ServicesModel;
 
 // home page course and service
-use App\Models\AddCourse;
 use App\Models\AddServices;
-
 use App\Models\User;
-use App\Models\StudentRegModel;
-use App\Models\SeminerModel;
-use App\Models\GalleryModel;
-use App\Models\ActiveCourse;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Cookie;
+use DB;
 use Illuminate\Support\Facades\Auth;
-use App\Views\Components\header;
-use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Validator;
-
-// password reset to import
-use Mail;
-use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 use Illuminate\Support\Str;
+
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class ServiceController extends Controller
 {
@@ -44,7 +32,7 @@ class ServiceController extends Controller
 
         $arrayValidate  = [
             'services_title' => 'required',
-            'services_img' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'services_img' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'description' => 'required',
         ];
 
@@ -60,11 +48,19 @@ class ServiceController extends Controller
         }
 
 
-        $img = $request->services_img;
-        $services_img =  $img->store('/public/services_img');
-        $services_img = (explode('/', $services_img))[2];
-        $host = $_SERVER['HTTP_HOST'];
-        $services_img = "http://" . $host . "/storage/services_img/" . $services_img;
+        // single thumbnil image upload
+        $slug = Str::slug($request->services_title, '-');
+
+        if ($request->services_img) {
+            $file = $request->file('services_img');
+            $filename = $slug . '-' . 'services' . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+
+            $img = Image::make($file);
+            $img->resize(500, 300)->save(public_path('uploads/' . $filename));
+
+            $host = $_SERVER['HTTP_HOST'];
+            $services_img = "http://" . $host . "/uploads/" . $filename;
+        }
 
         // insert data to AddCourse Model
 
@@ -120,16 +116,46 @@ class ServiceController extends Controller
 
     function delete_services(Request $request)
     {
-        $id = $request->input('id');
 
-        $responce = AddServices::where('id', $id)->delete();
+        $addServices = AddServices::find($request->id);
 
-        if ($responce == 1) {
-            $arr = ['status' => 200, 'msg' => "Deleted Services Item"];
-            return \Response::json($arr);
+        if (is_null($addServices)) {
+
+            return response()->json([
+                'msg' => "Do not Find any Services Item",
+                'status' => 404
+            ], 404);
         } else {
-            $arr = ['status' => 500, 'msg' => "Delete Services Item Faild"];
-            return \Response::json($arr);
+
+            DB::beginTransaction();
+
+            try {
+                $pathinfo = pathinfo($addServices->services_img);
+                $filename = $pathinfo['basename'];
+                $image_path = public_path("/uploads/") . $filename;
+
+                if (File::exists($image_path)) {
+                    File::delete($image_path);
+                }
+
+
+                $addServices->delete();
+                DB::commit();
+
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Delete This Services',
+                ], 200);
+            } catch (\Exception $err) {
+
+                DB::rollBack();
+
+                return response()->json([
+                    'msg' => "Internal Server Error",
+                    'status' => 500,
+                    'err_msg' => $err->getMessage()
+                ], 500);
+            }
         }
     }
 
@@ -144,60 +170,103 @@ class ServiceController extends Controller
     function edit_services_submit(Request $request)
     {
 
-        $arrayRequest = [
-            "services_title" => $request->services_title,
-            "description" => $request->description,
-        ];
+        $addServices = AddServices::find($request->id);
 
-        $arrayValidate  = [
-            'services_title' => 'required',
-            'description' => 'required',
-        ];
-        $response = Validator::make($arrayRequest, $arrayValidate);
+        if (is_null($addServices)) {
+            return response()->json([
+                'msg' => "Service Item dosen't exists",
+                'status' => 404
+            ], 404);
+        } else {
+            if($request->services_img){
+                $arrayRequest = [
+                    "services_title" => $request->services_title,
+                    "description" => $request->description,
+                    "services_img" => $request->services_img,
+                ];
+    
+                $arrayValidate  = [
+                    'services_title' => 'required',
+                    'description' => 'required',
+                    'services_img' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+                ];
+            }else{
+                $arrayRequest = [
+                    "services_title" => $request->services_title,
+                    "description" => $request->description,
+                ];
+    
+                $arrayValidate  = [
+                    'services_title' => 'required',
+                    'description' => 'required',
+                ];
+            }
+          
+            $response = Validator::make($arrayRequest, $arrayValidate);
 
-        if ($response->fails()) {
-            $msg = '';
-            foreach ($response->getMessageBag()->toArray() as $item) {
-                $msg = $item;
-            };
-            $arr = array('status' => 400, 'msg' => $msg);
-            return \Response::json($arr);
-        }
+            if ($response->fails()) {
+                $msg = '';
+                foreach ($response->getMessageBag()->toArray() as $item) {
+                    $msg = $item;
+                };
+                $arr = array('status' => 400, 'msg' => $msg);
+                return \Response::json($arr);
+            } else {
+                DB::beginTransaction();
+
+                try {
+
+                    // single thumbnil image upload
+                    $slug = Str::slug($request->services_title, '-');
+
+                    if ($request->services_img) {
+
+                        $pathinfo = pathinfo($addServices->services_img);
+                        $filename = $pathinfo['basename'];
+                        $image_path = public_path("/uploads/") . $filename;
+
+                        if (File::exists($image_path)) {
+                            File::delete($image_path);
+                        }
 
 
-        // insert data to AddCourse Model
+                        $file = $request->file('services_img');
+                        $filename = $slug . '-' . 'services' . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
 
-        if ($request->services_img_link) {
-            $addServices = AddServices::find($request->id);
-            $addServices->services_title = $request->services_title;
-            $addServices->desc = $request->description;
-            $addServices->services_img = $request->services_img_link;
+                        $img = Image::make($file);
+                        $img->resize(500, 300)->save(public_path('uploads/' . $filename));
 
-            $responce = $addServices->save();
-        }
+                        $host = $_SERVER['HTTP_HOST'];
+                        $services_img = "http://" . $host . "/uploads/" . $filename;
+                    } else {
+                        $services_img = $request->old_image;
+                    }
 
-        $img = $request->services_img;
-        if ($img) {
-            $services_img =  $img->store('/public/services_img');
-            $services_img = (explode('/', $services_img))[2];
-            $host = $_SERVER['HTTP_HOST'];
-            $services_img = "http://" . $host . "/storage/services_img/" . $services_img;
+                    $addServices->services_title = $request->services_title;
+                    $addServices->desc = $request->description;
+                    $addServices->services_img = $services_img;
 
+                    $addServices->save();
 
-            $addServices = AddServices::find($request->id);
-            $addServices->services_title = $request->services_title;
-            $addServices->desc = $request->description;
-            $addServices->services_img = $services_img;
+                    DB::commit();
+                } catch (\Exception $err) {
+                    DB::rollBack();
+                    $addServices = null;
+                }
 
-            $responce = $addServices->save();
-        }
-
-
-
-
-        if ($responce == 1) {
-            $arr = array('status' => 200, 'msg' => 'Course Edit Successfully');
-            return \Response::json($arr);
+                if (is_null($addServices)) {
+                    return response()->json([
+                        'status' => 500,
+                        'msg' => 'Internal Server Error',
+                        'err_msg' => $err->getMessage()
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => 200,
+                        'msg' => 'Services Update Successfylly'
+                    ]);
+                }
+            }
         }
     }
 }

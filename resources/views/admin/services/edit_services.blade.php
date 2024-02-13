@@ -39,7 +39,7 @@
                             <div class="col-lg-6">
                                 <label>New Services Profile Image</label>
                                 <input id="edit_services_img" type="file" name="services_img" class="form-control">
-                                <input type="text" value="{{ $services_details->services_img }}" name="services_img_link"
+                                <input type="text" value="{{ $services_details->services_img }}" name="old_image"
                                     class="form-control d-none">
                                 <img src="{{ $services_details->services_img }}" id="edit_services_image_show"
                                     class="img-fluid" alt="">
