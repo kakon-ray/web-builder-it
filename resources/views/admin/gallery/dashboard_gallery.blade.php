@@ -17,10 +17,12 @@
             </div>
             @foreach ($gallery_image as $item)
                 <div class="col-lg-3 position-relative">
-                    <img src="{{ $item->gallery_img }}" class="img-fluid" style="height:170px" alt="Gallery Image Khulna IT"
-                        title="">
-                    <button class="btn btn-danger btn-sm img-delete"
-                        onclick="delete_gallery_image({!! $item->id !!})"> <i class="fas fa-trash"></i></button>
+                    <div class="card p-3">
+                        <img src="{{ $item->gallery_img }}" class="img-fluid" style="height:170px"
+                            alt="Gallery Image Khulna IT" title="">
+                        <button class="btn btn-danger btn-sm img-delete"
+                            onclick="delete_gallery_image({!! $item->id !!})"> <i class="fas fa-trash"></i></button>
+                    </div>
                 </div>
             @endforeach
         </div>
