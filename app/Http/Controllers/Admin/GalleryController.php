@@ -2,29 +2,16 @@
 
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
-// course admission and service admission
-use App\Models\CourseModel;
-use App\Models\ServicesModel;
-
-// home page course and service
-use App\Models\AddCourse;
-use App\Models\AddServices;
-
 use App\Models\User;
-use App\Models\StudentRegModel;
-use App\Models\SeminerModel;
 use App\Models\GalleryModel;
-use App\Models\ActiveCourse;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Cookie;
+use DB;
 use Illuminate\Support\Facades\Auth;
-use App\Views\Components\header;
-use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Validator;
+
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class GalleryController extends Controller
 {
@@ -63,12 +50,16 @@ class GalleryController extends Controller
             return \Response::json($arr);
         }
 
-        $gallery_img =  $request->file('gallery_img')->store('/public/gallery_img');
+        if ($request->gallery_img) {
+            $file = $request->file('gallery_img');
+            $filename = 'gallery' . '-' . 'image' . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
 
-        $gallery_img = (explode('/', $gallery_img))[2];
+            $img = Image::make($file);
+            $img->resize(500, 500)->save(public_path('uploads/' . $filename));
 
-        $host = $_SERVER['HTTP_HOST'];
-        $gallery_img = "http://" . $host . "/storage/gallery_img/" . $gallery_img;
+            $host = $_SERVER['HTTP_HOST'];
+            $gallery_img = "http://" . $host . "/uploads/" . $filename;
+        }
 
 
         $galleryModel = new GalleryModel();
@@ -89,16 +80,46 @@ class GalleryController extends Controller
 
     function delete_gallery_image(Request $request)
     {
-        $id = $request->input('id');
 
-        $responce = GalleryModel::where('id', $id)->delete();
+        $gallery = GalleryModel::find($request->id);
 
-        if ($responce == 1) {
-            $arr = ['status' => 200, 'msg' => "Deleted Galery Image"];
-            return \Response::json($arr);
+        if (is_null($gallery)) {
+
+            return response()->json([
+                'msg' => "Do not Find any Gallery Item",
+                'status' => 404
+            ], 404);
         } else {
-            $arr = ['status' => 500, 'msg' => "Delete Galery Image Faild"];
-            return \Response::json($arr);
+
+            DB::beginTransaction();
+
+            try {
+                $pathinfo = pathinfo($gallery->gallery_img);
+                $filename = $pathinfo['basename'];
+                $image_path = public_path("/uploads/") . $filename;
+
+                if (File::exists($image_path)) {
+                    File::delete($image_path);
+                }
+
+
+                $gallery->delete();
+                DB::commit();
+
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Delete This Gallery',
+                ], 200);
+            } catch (\Exception $err) {
+
+                DB::rollBack();
+
+                return response()->json([
+                    'msg' => "Internal Server Error",
+                    'status' => 500,
+                    'err_msg' => $err->getMessage()
+                ], 500);
+            }
         }
     }
 }
