@@ -158,11 +158,22 @@ class StudentController extends Controller
                 $slug = Str::slug($request->student_name, '-');
 
                 if ($request->image) {
+
+                    // single thumbnail file delete kora hocce jodi image file delete hoy tarpor databse theke data delete kora hobe
+                    $pathinfo = pathinfo($studentRegModel->image);
+                    $filename = $pathinfo['basename'];
+                    $image_path = public_path("/uploads/") . $filename;
+
+                    if (File::exists($image_path)) {
+                        File::delete($image_path);
+                    }
+
+
                     $file = $request->file('image');
-                    $filename = $slug . '.' . $file->getClientOriginalExtension();
+                    $filename = $slug . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
 
                     $img = Image::make($file);
-                    $img->resize(500, 500)->save(public_path('uploads/' . $filename));
+                    $img->resize(200, 200)->save(public_path('uploads/' . $filename));
 
                     $host = $_SERVER['HTTP_HOST'];
                     $image = "http://" . $host . "/uploads/" . $filename;

@@ -8,29 +8,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // course admission and service admission
 use App\Models\CourseModel;
-use App\Models\ServicesModel;
-
 // home page course and service
 use App\Models\AddCourse;
-use App\Models\AddServices;
-
 use App\Models\User;
-use App\Models\StudentRegModel;
-use App\Models\SeminerModel;
-use App\Models\GalleryModel;
-use App\Models\ActiveCourse;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Auth;
-use App\Views\Components\header;
-use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Validator;
-
-// password reset to import
-use Mail;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
+
 use Illuminate\Support\Str;
+
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class CourseController extends Controller
 {
@@ -94,11 +82,20 @@ class CourseController extends Controller
 
             try {
 
-                $img = $request->course_img;
-                $course_img =  $img->store('/public/course_img');
-                $course_img = (explode('/', $course_img))[2];
-                $host = $_SERVER['HTTP_HOST'];
-                $course_img = "http://" . $host . "/storage/course_img/" . $course_img;
+                // single thumbnil image upload
+                $slug = Str::slug($request->course_title, '-');
+
+                if ($request->course_img) {
+                    $file = $request->file('course_img');
+                    $filename =  $slug . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+
+                    $img = Image::make($file);
+                    $img->resize(500, 300)->save(public_path('uploads/' . $filename));
+
+                    $host = $_SERVER['HTTP_HOST'];
+                    $course_img = "http://" . $host . "/uploads/" . $filename;
+                }
+
 
                 $addCourse = AddCourse::create([
                     'batch' => $request->batch,
@@ -116,7 +113,6 @@ class CourseController extends Controller
                 ]);
 
                 DB::commit();
-
             } catch (\Exception $err) {
                 $addCourse = null;
             }
@@ -161,16 +157,47 @@ class CourseController extends Controller
 
     function delete_course(Request $request)
     {
-        $id = $request->input('id');
 
-        $responce = AddCourse::where('id', $id)->delete();
+        $addCourse = AddCourse::find($request->id);
 
-        if ($responce == 1) {
-            $arr = ['status' => 200, 'msg' => "Deleted Course"];
-            return \Response::json($arr);
+        if (is_null($addCourse)) {
+
+            return response()->json([
+                'msg' => "Do not Find any Course",
+                'status' => 404
+            ], 404);
         } else {
-            $arr = ['status' => 500, 'msg' => "Delete Course Faild"];
-            return \Response::json($arr);
+
+            DB::beginTransaction();
+
+            try {
+                // single thumbnail file delete kora hocce jodi image file delete hoy tarpor databse theke data delete kora hobe
+                $pathinfo = pathinfo($addCourse->course_img);
+                $filename = $pathinfo['basename'];
+                $image_path = public_path("/uploads/") . $filename;
+
+                if (File::exists($image_path)) {
+                    File::delete($image_path);
+                }
+
+
+                $addCourse->delete();
+                DB::commit();
+
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Delete This Course',
+                ], 200);
+            } catch (\Exception $err) {
+
+                DB::rollBack();
+
+                return response()->json([
+                    'msg' => "Internal Server Error",
+                    'status' => 500,
+                    'err_msg' => $err->getMessage()
+                ], 500);
+            }
         }
     }
 
@@ -198,8 +225,8 @@ class CourseController extends Controller
                 'msg' => "Letest News dosen't exists",
                 'status' => 404
             ], 404);
-        }else{
-            if($request->course_img){
+        } else {
+            if ($request->course_img) {
                 $arrayRequest = [
                     "batch" => $request->batch,
                     "course_title" => $request->course_title,
@@ -211,7 +238,7 @@ class CourseController extends Controller
                     "course_img" => $request->course_img,
                     "desc" => $request->desc,
                 ];
-        
+
                 $arrayValidate  = [
                     'batch' => 'required',
                     'course_title' => 'required',
@@ -222,9 +249,9 @@ class CourseController extends Controller
                     'course_fee' => 'required',
                     'course_img' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:300'],
                     'desc' => 'required',
-        
+
                 ];
-            }else{
+            } else {
                 $arrayRequest = [
                     "batch" => $request->batch,
                     "course_title" => $request->course_title,
@@ -235,7 +262,7 @@ class CourseController extends Controller
                     "course_fee" => $request->course_fee,
                     "desc" => $request->desc,
                 ];
-        
+
                 $arrayValidate  = [
                     'batch' => 'required',
                     'course_title' => 'required',
@@ -245,7 +272,7 @@ class CourseController extends Controller
                     'projects' => 'required',
                     'course_fee' => 'required',
                     'desc' => 'required',
-        
+
                 ];
             }
 
@@ -266,12 +293,29 @@ class CourseController extends Controller
 
                 try {
 
-                    if ( $request->course_img) {
-                        $img = $request->course_img;
-                        $course_img =  $img->store('/public/course_img');
-                        $course_img = (explode('/', $course_img))[2];
+                    // single thumbnil image upload
+                    $slug = Str::slug($request->course_title, '-');
+
+                    if ($request->course_img) {
+
+                        $pathinfo = pathinfo($addCourse->course_img);
+                        $filename = $pathinfo['basename'];
+                        $image_path = public_path("/uploads/") . $filename;
+
+                        if (File::exists($image_path)) {
+                            File::delete($image_path);
+                        }
+
+
+                        $file = $request->file('course_img');
+                        $filename = $slug . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+
+                        $img = Image::make($file);
+                        $img->resize(500, 300)->save(public_path('uploads/' . $filename));
+
                         $host = $_SERVER['HTTP_HOST'];
-                        $image = "http://" . $host . "/storage/course_img/" . $course_img;;
+                        $image = "http://" . $host . "/uploads/" . $filename;
+
                     } else {
                         $image = $request->old_image;
                     }
@@ -294,8 +338,6 @@ class CourseController extends Controller
                     $addCourse->save();
 
                     DB::commit();
-
-
                 } catch (\Exception $err) {
                     DB::rollBack();
                     $addCourse = null;
@@ -315,15 +357,6 @@ class CourseController extends Controller
                 }
             }
         }
-
- 
-
-
-
-
-
-
-        
     }
 
     // add course  ck editor image upload
