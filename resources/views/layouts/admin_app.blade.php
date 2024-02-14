@@ -32,7 +32,6 @@
         <style>
             .swalstyle {
                 width: 300px !important;
-                height: 220px !important;
                 font-size: 10px !important;
             }
 
