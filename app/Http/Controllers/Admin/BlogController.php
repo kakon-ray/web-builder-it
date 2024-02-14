@@ -7,8 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use DB;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class BlogController extends Controller
 {
@@ -40,7 +43,7 @@ class BlogController extends Controller
 
         $arrayValidate  = [
             'title' => 'required',
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:300'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'description' => 'required',
             'category' => 'required',
 
@@ -62,17 +65,20 @@ class BlogController extends Controller
             DB::beginTransaction();
 
             try {
-
-                $img = $request->image;
-                $blog_img =  $img->store('/public/blog_img');
-                $blog_img = (explode('/', $blog_img))[2];
+                $slug = Str::slug($request->title, '-');
+                $file = $request->file('image');
+                $filename = $slug . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+    
+                $img = Image::make($file);
+                $img->resize(500, 300)->save(public_path('uploads/' . $filename));
+    
                 $host = $_SERVER['HTTP_HOST'];
-                $blog_img = "http://" . $host . "/storage/blog_img/" . $blog_img;
+                $image = "http://" . $host . "/uploads/" . $filename;
 
                 $blog = Blog::create([
                     'title' => $request->title,
                     'description' => $request->description,
-                    'image' => $blog_img,
+                    'image' => $image,
                     'category' => $request->category,
                
                 ]);
@@ -120,7 +126,7 @@ class BlogController extends Controller
                     'title' => 'required',
                     'description' => 'required',
                     'category' => 'required',
-                    'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:300'],
+                    'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
 
                 ];
             } else {
@@ -156,12 +162,24 @@ class BlogController extends Controller
 
                 try {
 
+                    $slug = Str::slug($request->title, '-');
                     if ($request->image) {
-                        $img = $request->image;
-                        $image =  $img->store('/public/blog_img');
-                        $image = (explode('/', $image))[2];
+                        $pathinfo = pathinfo($blog->image);
+                        $filename = $pathinfo['basename'];
+                        $image_path = public_path("/uploads/") . $filename;
+
+                        if (File::exists($image_path)) {
+                            File::delete($image_path);
+                        }
+
+                        $file = $request->file('image');
+                        $filename = $slug . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+            
+                        $img = Image::make($file);
+                        $img->resize(500, 300)->save(public_path('uploads/' . $filename));
+            
                         $host = $_SERVER['HTTP_HOST'];
-                        $image = "http://" . $host . "/storage/blog_img/" . $image;
+                        $image = "http://" . $host . "/uploads/" . $filename;
                     } else {
                         $image = $request->old_image;
                     }
@@ -212,6 +230,14 @@ class BlogController extends Controller
 
             try {
 
+                $pathinfo = pathinfo($blog->image);
+                $filename = $pathinfo['basename'];
+                $image_path = public_path("/uploads/") . $filename;
+
+                if (File::exists($image_path)) {
+                    File::delete($image_path);
+                }
+                
                 $blog->delete();
                 DB::commit();
 
