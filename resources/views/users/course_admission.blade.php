@@ -18,7 +18,7 @@
                 <div class="col-lg-6">
                     <div class="card p-5">
                         <div class="text-center pb-5">
-                            <h6 class="pb-2 heading2"> Fill the form to participate in the seminar</h6>
+                            <h6 class="pb-2 heading2"> Fill the form to participate any course</h6>
                         </div>
                      
                         <form action="{{ route('user.course.message.submit') }}" id="courseadmissionalert" method="POST">
@@ -31,7 +31,7 @@
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <label class="form-label" id="phone_lebel" for="form4Example2">Mobile Number</label>
+                                <label class="form-label" id="phone_lebel" for="form4Example2">Mobile Number / Whatsapp    Number</label>
                                 <input type="phone" name="phone" required class="form-control"
                                     placeholder="Mobile Number" />
                             </div>
@@ -42,8 +42,9 @@
                                 <select class="form-select" name="course_name" id="course_name"
                                     aria-label="Default select example">
                                     <option selected>Open this select menu</option>
+                                     <option value="Back-End Web Development By Laravel">Laravel Project Based Full Stack Development</option>
+                                     
                                     <option value="Web Design">Web Design</option>
-                                    <option value="Back-End Web Development By Laravel">Back-End Web Development By Laravel</option>
                                     <option value="Full Stack Web Development By Laravel">Full Stack Web Development By Laravel</option>
                                     <option value="Front-End Web Development By React JS">Front-End Web Development By React JS</option>
                                     <option value="React + Laravel Full Stack Web Development">React + Laravel Full Stack Web Development</option>

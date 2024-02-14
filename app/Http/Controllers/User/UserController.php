@@ -12,13 +12,8 @@ use App\Models\ServicesModel;
 // home page course and service
 use App\Models\AddCourse;
 use App\Models\AddServices;
-
-use App\Models\User;
-use App\Models\AdmissionModel;
 use App\Models\SeminerModel;
 use App\Models\GalleryModel;
-use App\Models\StudentRegModel;
-use App\Models\ActiveCourse;
 use App\Models\Blog;
 use App\Models\ClientReview;
 use App\Models\CourseReview;
@@ -145,10 +140,10 @@ class UserController extends Controller
 
 
         if ($responce == true) {
-            $arr = array('status' => 200, 'msg' => 'Seminer Confirm');
+            $arr = array('status' => 200, 'msg' => 'Admission Request Submited');
             return \Response::json($arr);
         } else {
-            $arr = array('status' => 400, 'msg' => 'Form not Submit');
+            $arr = array('status' => 400, 'msg' => 'Admission Request not Submit');
             return \Response::json($arr);
         }
     }
