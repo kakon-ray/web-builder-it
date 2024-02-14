@@ -9,7 +9,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h5><i class="fas fa-computer me-2"></i> ওয়েব ডেভেলপমেন্ট শেখার জন্য বাংলাদেশের সেরা আইটি ইনস্টিটিউট ! </h5>
+                    <h5><i class="fas fa-computer me-2"></i> ওয়েব ডেভেলপমেন্ট শেখার জন্য বাংলাদেশের সেরা আইটি ইনস্টিটিউট !
+                    </h5>
                     <h2 class="pt-4">Learn Web Development with</h2>
                     <h1 class="red-title fw-bold pb-3">Experts Developers</h1>
                     <p class="cariar-details"> কোর্স এর শুরু থেকে চাকরি অথবা ফ্রিল্যান্সিং মার্কেটে একজন স্কিলফুল
@@ -44,24 +45,31 @@
 
                 @foreach ($allCourse->slice(0, 6) as $item)
                     @if ($item->status == 1)
-                    <div class="col-lg-4 col-12 my-3">
-                        <div class="card">
-                            <a href="{{ route('user.course.details', ['id' => $item->id]) }}">
-                                <img src="{{ $item->course_img }}" class="card-img-top p-3" alt="Course">
-                            </a>
+                        <div class="col-lg-4 col-12 my-3">
+                            <div class="card">
+                                <a href="{{ route('user.course.details', ['id' => $item->id]) }}">
+                                    <img src="{{ $item->course_img }}" class="card-img-top p-3" alt="Course">
+                                </a>
 
-                            <div class="card-body">
-                                <h3 class="card-title">{{ $item->course_title }}</h3>
-                                <div class="review">
-                                    <h5>Course Fee</h5>
-                                  
-                                    <h5>@if($item->new_course_fee) <del class="text-dark px-3"> {{$item->course_fee}} BDT</del> {{ $item->new_course_fee }} BDT @else {{$item->course_fee}} BDT  @endif </h5>
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ $item->course_title }}</h3>
+                                    <div class="review">
+                                        <h5>Course Fee</h5>
+
+                                        <h5>
+                                            @if ($item->new_course_fee)
+                                                <del class="text-dark px-3"> {{ $item->course_fee }} BDT</del>
+                                                {{ $item->new_course_fee }} BDT
+                                            @else
+                                                {{ $item->course_fee }} BDT
+                                            @endif
+                                        </h5>
+                                    </div>
+                                    <a href="{{ route('user.course.details', ['id' => $item->id]) }}"
+                                        class="course-item-details-link">View Details</a>
                                 </div>
-                                <a href="{{ route('user.course.details', ['id' => $item->id]) }}"
-                                    class="course-item-details-link">View Details</a>
                             </div>
                         </div>
-                    </div>
                     @endif
                 @endforeach
 
@@ -105,7 +113,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="fw-bold heading">STUDENTS <span class="sm-red-title">  SUCCESS   STORY</span></h2>
+                    <h2 class="fw-bold heading">STUDENTS <span class="sm-red-title"> SUCCESS STORY</span></h2>
                 </div>
                 <div class="col-lg-12">
                     <div id="owl-demo" class="owl-carousel owl-theme">
@@ -352,7 +360,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-center heading fw-bold">Our Happy <span class="sm-red-title">Clients Review</span></h2>
+                    <h2 class="text-center heading fw-bold">Our Happy <span class="sm-red-title">Clients Review</span>
+                    </h2>
                 </div>
                 <div class="col-lg-12">
                     <div id="owl-demo" class="owl-carousel owl-theme">
@@ -371,24 +380,24 @@
                                             <h4 class="p-3">{{ $item->name }}</h4>
                                             <div class="star-rating">
                                                 @if ($item->review_star == 5)
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                            @elseif($item->review_star == 4)
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                            @elseif($item->review_star < 4)
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                            @endif
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                @elseif($item->review_star == 4)
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @elseif($item->review_star < 4)
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star active" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @endif
 
                                             </div>
 
@@ -433,7 +442,8 @@
                         </div>
                     </div>
                 @endforeach
-
+            </div>
+            <div class="row">
                 <div class="col-lg-2 mx-auto my-4">
                     <a href="{{ route('user.all.blog') }}" class="common-btn">All Blog</a>
                 </div>
