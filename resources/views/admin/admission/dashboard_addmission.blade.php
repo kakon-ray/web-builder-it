@@ -30,7 +30,7 @@
                                 <td class="th-sm ">
                                     {{ isset($item->add_course->course_title) ? $item->add_course->course_title : '' }}</td>
                                 <td class="th-sm ">
-                                    {{ isset($item->add_course->course_fee) ? $item->add_course->course_fee : 'Deleted Course' }}
+                                    {{ isset($item->add_course->new_course_fee) ? $item->add_course->new_course_fee : 'Deleted Course' }}
                                 </td>
                                 <td class="th-sm ">{{ $item->pement_clear }}</td>
                                 <td class="th-sm" style="width:120px">
@@ -77,33 +77,33 @@
 
                                 </td>
                                 <td class="th-sm ">
-                                    @if ($item->pement_clear > 0)
-                                        @php
-                                            $percentage = ($item->pement_clear * 100) / $item->add_course->course_fee;
-                                        @endphp
-                                   
+                                    {{-- @if ($item->pement_clear > 0) --}}
+                                    {{-- @php
+                                        $percentage = ($item->pement_clear * 100) / $item->add_course->course_fee;
+                                    @endphp --}}
 
 
-                                    @if ($percentage >= 30 && $item->pement_clear != 0)
-                                        @if ($item->status == true)
-                                            <div class="d-flex gap-2">
-                                                <span class="text-success">Active</span>
-                                                <button type="button"
-                                                    onclick="deactive_admission_student({!! $item->id !!})"
-                                                    class="btn-danger btn btn-sm">Disabled</button>
-                                            </div>
-                                        @endif
-                                        @if ($item->status != true)
-                                            <div class="d-flex gap-2">
-                                                <span class="text-danger">Pending</span>
-                                                <button type="button"
-                                                    onclick="active_admission_student({!! $item->id !!})"
-                                                    class="btn-success btn btn-sm">Active</button>
-                                            </div>
-                                        @endif
+
+                                    {{-- @if ($percentage >= 30 && $item->pement_clear != 0) --}}
+                                    @if ($item->status == true)
+                                        <div class="d-flex gap-2">
+                                            <span class="text-success">Active</span>
+                                            <button type="button"
+                                                onclick="deactive_admission_student({!! $item->id !!})"
+                                                class="btn-danger btn btn-sm">Disabled</button>
+                                        </div>
                                     @endif
-
+                                    @if ($item->status != true)
+                                        <div class="d-flex gap-2">
+                                            <span class="text-danger">Pending</span>
+                                            <button type="button"
+                                                onclick="active_admission_student({!! $item->id !!})"
+                                                class="btn-success btn btn-sm">Active</button>
+                                        </div>
                                     @endif
+                                    {{-- @endif --}}
+
+                                    {{-- @endif --}}
 
 
                                 </td>
