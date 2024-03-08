@@ -13,7 +13,9 @@
                 <table id="VisitorDt" class="table table-bordered dataTable" cellspacing="0" width="100%">
                     <thead class="table-dark ">
                         <tr>
-                            {{-- <th class="th-sm text-center">Student Email</th> --}}
+
+                            <th class="th-sm text-center">ID</th>
+                            <th class="th-sm text-center">Student Name</th>
                             <th class="th-sm text-center">Coruse Name</th>
                             <th class="th-sm text-center">Total Fee</th>
                             <th class="th-sm text-center">Pement</th>
@@ -26,7 +28,8 @@
                     <tbody>
                         @foreach ($activeCourse as $item)
                             <tr class="text-center">
-                                {{-- <td class="th-sm ">{{ $item->students->email }}</td> --}}
+                              <td class="th-sm ">{{ $item->students->id }}</td> 
+                               <td class="th-sm ">{{ $item->students->student_name }}</td> 
                                 <td class="th-sm ">
                                     {{ isset($item->add_course->course_title) ? $item->add_course->course_title : '' }}</td>
                                 <td class="th-sm ">

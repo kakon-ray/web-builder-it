@@ -54,7 +54,7 @@ class DashboardController extends Controller
 
         foreach ($activeCourse as $item) {
             if (isset($item->add_course->course_fee) != null) {
-                $total_course_fee = $total_course_fee + $item->add_course->course_fee;
+                $total_course_fee = $total_course_fee + $item->add_course->new_course_fee;
                 $total_pement_clear = $total_pement_clear + $item->pement_clear;
                 $active_course = ActiveCourse::where('status', true)->count();
                 $un_active_course = ActiveCourse::where('status', false)->count();
