@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Tutorial extends Model
 {
     use HasFactory;
-
     public function add_course(){
         return $this->belongsTo(AddCourse::class,'course_id');
     }

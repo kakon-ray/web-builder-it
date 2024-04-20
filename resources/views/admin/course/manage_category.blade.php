@@ -4,80 +4,56 @@
 @section('content')
 
 
-    <div class="container-fluid">
-        <div class="col-lg-12 pb-4 d-flex justify-content-between">
-            <h3 class="text-center ">Manage Main<span style="color:#4e73df;"> Course</span></h3>
-            <a href="{{ route('admin.add.course') }}" type="button" class="btn btn-primary"><i class="fas fa-plus me-2"></i>Add
-                New Course</a>
-        </div>
+<div class="container-fluid">
+    <div class="col-lg-12 pb-4 d-flex justify-content-between">
+        <h3 class="text-center ">Manage Main<span style="color:#4e73df;"> Course</span></h3>
+        <a href="{{ route('admin.course.add.catagory') }}" type="button" class="btn btn-primary"><i
+                class="fas fa-plus me-2"></i>Add
+            New Category</a>
+    </div>
 
-        <div class="col-lg-12 table-responsive">
-            <table id="VisitorDt" class="table table-bordered dataTable" cellspacing="0" width="100%">
-                <thead class="table-dark">
-                    <tr>
-                        <th class="th-sm text-center">ID</th>
-                        <th class="th-sm text-center">Category</th>
-                        <th class="th-sm text-center">Batch</th>
-                        <th class="th-sm text-center">Title</th>
-                        <th class="th-sm text-center">Pement</th>
-                        <th class="th-sm text-center">Image</th>
-                        <th class="th-sm text-center">Status</th>
-                        <th class="th-sm text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($allCourse as $item)
-                        <tr>
-                            <td class="th-sm text-center">{{ $item->id }}</td>
-                            <td class="th-sm text-center">{{ $item->course_catagory->category_name}}</td>
-                            <td class="th-sm text-center">Batch-{{ $item->batch }}</td>
-                            <td class="th-sm text-center">{{ $item->course_title }}</td>
-                            <td class="th-sm text-center">{{ $item->course_fee }}</td>
-                            <td class="th-sm text-center">
-                                <img src="{{ $item->course_img }}" style="height:50px" alt="Course Image">
-                            </td>
+    <div class="col-lg-12 table-responsive">
+        <table id="VisitorDt" class="table table-bordered dataTable" cellspacing="0" width="100%">
+            <thead class="table-dark">
+                <tr>
+                    <th class="th-sm text-center">ID</th>
+                    <th class="th-sm text-center">Category Name</th>
+                    <th class="th-sm text-center">Category Slug</th>
+                    <th class="th-sm text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($all_category as $item)
+                <tr>
+                    <td class="th-sm text-center">{{ $item->id }}</td>
+                    <td class="th-sm text-center">{{ $item->category_name}}</td>
+                    <td class="th-sm text-center">{{ $item->category_slug }}</td>
+                    <td class="th-sm text-center d-flex gap-2">
+                        <form method="POST" action="{{ route('admin.course.catagory.delete') }}" id="delete_alert"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <input type="text" name="id" value="{{$item->id}}" class="d-none">
+                            <button type="submit" class="btn btn-danger btn-circle btn-sm"><i
+                                    class="fas fa-trash"></i></button>
+                        </form>
+                        <a href="{{ route('admin.edit.course.catagory', ['id' => $item->id]) }}" type="button"
+                            class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
 
+                    </td>
+                </tr>
+                @endforeach
 
-                            <td class="th-sm text-center" style="min-width: 200px;">
-                                @if ($item->status == true)
-                                    <span class="text-success">Active</span>
-                                    <a type="button" onclick="dective_course_status({!! $item->id !!})"
-                                        class="btn btn-danger btn-sm">Inactive</a>
-                                @else
-                                    <a type="button" onclick="active_course_status({!! $item->id !!})"
-                                        class="btn btn-success btn-sm">Active</a>
-                                @endif
-                            </td>
-
-                            <td class="th-sm text-center" style="min-width: 200px;">
-                                <a href="{{ route('admin.course.details', ['id' => $item->id]) }}" type="button"
-                                    class="btn btn-success btn-circle btn-sm"><i class="fas fa-eye"></i></a>
-
-                                <a href="{{ route('admin.edit.course', ['id' => $item->id]) }}" type="button"
-                                    class="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
-
-                                @if ($item->status == false)
-                                    <a type="button" onclick="delete_course({!! $item->id !!})"
-                                        class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
-                                @endif
-
-
-                            </td>
-
-                        </tr>
-                    @endforeach
-
-                </tbody>
-            </table>
-        </div>
-
-
-
+            </tbody>
+        </table>
     </div>
 
 
-    <script>
-        const delete_course = (id) => {
+
+</div>
+
+
+<script>
+    const delete_course = (id) => {
             Swal.fire({
                 customClass: 'swalstyle',
                 title: 'Are you sure?',
@@ -248,5 +224,5 @@
                 });
 
         }
-    </script>
+</script>
 @endsection()

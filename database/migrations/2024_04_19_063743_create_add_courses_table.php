@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('add_courses', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('coursecategory_id')->nullable();
             $table->string('batch')->nullable();
             $table->string('course_title')->nullable();
             $table->string('instructor')->nullable();
@@ -28,6 +29,8 @@ return new class extends Migration
             $table->string('course_img')->nullable();
             $table->text('desc',2000)->nullable();
             $table->timestamps();
+            $table->foreign('coursecategory_id')->references('id')->on('coursecategories')->onDelete('cascade');
+
         });
     }
 

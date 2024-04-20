@@ -10,6 +10,7 @@ class CourseReview extends Model
     use HasFactory;
 
 
+
     protected $fillable = [
         'course_id',
         'student_id',
@@ -28,7 +29,4 @@ class CourseReview extends Model
         return $this->belongsTo(StudentRegModel::class,'student_id');
     }
 
-
-
-    
 }

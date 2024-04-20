@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\CourseModel;
 // home page course and service
 use App\Models\AddCourse;
+use App\Models\Coursecategory;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -33,7 +34,124 @@ class CourseController extends Controller
     function add_course()
     {
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
-        return view('admin/course/add_course', ['current_user_data' => $current_user_data]);
+        $course_catagory = Coursecategory::all();
+        return view('admin/course/add_course', compact('current_user_data','course_catagory'));
+    }
+    function edit_course_catagory(Request $request)
+    {   
+        $course_catagory = Coursecategory::where('id',$request->id)->first();
+        return view('admin/course/edit_course_catagory', compact('course_catagory'));
+    }
+    function add_course_catagory()
+    {
+        $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
+        return view('admin/course/add_course_catagory', compact('current_user_data'));
+    }
+    function add_course_catagory_submit(Request $request)
+    {
+        $catagory = new Coursecategory();
+        
+        $arrayRequest = [
+            'category_name' => $request->category_name,
+        ];
+
+        $arrayValidate  = [
+            'category_name' => 'required',
+        ];
+
+        $response = Validator::make($arrayRequest, $arrayValidate);
+
+        if ($response->fails()) {
+            $msg = '';
+            foreach ($response->getMessageBag()->toArray() as $item) {
+                $msg = $item;
+            };
+
+            return response()->json([
+                'status' => 400,
+                'msg' => $msg
+            ], 200);
+        } else {
+            DB::beginTransaction();
+
+            try {
+                $slug = Str::slug($request->category_name, '-');
+
+                $catagory->category_name = $request->category_name;
+                $catagory->category_slug = $slug;
+                $catagory->save();
+
+                DB::commit();
+            } catch (\Exception $err) {
+                $catagory = null;
+            }
+
+            if ($catagory != null) {
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Add New Catagory'
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 500,
+                    'msg' => 'Server Error',
+                    'err_msg' => $err->getMessage()
+                ]);
+            }
+        }
+    }
+    function add_course_catagory_edit_submit(Request $request)
+    {
+        $catagory = Coursecategory::find($request->id);
+        
+        $arrayRequest = [
+            'category_name' => $request->category_name,
+        ];
+
+        $arrayValidate  = [
+            'category_name' => 'required',
+        ];
+
+        $response = Validator::make($arrayRequest, $arrayValidate);
+
+        if ($response->fails()) {
+            $msg = '';
+            foreach ($response->getMessageBag()->toArray() as $item) {
+                $msg = $item;
+            };
+
+            return response()->json([
+                'status' => 400,
+                'msg' => $msg
+            ], 200);
+        } else {
+            DB::beginTransaction();
+
+            try {
+                $slug = Str::slug($request->category_name, '-');
+
+                $catagory->category_name = $request->category_name;
+                $catagory->category_slug = $slug;
+                $catagory->save();
+
+                DB::commit();
+            } catch (\Exception $err) {
+                $catagory = null;
+            }
+
+            if ($catagory != null) {
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Update Catagory'
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 500,
+                    'msg' => 'Server Error',
+                    'err_msg' => $err->getMessage()
+                ]);
+            }
+        }
     }
 
 
@@ -41,6 +159,7 @@ class CourseController extends Controller
     {
 
         $arrayRequest = [
+            "coursecategory_id" => $request->coursecategory_id,
             "batch" => $request->batch,
             "course_title" => $request->course_title,
             "duration" => $request->duration,
@@ -53,6 +172,7 @@ class CourseController extends Controller
         ];
 
         $arrayValidate  = [
+            'coursecategory_id' => 'required',
             'batch' => 'required',
             'course_title' => 'required',
             'duration' => ['required', 'integer'],
@@ -98,6 +218,7 @@ class CourseController extends Controller
 
 
                 $addCourse = AddCourse::create([
+                    'coursecategory_id' => $request->coursecategory_id,
                     'batch' => $request->batch,
                     'course_title' => $request->course_title,
                     'instructor' => $request->instructor,
@@ -150,9 +271,14 @@ class CourseController extends Controller
 
     function manage_course(Request $request)
     {
-        $allCourse = AddCourse::get();
+        $allCourse = AddCourse::with('course_catagory')->get();
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         return view('admin/course/manage_course', ['allCourse' => $allCourse, 'current_user_data' => $current_user_data]);
+    }
+    function manage_course_catagory(Request $request)
+    {
+        $all_category = Coursecategory::all();
+        return view('admin/course/manage_category',compact('all_category'));
     }
 
     function delete_course(Request $request)
@@ -187,6 +313,42 @@ class CourseController extends Controller
                 return response()->json([
                     'status' => 200,
                     'msg' => 'Delete This Course',
+                ], 200);
+            } catch (\Exception $err) {
+
+                DB::rollBack();
+
+                return response()->json([
+                    'msg' => "Internal Server Error",
+                    'status' => 500,
+                    'err_msg' => $err->getMessage()
+                ], 500);
+            }
+        }
+    }
+    function course_catagory_delete(Request $request)
+    {
+
+        $addCourse = Coursecategory::find($request->id);
+
+        if (is_null($addCourse)) {
+
+            return response()->json([
+                'msg' => "Do not Find any Course",
+                'status' => 404
+            ], 404);
+        } else {
+
+            DB::beginTransaction();
+
+            try {
+          
+                $addCourse->delete();
+                DB::commit();
+
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Delete This Course Category',
                 ], 200);
             } catch (\Exception $err) {
 

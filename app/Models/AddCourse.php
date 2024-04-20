@@ -10,6 +10,7 @@ class AddCourse extends Model
     use HasFactory;
 
     protected $fillable = [
+        'coursecategory_id',
         'batch',
         'course_title',
         'instructor',
@@ -33,5 +34,7 @@ class AddCourse extends Model
         return $this->hasMany(Tutorial::class,'course_id');
     }
 
-
+    public function course_catagory(){
+        return $this->belongsTo(Coursecategory::class,'coursecategory_id');
+    }
 }

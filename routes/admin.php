@@ -73,6 +73,14 @@ Route::name('admin.')->prefix('admin')->group(function () {
     // this routes admin course management routes
     Route::middleware(['auth'])->group(function () {
         Route::get('course/message', [CourseController::class, 'course_message'])->name('course.message');
+
+        Route::get('add/catagory', [CourseController::class, 'add_course_catagory'])->name('course.add.catagory');
+        Route::get('manage/catagory', [CourseController::class, 'manage_course_catagory'])->name('manage.course.catagory');
+        Route::get('edit/catagory/{id}', [CourseController::class, 'edit_course_catagory'])->name('edit.course.catagory');
+        Route::post('add/catagory/submit', [CourseController::class, 'add_course_catagory_submit'])->name('course.catagory.submit');
+        Route::post('add/catagory/edit-submit', [CourseController::class, 'add_course_catagory_edit_submit'])->name('course.catagory.edit.submit');
+        Route::post('add/catagory/delete', [CourseController::class, 'course_catagory_delete'])->name('course.catagory.delete');
+        
         Route::get('add/course', [CourseController::class, 'add_course'])->name('add.course');
         Route::post('add/course/submit', [CourseController::class, 'add_course_submit'])->name('add.course.submit');
         Route::get('delete/course/message', [CourseController::class, 'delete_course_message']); //this route work to delete course message

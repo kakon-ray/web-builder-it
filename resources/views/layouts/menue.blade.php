@@ -49,7 +49,7 @@
 
                            @php
 
-                               $allCourse = DB::table('add_courses')->where('status',true)->get()->reverse();
+                               $coursecategories = DB::table('coursecategories')->get();
                                $allServices = DB::table('add_services')->get()->reverse();
 
                            @endphp
@@ -57,18 +57,16 @@
                            <li class="nav-item position-relative" id="flip">
                                <div id="dropdown-container">
                                    <a class="nav-link navbar-item d-flex align-items-center" href="#">
-                                       Our Courses <i class="fas fa-chevron-down ms-2"></i>
+                                       All Category<i class="fas fa-chevron-down ms-2"></i>
                                    </a>
                                    <div class="dropdown-menu" id="panel">
                                        <ul class="dropdown-container">
-                                           @foreach ($allCourse->slice(0, 6) as $item)
-                                               @if ($item->status == true)
+                                           @foreach ($coursecategories as $item)   
                                                    <li>
                                                        <a class="dropdown-item navbar-item"
-                                                           href="{{ route('user.course.details', ['id' => $item->id]) }}">
-                                                           {{ $item->course_title }}</a>
+                                                           href="{{ route('user.course.catagory', ['coursecatagory' => $item->category_slug]) }}">
+                                                           {{ $item->category_name }}</a>
                                                    </li>
-                                               @endif
                                            @endforeach
 
                                        </ul>

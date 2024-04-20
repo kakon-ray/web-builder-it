@@ -16,6 +16,7 @@ use App\Models\SeminerModel;
 use App\Models\GalleryModel;
 use App\Models\Blog;
 use App\Models\ClientReview;
+use App\Models\Coursecategory;
 use App\Models\CourseReview;
 use Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -38,6 +39,13 @@ class UserController extends Controller
     {
         $allCourse = AddCourse::get()->reverse();
         return view('users.all_course', ['allCourse' => $allCourse]);
+    }
+    function all_catagory_course(Request $request)
+    {
+        // $allCourse = AddCourse::where('coursecategory_id',$catagory->id)->get();
+        $allCatagoryCourse = Coursecategory::where('category_slug',$request->coursecatagory)->with('add_course')->first();
+        
+        return view('users.all_course_category', compact('allCatagoryCourse'));
     }
     function all_services()
     {

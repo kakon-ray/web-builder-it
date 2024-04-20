@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ 'Services Contact | Khulna IT ' }}
+    {{ 'Page Not Found | Khulna IT ' }}
 @endsection
 
 @section('content')

@@ -108,62 +108,7 @@
         </div>
     </section>
 
-    {{-- Student review section --}}
-    <section class="our-portfolio my-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="fw-bold heading">STUDENTS <span class="sm-red-title"> SUCCESS STORY</span></h2>
-                </div>
-                <div class="col-lg-12">
-                    <div id="owl-demo" class="owl-carousel owl-theme">
-                        @foreach ($allClientReview as $item)
-                            @if ($item->categorie == 'student_review')
-                                <div class="item carosel_item_container">
-                                    <div class="card">
-                                        <div class="p-4 text-center">
-                                            <p>{{ $item->description }}</p>
-                                            @if ($item->image)
-                                                <img src="{{ $item->image }}" alt="Client Review">
-                                            @else
-                                                <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
-                                                    alt="Client Review">
-                                            @endif
-                                            <h4 class="p-3">{{ $item->name }}</h4>
-                                            <div class="star-rating">
-                                                @if ($item->review_star == 5)
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                @elseif($item->review_star == 4)
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                @elseif($item->review_star < 4)
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                @endif
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+ 
 
     <!-- home cta section -->
     <section id="home_cta">
@@ -329,89 +274,8 @@
     <!-- carosel section -->
 
 
-    <section id="gallery">
-        <div class="container">
-            <div class="gallery">
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        <div class="row g-4">
-                            <div class="col-lg-12 text-center">
-                                <h2 class="text-center heading fw-bold">Gallery</h2>
-                            </div>
-
-                            @foreach ($gallery_image->slice(0, 6) as $item)
-                                <div class="col-lg-4">
-                                    <a href="{{ $item->gallery_img }}" class="big"><img
-                                            src="{{ $item->gallery_img }}" alt=""></a>
-                                </div>
-                            @endforeach
 
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
-
-
-    {{-- client review section --}}
-
-    <section class="our-portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-center heading fw-bold">Our Happy <span class="sm-red-title">Clients Review</span>
-                    </h2>
-                </div>
-                <div class="col-lg-12">
-                    <div id="owl-demo" class="owl-carousel owl-theme">
-                        @foreach ($allClientReview as $item)
-                            @if ($item->categorie == 'client_review')
-                                <div class="item carosel_item_container">
-                                    <div class="card">
-                                        <div class="p-4 text-center">
-                                            <p>{{ $item->description }}</p>
-                                            @if ($item->image)
-                                                <img src="{{ $item->image }}" alt="Client Review">
-                                            @else
-                                                <img src="{{ asset('img/portfolio/demo_client_image.jpeg') }}"
-                                                    alt="Client Review">
-                                            @endif
-                                            <h4 class="p-3">{{ $item->name }}</h4>
-                                            <div class="star-rating">
-                                                @if ($item->review_star == 5)
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                @elseif($item->review_star == 4)
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                @elseif($item->review_star < 4)
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                @endif
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
 
     {{-- blog section --}}
 
@@ -421,27 +285,23 @@
                 <div class="col-lg-12 text-center pb-4">
                     <h2 class="fw-bold heading">Our Letest <span class="sm-red-title">Blog</span></h2>
                 </div>
-                @foreach ($blog as $item)
-                    <div class="col-lg-4">
-                        <div class="blog-card">
-                            <a href="{{ route('user.blog.details', $item->id) }}">
-                                <img src="{{ $item->image }}" alt="Blog Image">
-                            </a>
+                <div class="col-lg-4">
+                    <div class="blog-card">
+                        <a href="">
+                            <img src="http://127.0.0.1:8000/uploads/facebook-marketing-1796746857957288.jpg" alt="Blog Image">
+                        </a>
 
-                            <div class="blog-content">
-                                <h4 class="blog-title">{{ $item->title }}</h4>
-                                <p>
-                                    @php
-                                        echo substr($item->description, 0, 100);
-                                    @endphp
-                                </p>
+                        <div class="blog-content">
+                            <h4 class="blog-title">Lorem ipsum dolor sit amet.</h4>
+                            <p>
+                               Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                            </p>
 
-                                <p><a href="{{ route('user.blog.details', $item->id) }}" class="blog-button">Read More <i
-                                            class="fas fa-angle-double-right"></i></a></p>
-                            </div>
+                            <p><a href="#" class="blog-button">Read More <i
+                                        class="fas fa-angle-double-right"></i></a></p>
                         </div>
                     </div>
-                @endforeach
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-2 mx-auto my-4">

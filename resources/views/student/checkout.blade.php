@@ -77,7 +77,7 @@
                         {{-- digital pement getway start --}}
                         <div class="digital">
 
-                            <div class="col-md-12 order-md-1 d-none">
+                            <div class="col-md-12 order-md-1">
                                 <h4 class="mb-3">Billing address</h4>
                                 <form action="{{ route('student.pay') }}" method="POST" class="needs-validation">
                                     <input type="hidden" value="{{ csrf_token() }}" name="_token" />
