@@ -140,6 +140,92 @@
 
 
         <li
+            class="nav-item {{ request()->routeIs('admin.add.seminer') || request()->routeIs('admin.manage.seminer') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages5"
+                aria-expanded="true" aria-controls="collapsePages5">
+                <i class="fas fa-users"></i>
+                <span>Seminar</span>
+            </a>
+
+            <div id="collapsePages5" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.add.seminer') }}">Add Seminer</a>
+                </div>
+            </div>
+            <div id="collapsePages5" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.manage.seminer') }}">Manage Seminer</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li
+            class="nav-item {{ request()->routeIs('admin.dashboard.gallery') || request()->routeIs('admin.dashboard.add.img') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages6"
+                aria-expanded="true" aria-controls="collapsePages6">
+                <i class="fa fa-image"></i>
+                <span>Gallery</span>
+            </a>
+
+            <div id="collapsePages6" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.dashboard.gallery') }}">Gallery Image</a>
+                </div>
+            </div>
+            <div id="collapsePages6" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.dashboard.add.img') }}">Add Gallery</a>
+                </div>
+            </div>
+        </li>
+
+        <li
+            class="nav-item {{ request()->routeIs('admin.add.tutorial') || request()->routeIs('admin.manage.tutorial') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages8"
+                aria-expanded="true" aria-controls="collapsePages8">
+                <i class="fas fa-upload"></i>
+                <span>Upload Tutorial</span>
+            </a>
+
+            <div id="collapsePages8" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.add.tutorial') }}">Add Tutorial</a>
+                </div>
+            </div>
+            <div id="collapsePages8" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.manage.tutorial') }}">Manage Tutorial</a>
+                </div>
+            </div>
+        </li>
+        <li
+            class="nav-item {{ request()->routeIs('dashboard.review.manage') || request()->routeIs('dashboard.review.add') || request()->routeIs('dashboard.review.student.manage') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages9"
+                aria-expanded="true" aria-controls="collapsePages9">
+                <i class="fas fa-comments"></i>
+                <span>Manage Review </span>
+            </a>
+
+            <div id="collapsePages9" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('dashboard.review.manage') }}">Manage Review</a>
+                </div>
+            </div>
+            <div id="collapsePages9" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('dashboard.review.add') }}">Add Review</a>
+                </div>
+            </div>
+            <div id="collapsePages9" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('dashboard.review.student.manage') }}">Manage Student
+                        Review</a>
+                </div>
+            </div>
+        </li>
+
+        <li
             class="nav-item {{ request()->routeIs('dashboard.blog.manage') || request()->routeIs('dashboard.blog.add') || request()->routeIs('dashboard.blog.update') ? 'active' : '' }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages10"
                 aria-expanded="true" aria-controls="collapsePages10">
@@ -159,7 +245,21 @@
             </div>
         </li>
 
+        @if (Auth::guard('web')->user()->role == 'superadmin')
+        <li class="nav-item {{ request()->routeIs('admin.user.maintain') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages7"
+                aria-expanded="true" aria-controls="collapsePages7">
+                <i class="fas fa-user"></i>
+                <span>Admin</span>
+            </a>
 
+            <div id="collapsePages7" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white mb-1 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.user.maintain') }}">Admin Management</a>
+                </div>
+            </div>
+        </li>
+        @endif
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
