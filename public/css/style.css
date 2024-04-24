@@ -1211,3 +1211,12 @@ h2 {
 .scroll-back-top i {
   font-weight: 800;
 }
+
+.modal {
+  position: fixed;
+  top: 65px !important;
+}
+
+.modal-body {
+  padding: 0px !important; 
+}
