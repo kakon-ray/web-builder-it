@@ -368,7 +368,8 @@ class CourseController extends Controller
         $id = $request->id;
         $course_details = AddCourse::where('id', $id)->first();
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
-        return view('admin/course/edit_course', ['course_details' => $course_details, 'current_user_data' => $current_user_data]);
+        $course_catagory = Coursecategory::all();
+        return view('admin/course/edit_course', ['course_details' => $course_details, 'current_user_data' => $current_user_data,'course_catagory'=>$course_catagory]);
     }
 
     function course_details(Request $request)
@@ -487,6 +488,7 @@ class CourseController extends Controller
                     $addCourse->course_title = $request->course_title;
                     $addCourse->instructor = $request->instructor;
                     $addCourse->duration = $request->duration;
+                    $addCourse->coursecategory_id = $request->coursecategory_id;
                     $addCourse->lectures = $request->lectures;
                     $addCourse->language = $request->language;
                     $addCourse->projects = $request->projects;

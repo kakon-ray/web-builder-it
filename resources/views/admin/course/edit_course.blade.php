@@ -45,16 +45,26 @@
                     </div>
                     <div class="row py-4">
                         <div class="col-lg-3">
+                            <label class="form-label">Catagory</label>
+                            <select class="form-control rounded-0" name="coursecategory_id">
+                                @foreach ($course_catagory as $item)
+                                 <option value="{{$item->id}}" @if($item->id == $course_details->coursecategory_id) selected  @endif>{{$item->category_name}}</option>
+                                @endforeach
+    
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2">
                             <label>Batch</label>
                             <input required class="form-control" name="batch" type="number"
                                 value="{{ $course_details->batch }}">
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label>Course Duration</label>
                             <input required type="number" max="6" class="form-control" name="duration"
                                 value="{{ $course_details->duration }}">
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label>Total Lectures</label>
                             <input name="lectures" type="number" value="{{ $course_details->lectures }}"
                                 class="form-control">
