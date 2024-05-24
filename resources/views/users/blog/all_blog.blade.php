@@ -17,7 +17,7 @@
                 <div class="col-lg-4">
                     <div class="blog-card">
                         <a href="{{ route('user.blog.details', $item->id) }}">
-                            <img src="{{$item->image}}" alt="Blog Image">
+                            <img src="{{$item->image}}" class="img-fluid w-100" alt="Blog Image">
                         </a>
 
                         <div class="blog-content">
