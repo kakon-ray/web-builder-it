@@ -79,7 +79,7 @@
                                 <h5 class="heading2 pb-2">Update Profile</h5>
                             </div>
 
-                            <form action="{{ route('student.profile.update') }}" method="POST" id="studentprofileupdate">
+                            <form action="{{ route('student.profile.update') }}" enctype="multipart/form-data" method="POST" id="studentprofileupdate">
                                 @csrf
                                 <input type="text" name="id" value="{{ Auth::guard('student')->user()->id }}"
                                     class="d-none" />
