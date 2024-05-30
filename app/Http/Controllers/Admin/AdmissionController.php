@@ -149,6 +149,7 @@ class AdmissionController extends Controller
 
         $activeCourse = ActiveCourse::find($request->active_course_id);
         $activeCourse->pement_clear = $activeCourse->pement_clear + $request->amount;
+        $activeCourse->status = true;
         $responce = $activeCourse->save();
 
 
