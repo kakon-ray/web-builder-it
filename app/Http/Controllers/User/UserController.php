@@ -32,7 +32,10 @@ class UserController extends Controller
         $allClientReview = ClientReview::get()->reverse();
         $gallery_image = GalleryModel::get()->reverse();
         $blog = Blog::get()->slice(0,3);
-        return view('users.home', compact('allCourse','allServices','allClientReview','gallery_image','blog'));
+
+        $best_review_course = AddCourse::get()->sortByDesc('review_count');
+        $best_selling_course = AddCourse::get()->sortByDesc('enrole_count');
+        return view('users.home', compact('allCourse','allServices','allClientReview','gallery_image','blog','best_review_course','best_selling_course'));
     }
 
     function all_course()

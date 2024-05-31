@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('lectures')->nullable();
             $table->string('language')->nullable();
             $table->string('projects')->nullable();
+            $table->integer('review_count')->nullable();
+            $table->integer('enrole_count')->nullable();
             $table->boolean('status')->default(false);
             $table->decimal('course_fee', 13, 0)->nullable();
             $table->decimal('new_course_fee', 13, 0)->nullable();

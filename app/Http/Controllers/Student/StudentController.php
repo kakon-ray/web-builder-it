@@ -49,7 +49,11 @@ class StudentController extends Controller
             ->with('students')->with('add_course')->get();
 
         // return $activeCourse;
-        return view('student.mycourse', ['activeCourse' => $activeCourse]);
+
+        $best_review_course = AddCourse::get()->sortByDesc('review_count');
+        $best_selling_course = AddCourse::get()->sortByDesc('enrole_count');
+
+        return view('student.mycourse', compact('activeCourse','best_review_course','best_selling_course'));
     }
 
     function profile()
@@ -64,6 +68,16 @@ class StudentController extends Controller
         $course_details =  $course_details->add_course;
         $active_course_id = $request->id;
         return view('student.checkout', ['course_details' => $course_details, 'active_course_id' => $active_course_id]);
+    }
+    function cancle_enroll(Request $request)
+    {
+        
+        $cancle_enroll = ActiveCourse::where('id', $request->id)->delete();
+
+        if($cancle_enroll){
+            \Session::put('success','Item created successfully.');
+            return redirect()->route('student.mycourse');
+        }
     }
 
 
@@ -88,6 +102,10 @@ class StudentController extends Controller
                 'pement_clear' => 0,
                 'status' => false,
             ]);
+
+           $enroleCount = AddCourse::find($request->course_id);
+           $enroleCount->enrole_count = $enroleCount->enrole_count + 1;
+           $enroleCount->save();
 
             if ($responce) {
                 $arr = array('status' => 200, 'id' => $count + 1, 'msg' => 'Course Add Your Profile');

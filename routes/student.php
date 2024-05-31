@@ -36,6 +36,7 @@ Route::name('student.')->prefix('student')->group(function () {
         Route::get('my-order', [StudentController::class, 'my_order'])->name('my.order');
         Route::post('logout', [StudentController::class, 'student_logout'])->name('logout');
         Route::get('checkout/{id}', [StudentController::class, 'checkout'])->name('checkout');
+        Route::get('cancle-enroll/{id}', [StudentController::class, 'cancle_enroll'])->name('cancle.enroll');
         Route::post('active/course/add', [StudentController::class, 'active_course_add'])->name('active.course.add');
         Route::post('profile/update', [StudentController::class, 'student_profile_update'])->name('profile.update');
         Route::post('password/update', [StudentController::class, 'student_password_update'])->name('password.update');

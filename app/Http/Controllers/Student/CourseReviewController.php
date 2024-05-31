@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddCourse;
 use App\Models\CourseReview;
 use DB;
 use Illuminate\Http\Request;
@@ -56,6 +57,12 @@ class CourseReviewController extends Controller
             }
 
             if ($courseReview != null) {
+
+                $reviewCount = AddCourse::find($request->course_id);
+                $reviewCount->review_count = $reviewCount->review_count + 1;
+                $reviewCount->save();
+
+
                 return response()->json([
                     'status' => 200,
                     'msg' => 'Review Add Successfully'
