@@ -75,8 +75,10 @@ class StudentController extends Controller
         $cancle_enroll = ActiveCourse::where('id', $request->id)->delete();
 
         if($cancle_enroll){
-            \Session::put('success','Item created successfully.');
+            toastr()->success('Course Enroll Cancle');
             return redirect()->route('student.mycourse');
+        }else{
+            toastr()->error('Course Enroll Faild');
         }
     }
 
