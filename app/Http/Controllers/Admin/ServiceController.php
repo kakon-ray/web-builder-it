@@ -88,6 +88,11 @@ class ServiceController extends Controller
     function dashboard_services()
     {
         $course_admission = ServicesModel::get();
+
+        $see_notification = ServicesModel::where('count',0)->update([
+            'count'=> 1,
+        ]);
+        
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         return view('admin/services/dashboard_services', ['course_admission' => $course_admission, 'current_user_data' => $current_user_data]);
     }

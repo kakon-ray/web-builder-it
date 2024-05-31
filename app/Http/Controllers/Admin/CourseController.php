@@ -26,6 +26,10 @@ class CourseController extends Controller
     function course_message()
     {
         $course_admission = CourseModel::get();
+
+        $see_notification = CourseModel::where('count',0)->update([
+            'count'=> 1,
+        ]);
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         return view('admin/course/course_message', ['course_admission' => $course_admission, 'current_user_data' => $current_user_data]);
     }

@@ -333,8 +333,8 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell fa-fw"></i>
                             <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">{{ isset($course_message) ?
-                                $course_message->count() : 0 }}</span>
+                            <span class="badge badge-danger badge-counter">{{ $course_message->where('count',0)->count() ?
+                                $course_message->where('count',0)->count() : ''}}</span>
                         </a>
                         <!-- Dropdown - Alerts -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -344,6 +344,7 @@
                             </h6>
                             @if (isset($course_message))
                             @foreach ($course_message as $item)
+                             @if($item->count == 0)
                             <a class="dropdown-item d-flex align-items-center"
                                 href="{{ route('admin.course.message') }}">
                                 <div class="mr-3">
@@ -356,11 +357,12 @@
                                     <span class="font-weight-bold">{{ $item->name }}...</span>
                                 </div>
                             </a>
+                            @endif
                             @endforeach
                             @endif
 
 
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All
+                            <a class="dropdown-item text-center small text-gray-500" href="/admin/course/message">Show All
                                 Alerts</a>
                         </div>
                     </li>
@@ -372,8 +374,8 @@
                             aria-expanded="false">
                             <i class="fas fa-envelope fa-fw"></i>
                             <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">{{ isset($services_message) ?
-                                $services_message->count() : 0 }}</span>
+                            <span class="badge badge-danger badge-counter">{{ $services_message->where('count',0)->count() ?
+                                $services_message->where('count',0)->count() : ''}}</span>
                         </a>
                         <!-- Dropdown - Messages -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -384,6 +386,7 @@
 
                             @if (isset($services_message))
                             @foreach ($services_message as $item)
+                               @if($item->count == 0)
                             <a class="dropdown-item d-flex align-items-center"
                                 href="{{ route('admin.services.message') }}">
                                 <div class="mr-3">
@@ -396,6 +399,7 @@
                                     <span class="font-weight-bold">{{ $item->name }}...</span>
                                 </div>
                             </a>
+                             @endif
                             @endforeach
                             @endif
                             <a class="dropdown-item text-center small text-gray-500"
