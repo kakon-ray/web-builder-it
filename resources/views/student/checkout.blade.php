@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center py-5">
-                <h2 class="pement-title pb-3">Pyment</h2>
+                <h2 class="heading2">Pyment</h2>
                 @if ($course_details->new_course_fee)
                 <h4 class="mb-1 py-3 fw-bold">Total Amount : {{ $course_details->new_course_fee }} (BDT)</h4>
 

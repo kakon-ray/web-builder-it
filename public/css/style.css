@@ -1220,3 +1220,14 @@ h2 {
 .modal-body {
   padding: 0px !important; 
 }
+
+.discount_badge {
+  position: absolute;
+  top: 6%;
+  right: 7%;
+  background: var(--main-color);
+  padding: 0px 10px;
+  color: #fff;
+  border-radius: 14px;
+  font-size: 11px
+}

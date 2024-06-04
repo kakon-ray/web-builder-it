@@ -83,14 +83,16 @@
 
                     </div>
 
+
                     <div class="row gy-4">
                         <div class="col-lg-4">
 
                             <label>Projects</label>
                             <input required type="number" max="10" class="form-control" name="projects"
                                 value="{{ $course_details->projects }}">
-
                         </div>
+
+
                         <div class="col-lg-4">
 
                             <label>Course Fee</label>
@@ -98,6 +100,7 @@
                                 value="{{ $course_details->course_fee }}">
 
                         </div>
+
 
                         <div class="col-lg-4">
 
@@ -107,10 +110,14 @@
 
                         </div>
 
-                        <div class="col-lg-8">
-                            <label>Course Description</label>
-                            <textarea class="form-control" id="add_course_editor" row="10" name="desc">{{ $course_details->desc }}</textarea>
+
+                        <div class="col-lg-4">
+
+                            <label>Special Discount Course Fee</label>
+                            <input type="number" class="form-control" name="spacial_discount"
+                                value="{{ $course_details->spacial_discount }}">
                         </div>
+
                         <div class="col-lg-4">
 
                             <span>Course Profile Image</span>
@@ -119,6 +126,13 @@
                             <input name="course_img" type="file" class="form-control">
 
                         </div>
+
+                        <div class="col-lg-12">
+                            <label>Course Description</label>
+                            <textarea class="form-control" id="add_course_editor" row="10" name="desc">{{ $course_details->desc }}</textarea>
+                        </div>
+
+                        
                     </div>
 
                     <div class="pt-4">

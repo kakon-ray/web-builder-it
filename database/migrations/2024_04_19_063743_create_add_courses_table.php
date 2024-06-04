@@ -28,6 +28,7 @@ return new class extends Migration
             $table->boolean('status')->default(false);
             $table->decimal('course_fee', 13, 0)->nullable();
             $table->decimal('new_course_fee', 13, 0)->nullable();
+            $table->decimal('spacial_discount', 13, 0)->default(0);
             $table->string('course_img')->nullable();
             $table->text('desc',2000)->nullable();
             $table->timestamps();

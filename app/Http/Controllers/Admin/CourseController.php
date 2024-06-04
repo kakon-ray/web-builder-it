@@ -232,6 +232,7 @@ class CourseController extends Controller
                     'projects' => $request->projects,
                     'course_fee' => $request->course_fee,
                     'new_course_fee' => $request->new_course_fee,
+                    'spacial_discount' => $request->spacial_discount,
                     'course_img' => $course_img,
                     'status' => false,
                     'desc' => $request->desc,
@@ -500,6 +501,7 @@ class CourseController extends Controller
                     $addCourse->status = false;
                     $addCourse->course_fee = $request->course_fee;
                     $addCourse->new_course_fee = $request->new_course_fee;
+                    $addCourse->spacial_discount = $request->spacial_discount;
                     $addCourse->course_img =  $image;
                     $addCourse->desc = $request->desc;
 

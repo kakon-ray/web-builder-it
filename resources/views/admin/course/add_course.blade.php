@@ -89,18 +89,29 @@
 
                     </div>
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-4">
 
-                        <label>Course Description</label>
-                        <textarea class="form-control" id="add_course_editor" row="10" name="desc"></textarea>
-
+                        <label>Special Discount Course Fee</label>
+                        <input type="number" class="form-control" name="spacial_discount">
                     </div>
+
+
+
+
                     <div class="col-lg-4">
 
                         <span>Course Profile Image</span>
                         <input name="course_img" type="file" class="form-control">
 
                     </div>
+
+
+                    <div class="col-lg-12">
+                        <label>Course Description</label>
+                        <textarea class="form-control" id="add_course_editor" row="10" name="desc"></textarea>
+                    </div>
+
+
                 </div>
 
 

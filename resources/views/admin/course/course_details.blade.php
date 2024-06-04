@@ -70,6 +70,10 @@
                         <td class="th-sm ">New Course Fee</td>
                         <td class="th-sm ">{{ $course_details->new_course_fee }}</td>
                     </tr>
+                    <tr>
+                        <td class="th-sm ">Spacial Discount Course Fee</td>
+                        <td class="th-sm ">{{ $course_details->spacial_discount }}</td>
+                    </tr>
 
                     <tr>
                         <td class="th-sm ">Course Image</td>
