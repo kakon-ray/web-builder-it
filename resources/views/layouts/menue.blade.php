@@ -149,6 +149,7 @@
                                        <a class="student-item" href="{{ route('student.profile') }}">Profile</a>
                                        <a class="student-item" href="{{ route('student.my.order') }}">My Order</a>
                                        <a class="student-item" href="{{ route('student.mycourse') }}">My Course</a>
+                                       <a class="student-item" href="{{ route('student.wishlist') }}">My Wishlist</a>
                                        <a class="student-item" type="button" id="student_logout">Logout</a>
                                    </div>
                                </div>

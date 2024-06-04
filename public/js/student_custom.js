@@ -227,7 +227,7 @@ $(document).ready(function () {
             showConfirmButton: false,
           });
           setTimeout(function () {
-            location.href = '/student/mycourse';
+            location.href = '/student/wishlist';
           }, 1500);
 
         } else {
@@ -238,6 +238,10 @@ $(document).ready(function () {
             customClass: 'swalstyle',
             showConfirmButton: false,
           });
+
+          setTimeout(function () {
+            location.href = '/student/wishlist';
+          }, 1000);
         }
       }
     })

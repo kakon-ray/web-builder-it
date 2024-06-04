@@ -31,6 +31,7 @@ Route::name('student.')->prefix('student')->group(function () {
 
     Route::middleware(['studentauth'])->group(function (){
         Route::get('mycourse', [StudentController::class, 'mycourse'])->name('mycourse');
+        Route::get('wishlist', [StudentController::class, 'wishlist'])->name('wishlist');
         Route::get('profile', [StudentController::class, 'profile'])->name('profile');
         Route::get('classroom/{id}', [StudentController::class, 'classroom'])->name('classroom');
         Route::get('my-order', [StudentController::class, 'my_order'])->name('my.order');

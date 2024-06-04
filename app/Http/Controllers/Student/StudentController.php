@@ -55,6 +55,19 @@ class StudentController extends Controller
 
         return view('student.mycourse', compact('activeCourse','best_review_course','best_selling_course'));
     }
+    function wishlist()
+    {
+
+        $activeCourse = ActiveCourse::where('student_id', Auth::guard('student')->user()->id)
+            ->with('students')->with('add_course')->get();
+
+        // return $activeCourse;
+
+        $best_review_course = AddCourse::get()->sortByDesc('review_count');
+        $best_selling_course = AddCourse::get()->sortByDesc('enrole_count');
+
+        return view('student.wishlist', compact('activeCourse','best_review_course','best_selling_course'));
+    }
 
     function profile()
     {
@@ -76,9 +89,9 @@ class StudentController extends Controller
 
         if($cancle_enroll){
             toastr()->success('Course Enroll Cancle');
-            return redirect()->route('student.mycourse');
+            return redirect()->route('student.wishlist');
         }else{
-            toastr()->error('Course Enroll Faild');
+            toastr()->error('Course Cancle Faild');
         }
     }
 
