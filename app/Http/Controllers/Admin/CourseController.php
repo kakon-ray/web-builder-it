@@ -27,9 +27,6 @@ class CourseController extends Controller
     {
         $course_admission = CourseModel::get();
 
-        $see_notification = CourseModel::where('count',0)->update([
-            'count'=> 1,
-        ]);
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         return view('admin/course/course_message', ['course_admission' => $course_admission, 'current_user_data' => $current_user_data]);
     }
@@ -39,11 +36,11 @@ class CourseController extends Controller
     {
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         $course_catagory = Coursecategory::all();
-        return view('admin/course/add_course', compact('current_user_data','course_catagory'));
+        return view('admin/course/add_course', compact('current_user_data', 'course_catagory'));
     }
     function edit_course_catagory(Request $request)
-    {   
-        $course_catagory = Coursecategory::where('id',$request->id)->first();
+    {
+        $course_catagory = Coursecategory::where('id', $request->id)->first();
         return view('admin/course/edit_course_catagory', compact('course_catagory'));
     }
     function add_course_catagory()
@@ -54,7 +51,7 @@ class CourseController extends Controller
     function add_course_catagory_submit(Request $request)
     {
         $catagory = new Coursecategory();
-        
+
         $arrayRequest = [
             'category_name' => $request->category_name,
         ];
@@ -107,7 +104,7 @@ class CourseController extends Controller
     function add_course_catagory_edit_submit(Request $request)
     {
         $catagory = Coursecategory::find($request->id);
-        
+
         $arrayRequest = [
             'category_name' => $request->category_name,
         ];
@@ -283,7 +280,7 @@ class CourseController extends Controller
     function manage_course_catagory(Request $request)
     {
         $all_category = Coursecategory::all();
-        return view('admin/course/manage_category',compact('all_category'));
+        return view('admin/course/manage_category', compact('all_category'));
     }
 
     function delete_course(Request $request)
@@ -347,7 +344,7 @@ class CourseController extends Controller
             DB::beginTransaction();
 
             try {
-          
+
                 $addCourse->delete();
                 DB::commit();
 
@@ -374,7 +371,7 @@ class CourseController extends Controller
         $course_details = AddCourse::where('id', $id)->first();
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         $course_catagory = Coursecategory::all();
-        return view('admin/course/edit_course', ['course_details' => $course_details, 'current_user_data' => $current_user_data,'course_catagory'=>$course_catagory]);
+        return view('admin/course/edit_course', ['course_details' => $course_details, 'current_user_data' => $current_user_data, 'course_catagory' => $course_catagory]);
     }
 
     function course_details(Request $request)
@@ -483,7 +480,6 @@ class CourseController extends Controller
 
                         $host = $_SERVER['HTTP_HOST'];
                         $image = "http://" . $host . "/uploads/" . $filename;
-
                     } else {
                         $image = $request->old_image;
                     }
@@ -575,6 +571,38 @@ class CourseController extends Controller
         } else {
             $arr = ['status' => 400, 'msg' => "Course not Inactive"];
             return \Response::json($arr);
+        }
+    }
+
+    function read_message(Request $request)
+    {
+        $message = CourseModel::where('id', $request->id)->first();
+
+
+        $see_notification = CourseModel::where('id', $request->id)->where('count', 0)->update([
+            'count' => 1,
+        ]);
+
+        if ($message) {
+            return response()->json([
+                'message' => $message,
+                'status' => true
+            ]);
+        }
+    }
+
+    function unread_message(Request $request)
+    {
+
+        $see_notification = CourseModel::where('id', $request->id)->where('count', 1)->update([
+            'count' => 0,
+        ]);
+
+        if ($see_notification) {
+            return response()->json([
+                'message' => 'Message Unread',
+                'status' => true
+            ]);
         }
     }
 }

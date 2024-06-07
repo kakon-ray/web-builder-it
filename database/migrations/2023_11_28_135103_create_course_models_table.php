@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('count')->default(0);
             $table->string('phone')->nullable();
             $table->string('course_name')->nullable();
-            $table->string('message')->nullable();
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }

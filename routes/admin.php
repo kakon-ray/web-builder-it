@@ -91,6 +91,11 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::post('edit/course/submit', [CourseController::class, 'edit_course_submit'])->name('edit.course.submit');
         Route::get('active/course', [CourseController::class, 'active_course']);
         Route::get('deactive/course', [CourseController::class, 'deactive_course']);
+
+        Route::get('readmessage/{id}', [CourseController::class, 'read_message'])->name('readmessage');
+        Route::get('unread-message/{id}', [CourseController::class, 'unread_message'])->name('unread.message');
+
+
         // image upload ck editor
         Route::post('image-upload', [CourseController::class, 'storeImage'])->name('image.upload');
     });
