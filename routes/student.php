@@ -33,7 +33,7 @@ Route::name('student.')->prefix('student')->group(function () {
         Route::get('mycourse', [StudentController::class, 'mycourse'])->name('mycourse');
         Route::get('wishlist', [StudentController::class, 'wishlist'])->name('wishlist');
         Route::get('profile', [StudentController::class, 'profile'])->name('profile');
-        Route::get('classroom/{id}', [StudentController::class, 'classroom'])->name('classroom');
+        Route::get('classroom/{id}', [StudentController::class, 'classroom'])->name('classroom')->middleware('classroomauth');
         Route::get('my-order', [StudentController::class, 'my_order'])->name('my.order');
         Route::post('logout', [StudentController::class, 'student_logout'])->name('logout');
         Route::get('checkout/{id}', [StudentController::class, 'checkout'])->name('checkout');

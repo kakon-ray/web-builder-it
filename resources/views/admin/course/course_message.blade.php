@@ -133,7 +133,6 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="closemodal()">Close</button>
-                    <button type="button" class="btn btn-success" onclick="unReadMessage({!! $item->id !!})" >Unread</button>
                 </div>
 
             </div>
