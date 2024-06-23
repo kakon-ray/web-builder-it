@@ -170,11 +170,11 @@
                                     icon: 'success',
                                     title: response.data.msg,
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    timer: 1000
                                 })
                                 setTimeout(function() {
                                     location.reload();
-                                }, 1500);
+                                }, 1000);
 
                             } else {
                                 Swal.fire({
@@ -183,7 +183,7 @@
                                     icon: 'error',
                                     title: response.data.msg,
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    timer: 1000
                                 })
                             }
 
@@ -195,7 +195,7 @@
                                 icon: "error",
                                 title: "Your form submission is not complete",
                                 showConfirmButton: false,
-                                timer: 1500,
+                                timer: 1000,
                             });
                         });
                 }
@@ -252,7 +252,7 @@
                         icon: "success",
                         title: response.data.message,
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 1000,
                     });
 
                     var element = document.getElementById(`unread_btn${id}`);
@@ -262,7 +262,7 @@
 
                     setTimeout(()=>{
                         window.location.reload();
-                    },1500)
+                    },1000)
             
 
                     }

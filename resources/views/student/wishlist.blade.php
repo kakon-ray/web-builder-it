@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="row">
-        @foreach ($activeCourse as $item)
+    @foreach ($activeCourse as $item)
 
         @if(!$item->pement_clear)
         <div class="col-lg-4">

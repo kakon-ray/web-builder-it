@@ -12,7 +12,7 @@
         </div>
 
         <div class="col-lg-12 table-responsive">
-            <table id="VisitorDt" class="table table-bordered dataTable" cellspacing="0" width="100%">
+            <table id="" class="table table-bordered dataTable" cellspacing="0" width="100%">
                 <thead class="table-dark">
                     <tr>
                         <th class="th-sm text-center">ID</th>
@@ -104,7 +104,7 @@
                                     icon: 'success',
                                     title: response.data.msg,
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    timer: 1000
                                 })
                                 setTimeout(function() {
                                     location.reload();
@@ -117,7 +117,7 @@
                                     icon: 'error',
                                     title: response.data.msg,
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    timer: 1000
                                 })
                             }
 
@@ -129,7 +129,7 @@
                                 icon: "error",
                                 title: "Your form submission is not complete",
                                 showConfirmButton: false,
-                                timer: 1500,
+                                timer: 1000,
                             });
                         });
                 }
@@ -167,11 +167,11 @@
                                     icon: 'success',
                                     title: response.data.msg,
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    timer: 1000
                                 })
                                 setTimeout(function() {
                                     location.reload();
-                                }, 1500);
+                                }, 1000);
 
                             } else {
                                 Swal.fire({
@@ -180,7 +180,7 @@
                                     icon: 'error',
                                     title: response.data.msg,
                                     showConfirmButton: false,
-                                    timer: 1500
+                                    timer: 1000
                                 })
                             }
 
@@ -192,7 +192,7 @@
                                 icon: "error",
                                 title: "External Error",
                                 showConfirmButton: false,
-                                timer: 1500,
+                                timer: 1000,
                             });
                         });
 
@@ -219,7 +219,7 @@
                             icon: 'success',
                             title: response.data.msg,
                             showConfirmButton: false,
-                            timer: 1500
+                            timer: 1000
                         })
                         setTimeout(function() {
                             location.reload();
@@ -232,7 +232,7 @@
                             icon: 'error',
                             title: response.data.msg,
                             showConfirmButton: false,
-                            timer: 1500
+                            timer: 1000
                         })
                     }
 
@@ -244,7 +244,7 @@
                         icon: "error",
                         title: "External Error",
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 1000,
                     });
                 });
 

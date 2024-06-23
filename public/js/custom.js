@@ -167,7 +167,7 @@ $(document).ready(function () {
             icon: "success",
             title: "Logout Done",
             text: "Thanks",
-            timer: 1500,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false
           });
@@ -185,7 +185,7 @@ $(document).ready(function () {
           title: "Server Error",
           customClass: 'swalstyle',
           showConfirmButton: false,
-          timer: 1500,
+          timer: 1000,
         });
       });
   })
@@ -212,7 +212,7 @@ $(document).ready(function () {
             icon: "success",
             title: data.msg,
             text: "Thanks",
-            timer: 1500,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false
           });
@@ -225,7 +225,7 @@ $(document).ready(function () {
             icon: "error",
             title: "Login Faild",
             text: data.msg,
-            timer: 1500,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false
           });
@@ -251,13 +251,13 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 500,
             }
           )
 
           setTimeout(function () {
             window.location.href = '/admin/manage/course';
-          }, 3000);
+          }, 500);
 
         } else {
           $.notification(
@@ -265,7 +265,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 3000,
+              timeView: 500,
             }
           )
         }
@@ -292,13 +292,13 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 1000,
             }
           )
 
           setTimeout(function () {
             window.location.href = '/admin/manage/services';
-          }, 3000);
+          }, 1000);
 
         } else {
           $.notification(
@@ -306,7 +306,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1,
             }
           )
         }
@@ -344,7 +344,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -370,7 +370,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
           setTimeout(function () {
@@ -383,7 +383,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -408,7 +408,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 1000,
             }
           )
 
@@ -422,7 +422,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -447,13 +447,13 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 1000,
             }
           )
 
           setTimeout(function () {
             window.location.href = '/admin/manage-seminer';
-          }, 3000);
+          }, 1000);
 
         } else {
           $.notification(
@@ -461,7 +461,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -486,7 +486,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
 
@@ -496,7 +496,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -520,20 +520,20 @@ $(document).ready(function () {
           Swal.fire({
             icon: "success",
             title: data.msg,
-            timer: 1500,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false
           });
           setTimeout(function () {
             location.reload();
-          }, 1500);
+          }, 1000);
 
 
         } else {
           Swal.fire({
             icon: "error",
             title: data.msg,
-            timer: 1500,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false
           });
@@ -559,7 +559,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 1000,
             }
           )
 
@@ -573,7 +573,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -599,7 +599,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 1000,
             }
           )
 
@@ -613,7 +613,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -639,7 +639,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 1000,
             }
           )
 
@@ -653,7 +653,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -679,7 +679,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 1000,
             }
           )
 
@@ -693,7 +693,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -718,7 +718,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 1000,
             }
           )
 
@@ -732,7 +732,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -757,13 +757,13 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'success',
-              timeView: 3000,
+              timeView: 1000,
             }
           )
 
           setTimeout(function () {
             location.reload();
-          }, 3000);
+          }, 1000);
 
         } else {
           $.notification(
@@ -771,7 +771,7 @@ $(document).ready(function () {
             {
               position: ['top', 'right'],
               messageType: 'error',
-              timeView: 5000,
+              timeView: 1000,
             }
           )
         }
@@ -801,7 +801,7 @@ $(document).ready(function () {
             icon: "success",
             title: data.msg,
             text: 'Thanks',
-            timer: 2000,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false
           });
@@ -811,7 +811,7 @@ $(document).ready(function () {
           Swal.fire({
             icon: "error",
             title: data.msg,
-            timer: 2000,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false
           });
@@ -836,7 +836,7 @@ $(document).ready(function () {
             icon: "success",
             title: data.msg,
             text: 'Thanks',
-            timer: 2000,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false
           });
@@ -846,7 +846,7 @@ $(document).ready(function () {
           Swal.fire({
             icon: "error",
             title: data.msg,
-            timer: 2000,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false
           });

@@ -79,11 +79,15 @@
 
                                 </div>
                                 <ul>
-                                    @if (isset($course_details->instructor_name))
+                                    @if (isset($course_details->instructor))
+
+                                    @php
+                                        $instructor = DB::table('course_instructors')->where('id',$course_details->instructor)->first()
+                                    @endphp
                                     <li>
-                                        <a href="{{url('/user/instructor',['id'=>$course_details->id])}}">
+                                        <a href="{{url('/user/instructor',['id'=>$instructor->id])}}">
                                             <i class="fas fa-user"></i>
-                                            <strong>Instructor</strong> <span>{{ $course_details->instructor_name
+                                            <strong>Instructor</strong> <span>{{ $instructor->name
                                                 }}</span>
                                         </a>
 

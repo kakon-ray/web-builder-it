@@ -32,27 +32,21 @@
 
 
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-8">
                             <label>Course Title</label>
                             <input required type="text" class="form-control" name="course_title"
                                 value="{{ $course_details->course_title }}">
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <label>Instructor Name</label>
-                            <input type="text" class="form-control" name="instructor_name" value="{{ $course_details->instructor_name }}" placeholder="Instructor Name">
-                        </div>
-                        <div class="col-lg-3">
-                            <label>Instructor Image</label>
-                            <input type="file" class="form-control" name="instructor_img"  placeholder="Instructor Name">
-                             <input type="hidden" name="old_instructor_image" value="{{ $course_details->instructor_img }}">
-                        </div>
-                    </div>
-                    <div class="row pt-3">
-                        <div class="col-lg-12">
-                            <label>Instructor Desc</label>
-                            <textarea class="form-control" value="{{ $course_details->instructor_desc }}" name="instructor_desc" placeholder="Instructor Name"></textarea>
+                            <select class="form-control rounded-0" name="instructor">
+                                @foreach($instructor as $item)
+                                   <option value="{{$item->id}}" @if($item->id == $course_details->instructor) selected  @endif>{{$item->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
+         
                     <div class="row py-4">
                         <div class="col-lg-3">
                             <label class="form-label">Catagory</label>

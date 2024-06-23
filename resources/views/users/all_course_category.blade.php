@@ -38,12 +38,12 @@
                     @endif
 
                     @if($item->new_course_fee && $item->spacial_discount)
-                    <span class="discount_badge">Discount {{$item->course_fee - $item->new_course_fee +
+                    <span class="discount_badge">Spacial Discount {{$item->course_fee - $item->new_course_fee +
                         $item->spacial_discount}} ৳</span>
                     @endif
 
                     @if(!$item->new_course_fee && $item->spacial_discount)
-                    <span class="discount_badge">Discount {{$item->spacial_discount}} ৳</span>
+                    <span class="discount_badge">Spacial Discount {{$item->spacial_discount}} ৳</span>
                     @endif
 
                     <a href="{{ route('user.course.details', ['id' => $item->id]) }}">

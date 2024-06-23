@@ -222,19 +222,19 @@ $(document).ready(function () {
           Swal.fire({
             icon: "success",
             title: data.msg,
-            timer: 1500,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false,
           });
           setTimeout(function () {
             location.href = '/student/wishlist';
-          }, 1500);
+          }, 1000);
 
         } else {
           Swal.fire({
             icon: "error",
             title: data.msg,
-            timer: 1500,
+            timer: 1000,
             customClass: 'swalstyle',
             showConfirmButton: false,
           });

@@ -17,6 +17,7 @@ use App\Models\GalleryModel;
 use App\Models\Blog;
 use App\Models\ClientReview;
 use App\Models\Coursecategory;
+use App\Models\CourseInstructor;
 use App\Models\CourseReview;
 use Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -64,8 +65,9 @@ class UserController extends Controller
 
     function instructor(Request $request)
     {
-        $course_details = AddCourse::find($request->id);
-        return view('users.instructor',compact('course_details'));
+        $instructor = CourseInstructor::find($request->id);
+        $allCourse = AddCourse::where('instructor',$instructor->id)->get()->reverse();
+        return view('users.instructor',compact('instructor','allCourse'));
     }
     function web_design_details()
     {

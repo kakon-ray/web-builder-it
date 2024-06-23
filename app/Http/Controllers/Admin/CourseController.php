@@ -11,6 +11,7 @@ use App\Models\CourseModel;
 // home page course and service
 use App\Models\AddCourse;
 use App\Models\Coursecategory;
+use App\Models\CourseInstructor;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -36,7 +37,8 @@ class CourseController extends Controller
     {
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         $course_catagory = Coursecategory::all();
-        return view('admin/course/add_course', compact('current_user_data', 'course_catagory'));
+        $instructor = CourseInstructor::get();
+        return view('admin/course/add_course', compact('current_user_data', 'course_catagory','instructor'));
     }
     function edit_course_catagory(Request $request)
     {
@@ -163,8 +165,7 @@ class CourseController extends Controller
             "coursecategory_id" => $request->coursecategory_id,
             "batch" => $request->batch,
             "course_title" => $request->course_title,
-            "instructor_name" => $request->instructor_name,
-            "instructor_desc" => $request->instructor_desc,
+            "instructor" => $request->instructor,
             "duration" => $request->duration,
             "lectures" => $request->lectures,
             "language" => $request->language,
@@ -178,8 +179,7 @@ class CourseController extends Controller
             'coursecategory_id' => 'required',
             'batch' => 'required',
             'course_title' => 'required',
-            "instructor_name" =>'required',
-            "instructor_desc" => 'required',
+            "instructor" =>'required',
             'duration' => ['required', 'integer'],
             'lectures' => 'required',
             'language' => 'required',
@@ -221,25 +221,14 @@ class CourseController extends Controller
                     $course_img = "http://" . $host . "/uploads/" . $filename;
                 }
 
-                if ($request->instructor_img) {
-                    $file = $request->file('instructor_img');
-                    $filename =  $slug . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
 
-                    $img = Image::make($file);
-                    $img->resize(500, 300)->save(public_path('uploads/' . $filename));
-
-                    $host = $_SERVER['HTTP_HOST'];
-                    $instructor_img = "http://" . $host . "/uploads/" . $filename;
-                }
 
 
                 $addCourse = AddCourse::create([
                     'coursecategory_id' => $request->coursecategory_id,
                     'batch' => $request->batch,
                     'course_title' => $request->course_title,
-                    'instructor_name' => $request->instructor_name,
-                    'instructor_img' => $instructor_img,
-                    'instructor_desc' => $request->instructor_desc,
+                    'instructor' => $request->instructor,
                     'duration' => $request->duration,
                     'lectures' => $request->lectures,
                     'language' => $request->language,
@@ -290,7 +279,7 @@ class CourseController extends Controller
 
     function manage_course(Request $request)
     {
-        $allCourse = AddCourse::with('course_catagory')->get();
+        $allCourse = AddCourse::with('course_catagory')->orderBy('updated_at', 'desc')->get();
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         return view('admin/course/manage_course', ['allCourse' => $allCourse, 'current_user_data' => $current_user_data]);
     }
@@ -388,7 +377,8 @@ class CourseController extends Controller
         $course_details = AddCourse::where('id', $id)->first();
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         $course_catagory = Coursecategory::all();
-        return view('admin/course/edit_course', ['course_details' => $course_details, 'current_user_data' => $current_user_data, 'course_catagory' => $course_catagory]);
+        $instructor = CourseInstructor::get();
+        return view('admin/course/edit_course', ['course_details' => $course_details, 'current_user_data' => $current_user_data, 'course_catagory' => $course_catagory, 'instructor' => $instructor]);
     }
 
     function course_details(Request $request)
@@ -412,8 +402,7 @@ class CourseController extends Controller
                 $arrayRequest = [
                     "batch" => $request->batch,
                     "course_title" => $request->course_title,
-                    "instructor_name" => $request->instructor_name,
-                    "instructor_desc" => $request->instructor_desc,
+                    "instructor" => $request->instructor,
                     "duration" => $request->duration,
                     "lectures" => $request->lectures,
                     "language" => $request->language,
@@ -426,8 +415,7 @@ class CourseController extends Controller
                 $arrayValidate  = [
                     'batch' => 'required',
                     'course_title' => 'required',
-                    "instructor_name" =>'required',
-                    "instructor_desc" => 'required',
+                    "instructor" =>'required',
                     'duration' => ['required', 'integer'],
                     'lectures' => 'required',
                     'language' => 'required',
@@ -441,8 +429,7 @@ class CourseController extends Controller
                 $arrayRequest = [
                     "batch" => $request->batch,
                     "course_title" => $request->course_title,
-                    "instructor_name" => $request->instructor_name,
-                    "instructor_desc" => $request->instructor_desc,
+                    "instructor" => $request->instructor,
                     "duration" => $request->duration,
                     "lectures" => $request->lectures,
                     "language" => $request->language,
@@ -454,8 +441,7 @@ class CourseController extends Controller
                 $arrayValidate  = [
                     'batch' => 'required',
                     'course_title' => 'required',
-                    "instructor_name" =>'required',
-                    "instructor_desc" => 'required',
+                    "instructor" =>'required',
                     'duration' => ['required', 'integer'],
                     'lectures' => 'required',
                     'language' => 'required',
@@ -509,25 +495,11 @@ class CourseController extends Controller
                         $image = $request->old_image;
                     }
 
-                    if ($request->instructor_img) {
-                        $file = $request->file('instructor_img');
-                        $filename =  $slug . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
     
-                        $img = Image::make($file);
-                        $img->resize(500, 300)->save(public_path('uploads/' . $filename));
-    
-                        $host = $_SERVER['HTTP_HOST'];
-                        $instructor_img = "http://" . $host . "/uploads/" . $filename;
-                    }else{
-                        $instructor_img = $request->old_instructor_image;
-                    }
-
 
                     $addCourse->batch = $request->batch;
                     $addCourse->course_title = $request->course_title;
-                    $addCourse->instructor_name = $request->instructor_name;
-                    $addCourse->instructor_desc = $request->instructor_desc;
-                    $addCourse->instructor_img = $instructor_img;
+                    $addCourse->instructor = $request->instructor;
                     $addCourse->duration = $request->duration;
                     $addCourse->coursecategory_id = $request->coursecategory_id;
                     $addCourse->lectures = $request->lectures;
