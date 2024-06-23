@@ -20,7 +20,7 @@
     <div class="container-fluid">
         <div class="card p-3 table-responsive">
             <div class="card-title text-center">
-                <h3>Admission Student Details</h3>
+                <h3>Course Details</h3>
             </div>
             <table id="VisitorDt" class="table table-bordered dataTable
           cellspacing="0" width="100%">
@@ -39,8 +39,21 @@
                     <tr>
 
                         <td class="th-sm ">Instructor Name</td>
-                        <td class="th-sm ">{{ $course_details->instructor }}</td>
+                        <td class="th-sm ">{{ $course_details->instructor_name }}</td>
                     </tr>
+                    
+                    <tr>
+                        <td class="th-sm ">Instructor Image</td>
+                        <td class="th-sm "><img src="{{ $course_details->instructor_img }}" style="height:100px"
+                                class="img-fluid" alt=""></td>
+                    </tr>
+
+                    <tr>
+                        <td class="th-sm ">Instructor Desc</td>
+                        <td class="th-sm "><img src="{{ $course_details->instructor_desc }}" style="height:100px"
+                                class="img-fluid" alt=""></td>
+                    </tr>
+
                     <tr>
 
                         <td class="th-sm ">Course Duration</td>
@@ -80,6 +93,12 @@
                         <td class="th-sm "><img src="{{ $course_details->course_img }}" style="height:100px"
                                 class="img-fluid" alt=""></td>
                     </tr>
+                    <tr>
+                        <td class="th-sm ">Instructor Image</td>
+                        <td class="th-sm "><img src="{{ $course_details->instructor_img }}" style="height:100px"
+                                class="img-fluid" alt=""></td>
+                    </tr>
+               
                     <tr>
                         <td class="th-sm ">desc</td>
                         <td class="th-sm ">

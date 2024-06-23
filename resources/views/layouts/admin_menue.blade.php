@@ -74,6 +74,29 @@
         </li>
 
         <li
+        class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages33"
+            aria-expanded="true" aria-controls="collapsePages33">
+            <i class="fa fa-check"></i>
+            <span>Instructor</span>
+        </a>
+
+        <div id="collapsePages33" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white mb-1 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('dashboard.instructor.add') }}">Add Instructor</a>
+            </div>
+        </div>
+
+        <div id="collapsePages33" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white mb-1 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('dashboard.instructor.manage') }}">Manage Instructor</a>
+            </div>
+        </div>
+
+
+    </li>
+
+        <li
             class="nav-item {{ request()->routeIs('admin.course.message') || request()->routeIs('admin.add.course') || request()->routeIs('admin.manage.course') ? 'active' : '' }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
                 aria-expanded="true" aria-controls="collapsePages2">

@@ -25,13 +25,23 @@
 
 
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-6">
                         <label>Course Title</label>
                         <input required type="text" class="form-control" name="course_title" placeholder="Course Title">
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <label>Instructor Name</label>
-                        <input type="text" class="form-control" name="instructor" placeholder="Instructor Name">
+                        <input type="text" class="form-control" name="instructor_name" placeholder="Instructor Name">
+                    </div>
+                    <div class="col-lg-3">
+                        <label>Instructor Image</label>
+                        <input type="file" class="form-control" name="instructor_img" placeholder="Instructor Name">
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-lg-12">
+                        <label>Instructor Desc</label>
+                        <textarea class="form-control" name="instructor_desc" placeholder="Instructor Name"></textarea>
                     </div>
                 </div>
                 <div class="row py-4">

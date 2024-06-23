@@ -123,12 +123,15 @@ class StudentController extends Controller
            $enroleCount->save();
 
             if ($responce) {
-                $arr = array('status' => 200, 'id' => $count + 1, 'msg' => 'Course Add Your Profile');
-                return \Response::json($arr);
+                return redirect()->route('student.wishlist');
             }
         } else {
-            $arr = array('status' => 400, 'msg' => 'Already Add this Course');
-            return \Response::json($arr);
+            $enrolled_course = ActiveCourse::where('course_id',$request->course_id)->where('status',true)->where('student_id',Auth::guard('student')->user()->id)->first();
+            if($enrolled_course){
+                return redirect()->route('student.classroom',['id'=>$enrolled_course->id]);
+            }else{
+                return redirect()->route('student.wishlist');
+            }
         }
     }
 
@@ -320,6 +323,7 @@ class StudentController extends Controller
     function my_order(Request $request)
     {
         $myorder = Order::where('email', Auth::guard('student')->user()->email)->get();
+        
 
         // return $tutorial;
         return view('student.my_order', compact('myorder'));

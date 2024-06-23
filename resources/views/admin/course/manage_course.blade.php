@@ -21,6 +21,7 @@
                         <th class="th-sm text-center">Title</th>
                         <th class="th-sm text-center">Pement</th>
                         <th class="th-sm text-center">Image</th>
+                        <th class="th-sm text-center">Last Modified</th>
                         <th class="th-sm text-center">Status</th>
                         <th class="th-sm text-center">Action</th>
                     </tr>
@@ -36,7 +37,7 @@
                             <td class="th-sm text-center">
                                 <img src="{{ $item->course_img }}" style="height:50px" alt="Course Image">
                             </td>
-
+                            <td class="th-sm text-center">{{ $item->updated_at }}</td>
 
                             <td class="th-sm text-center" style="min-width: 200px;">
                                 @if ($item->status == true)

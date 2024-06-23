@@ -16,6 +16,7 @@
                         <thead class="table-dark">
                             <tr class="text-center">
                                 <th class="th-sm text-center">Order Id</th>
+                                <th class="th-sm text-center">Course Name</th>
                                 <th class="th-sm text-center">Email</th>
                                 <th class="th-sm text-center">Amount</th>
                                 <th class="th-sm text-center">Status</th>
@@ -29,6 +30,14 @@
                                 @if ($item->status == 'Approved' || $item->status == 'Pending')
                                     <tr class="text-center">
                                         <td class="th-sm ">{{ $item->id }}</td>
+                                        @php
+                                            $activeCourse = DB::table('active_courses')->where('id',$item->active_course_id)->first();
+                                            $course_name = DB::table('add_courses')->where('id',$activeCourse->course_id)->first();
+                                        @endphp
+                                       
+                                            <td class="th-sm ">{{ $course_name->course_title}}</td>
+                                      
+                                        
                                         <td class="th-sm ">{{ $item->email }}</td>
                                         <td class="th-sm ">{{ $item->amount }}</td>
                                         <td class="th-sm">

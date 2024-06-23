@@ -6,7 +6,7 @@
 
 <div class="container-fluid">
     <div class="col-lg-12 pb-4 d-flex justify-content-between">
-        <h3 class="text-center ">Manage Main<span style="color:#4e73df;"> Course</span></h3>
+        <h3 class="text-center ">Manage <span style="color:#4e73df;"> Course Category</span></h3>
         <a href="{{ route('admin.course.add.catagory') }}" type="button" class="btn btn-primary"><i
                 class="fas fa-plus me-2"></i>Add
             New Category</a>

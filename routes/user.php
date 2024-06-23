@@ -15,6 +15,7 @@ Route::get('/', [UserController::class, 'home'])->name('home');
 Route::name('user.')->prefix('user')->group(function () {
 
     Route::get('all/course', [UserController::class, 'all_course'])->name('all.course');
+    Route::get('instructor/{id}', [UserController::class, 'instructor'])->name('instrucotr');
     Route::get('all-course/{coursecatagory}', [UserController::class, 'all_catagory_course'])->name('course.catagory');
     Route::get('all/services', [UserController::class, 'all_services'])->name('all.service');
     Route::get('course/details/{id}', [UserController::class, 'course_details'])->name('course.details');

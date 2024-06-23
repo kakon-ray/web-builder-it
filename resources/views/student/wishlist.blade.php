@@ -36,8 +36,7 @@
 
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('student.checkout', ['id' => $item->id]) }}" class="common-btn">Pay Now</a>
-                        <a href="{{ route('student.cancle.enroll', ['id' => $item->id]) }}" class="common-btn">Cancle
-                            Enroll</a>
+                        <a href="{{ route('student.cancle.enroll', ['id' => $item->id]) }}" class="common-btn">Remove Course</a>
                     </div>
 
                 </div>

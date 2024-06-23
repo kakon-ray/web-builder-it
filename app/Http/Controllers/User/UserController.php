@@ -62,11 +62,16 @@ class UserController extends Controller
         return view('users.blog.all_blog',compact('allBlog'));
     }
 
+    function instructor(Request $request)
+    {
+        $course_details = AddCourse::find($request->id);
+        return view('users.instructor',compact('course_details'));
+    }
     function web_design_details()
     {
-
         return view('users.web_design_details');
     }
+
     function course_details(Request $request)
     {
         $course_details = AddCourse::find($request->id);

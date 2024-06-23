@@ -163,6 +163,8 @@ class CourseController extends Controller
             "coursecategory_id" => $request->coursecategory_id,
             "batch" => $request->batch,
             "course_title" => $request->course_title,
+            "instructor_name" => $request->instructor_name,
+            "instructor_desc" => $request->instructor_desc,
             "duration" => $request->duration,
             "lectures" => $request->lectures,
             "language" => $request->language,
@@ -176,6 +178,8 @@ class CourseController extends Controller
             'coursecategory_id' => 'required',
             'batch' => 'required',
             'course_title' => 'required',
+            "instructor_name" =>'required',
+            "instructor_desc" => 'required',
             'duration' => ['required', 'integer'],
             'lectures' => 'required',
             'language' => 'required',
@@ -217,19 +221,32 @@ class CourseController extends Controller
                     $course_img = "http://" . $host . "/uploads/" . $filename;
                 }
 
+                if ($request->instructor_img) {
+                    $file = $request->file('instructor_img');
+                    $filename =  $slug . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+
+                    $img = Image::make($file);
+                    $img->resize(500, 300)->save(public_path('uploads/' . $filename));
+
+                    $host = $_SERVER['HTTP_HOST'];
+                    $instructor_img = "http://" . $host . "/uploads/" . $filename;
+                }
+
 
                 $addCourse = AddCourse::create([
                     'coursecategory_id' => $request->coursecategory_id,
                     'batch' => $request->batch,
                     'course_title' => $request->course_title,
-                    'instructor' => $request->instructor,
+                    'instructor_name' => $request->instructor_name,
+                    'instructor_img' => $instructor_img,
+                    'instructor_desc' => $request->instructor_desc,
                     'duration' => $request->duration,
                     'lectures' => $request->lectures,
                     'language' => $request->language,
                     'projects' => $request->projects,
                     'course_fee' => $request->course_fee,
                     'new_course_fee' => $request->new_course_fee,
-                    'spacial_discount' => $request->spacial_discount,
+                    'spacial_discount' => $request->spacial_discount ?  $request->spacial_discount : '',
                     'course_img' => $course_img,
                     'status' => false,
                     'desc' => $request->desc,
@@ -395,6 +412,8 @@ class CourseController extends Controller
                 $arrayRequest = [
                     "batch" => $request->batch,
                     "course_title" => $request->course_title,
+                    "instructor_name" => $request->instructor_name,
+                    "instructor_desc" => $request->instructor_desc,
                     "duration" => $request->duration,
                     "lectures" => $request->lectures,
                     "language" => $request->language,
@@ -407,6 +426,8 @@ class CourseController extends Controller
                 $arrayValidate  = [
                     'batch' => 'required',
                     'course_title' => 'required',
+                    "instructor_name" =>'required',
+                    "instructor_desc" => 'required',
                     'duration' => ['required', 'integer'],
                     'lectures' => 'required',
                     'language' => 'required',
@@ -420,6 +441,8 @@ class CourseController extends Controller
                 $arrayRequest = [
                     "batch" => $request->batch,
                     "course_title" => $request->course_title,
+                    "instructor_name" => $request->instructor_name,
+                    "instructor_desc" => $request->instructor_desc,
                     "duration" => $request->duration,
                     "lectures" => $request->lectures,
                     "language" => $request->language,
@@ -431,6 +454,8 @@ class CourseController extends Controller
                 $arrayValidate  = [
                     'batch' => 'required',
                     'course_title' => 'required',
+                    "instructor_name" =>'required',
+                    "instructor_desc" => 'required',
                     'duration' => ['required', 'integer'],
                     'lectures' => 'required',
                     'language' => 'required',
@@ -484,10 +509,25 @@ class CourseController extends Controller
                         $image = $request->old_image;
                     }
 
+                    if ($request->instructor_img) {
+                        $file = $request->file('instructor_img');
+                        $filename =  $slug . '-' . hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+    
+                        $img = Image::make($file);
+                        $img->resize(500, 300)->save(public_path('uploads/' . $filename));
+    
+                        $host = $_SERVER['HTTP_HOST'];
+                        $instructor_img = "http://" . $host . "/uploads/" . $filename;
+                    }else{
+                        $instructor_img = $request->old_instructor_image;
+                    }
+
 
                     $addCourse->batch = $request->batch;
                     $addCourse->course_title = $request->course_title;
-                    $addCourse->instructor = $request->instructor;
+                    $addCourse->instructor_name = $request->instructor_name;
+                    $addCourse->instructor_desc = $request->instructor_desc;
+                    $addCourse->instructor_img = $instructor_img;
                     $addCourse->duration = $request->duration;
                     $addCourse->coursecategory_id = $request->coursecategory_id;
                     $addCourse->lectures = $request->lectures;
@@ -497,7 +537,7 @@ class CourseController extends Controller
                     $addCourse->status = false;
                     $addCourse->course_fee = $request->course_fee;
                     $addCourse->new_course_fee = $request->new_course_fee;
-                    $addCourse->spacial_discount = $request->spacial_discount;
+                    $addCourse->spacial_discount = $request->spacial_discount ? $request->spacial_discount : 0;
                     $addCourse->course_img =  $image;
                     $addCourse->desc = $request->desc;
 

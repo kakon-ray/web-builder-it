@@ -18,7 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('coursecategory_id')->nullable();
             $table->string('batch')->nullable();
             $table->string('course_title')->nullable();
-            $table->string('instructor')->nullable();
+            $table->string('instructor_name')->nullable();
+            $table->string('instructor_img')->nullable();
+            $table->text('instructor_desc')->nullable();
             $table->string('duration')->nullable();
             $table->string('lectures')->nullable();
             $table->string('language')->nullable();

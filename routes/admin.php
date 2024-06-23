@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SeminerController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\Instructor;
 use App\Http\Controllers\Admin\TutorialController;
 use App\Http\Controllers\Admin\PasswordResetController;
 
@@ -178,6 +179,15 @@ Route::middleware(['auth'])->group(function () {
             Route::post('add/submit', [BlogController::class, 'add_blog_submit'])->name('add.submit');
             Route::post('update/submit', [BlogController::class, 'update_blog_submit'])->name('update.submit');
             Route::get('delete', [BlogController::class, 'blog_delete'])->name('delete');
+        });
+        
+        Route::name('instructor.')->prefix('instructor')->group(function () {
+            Route::get('manage', [Instructor::class, 'manage_instructor'])->name('manage');
+            Route::get('add', [Instructor::class, 'add_instructor'])->name('add');
+            Route::get('update/{id}', [Instructor::class, 'update_instructor'])->name('update');
+            Route::post('submit', [Instructor::class, 'add_instructor_submit'])->name('submit');
+            Route::post('update/submit', [Instructor::class, 'update_instructor_submit'])->name('update.submit');
+            Route::get('delete', [Instructor::class, 'instructor_delete'])->name('delete');
         });
 
     });
