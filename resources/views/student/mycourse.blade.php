@@ -22,7 +22,9 @@
                 </a>
 
                 <div class="card-body">
-                    <h5 class="card-title">{{ $item->add_course->course_title }}</h5>
+                    <a href="{{ route('student.classroom', ['id' => $item->id]) }}">
+                        <h5 class="card-title">{{ $item->add_course->course_title }}</h5>
+                    </a>
                     <div class="review">
                         <div class="d-flex">
                             <i class="far fa-star fa-sm text-warning p-1"></i>
@@ -42,7 +44,8 @@
                     </div>
                     @else
                     <div class="d-flex justify-content-between">
-                        {{-- <a href="{{ route('student.checkout', ['id' => $item->id]) }}" class="common-btn">Pay Now</a> --}}
+                        {{-- <a href="{{ route('student.checkout', ['id' => $item->id]) }}" class="common-btn">Pay
+                            Now</a> --}}
                         <a href="{{ route('student.classroom', ['id' => $item->id]) }}" class="common-btn">Classroom</a>
                     </div>
                     @endif

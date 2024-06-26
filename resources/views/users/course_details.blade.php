@@ -82,7 +82,8 @@
                                     @if (isset($course_details->instructor))
 
                                     @php
-                                        $instructor = DB::table('course_instructors')->where('id',$course_details->instructor)->first()
+                                    $instructor =
+                                    DB::table('course_instructors')->where('id',$course_details->instructor)->first()
                                     @endphp
                                     <li>
                                         <a href="{{url('/user/instructor',['id'=>$instructor->id])}}">
@@ -113,13 +114,41 @@
 
 
                             @if (Auth::guard('student')->user())
+
+
+                            @php
+                            $enroll_course =
+                            DB::table('active_courses')->where('course_id',$course_details->id)->where('student_id',Auth::guard('student')->user()->id)->where('status',true)->first();
+                            $wishlist_course =
+                            DB::table('active_courses')->where('course_id',$course_details->id)->where('student_id',Auth::guard('student')->user()->id)->where('status',false)->first();
+                            $not_active_course =
+                            DB::table('active_courses')->where('course_id',$course_details->id)->where('student_id',Auth::guard('student')->user()->id)->count();
+                            @endphp
+
+                            @if($enroll_course)
+                            <a type="button" href="{{ route('student.classroom', ['id' => $enroll_course->id]) }}"
+                                class="btn-two">Go to Classroom</a>
+                            @endif
+
+                            @if($wishlist_course)
+                            <a type="button" href="{{ route('student.wishlist')}}" class="btn-two">Go to Wishlist</a>
+                            @endif
+
+                            @if(!$not_active_course)
                             <form action="{{ route('student.active.course.add') }}" method="POST">
                                 @csrf
                                 <input type="text" class="d-none" name="course_id" value="{{ $course_details->id }}">
-                                <button type="submit" class="btn-two">Enroll Course</button>
+                                <button type="submit" class="btn-two">Add to Wishlist</button>
                             </form>
+                            @endif
+                            
                             @else
-                            <a type="button" href="{{ route('student.login') }}" class="btn-two">Enroll Course</a>
+                            <form action="{{ route('student.active.course.add') }}" method="POST">
+                                @csrf
+                                <input type="text" class="d-none" name="course_id" value="{{ $course_details->id }}">
+                                <button type="submit" class="btn-two">Add to Wishlist</button>
+                            </form>
+
                             @endif
                             <a type="button" href="tel:+8801707500512" class="btn-two">Contact: +8801707500512</a>
 

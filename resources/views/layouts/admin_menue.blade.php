@@ -19,7 +19,7 @@
             <div class="sidebar-brand-icon">
                 <i class="fa fa-home"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Uma<sup>IT</sup></div>
+            <div class="sidebar-brand-text mx-3">WB<sup>IT</sup></div>
         </a>
 
         <!-- Divider -->

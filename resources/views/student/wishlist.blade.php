@@ -17,11 +17,14 @@
         @if(!$item->pement_clear)
         <div class="col-lg-4">
             <div class="card mt-4 position-relative">
-
+                <a href="{{ route('user.course.details', ['id' => $item->add_course->id]) }}">
                 <img src="{{ $item->add_course->course_img }}" class="card-img-top" style="height:200px" alt="Course">
-
+                 </a>
                 <div class="card-body">
-                    <h5 class="card-title">{{ $item->add_course->course_title }}</h5>
+                    <a href="{{ route('user.course.details', ['id' => $item->add_course->id]) }}">
+                        <h5 class="card-title">{{ $item->add_course->course_title }}</h5>
+                    </a>
+                    
                     <div class="review">
                         <div class="d-flex">
                             <i class="far fa-star fa-sm text-warning p-1"></i>

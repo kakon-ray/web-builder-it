@@ -8,10 +8,10 @@
         width: 112%;
     }
 
-    .unread-text{
+    .unread-text {
         color: #333;
         font-weight: bold;
-        color: #446ad8
+        color: #df1e28
     }
 </style>
 
@@ -21,15 +21,14 @@
             <h3 class="text-center ">Seminer/Course<span style="color:#4e73df;"> Message</span></h3>
         </div>
         <div class="col-lg-12 table-responsive">
-            <table id="VisitorDt" class="table table-sm table-bordered home-table" cellspacing="0"
-                width="100%">
+            <table id="VisitorDt" class="table table-sm table-bordered home-table" cellspacing="0" width="100%">
                 <thead class="table-dark ">
                     <tr class="text-center">
                         <th class="th-sm">Name</th>
                         <th class="th-sm">Phone Number</th>
                         <th class="th-sm">Course Name</th>
                         <th class="th-sm">Message</th>
-                        <th class="th-sm">Read Messsage</th>
+                        <th class="th-sm">Status</th>
                         <th class="th-sm">Operation</th>
                     </tr>
                 </thead>
@@ -41,26 +40,42 @@
                         <td class="th-sm">{{ $item->phone }}</td>
                         <td class="th-sm">{{ $item->course_name }}</td>
                         <td class="th-sm">
-                            {{substr($item->message, 0, 30)}} ....
+                            {{substr($item->message, 0, 30)}} .... <a href="#"
+                                onclick="readMessage({!! $item->id !!})">See More</a>
                         </td>
-                        @if($item->count == 0)
-                        <td class="th-sm">
-                            <a type="button" id="read_btn{{$item->id}}" class="btn btn-success btn-sm"
-                                onclick="readMessage({!! $item->id !!})">Read</a>
-                        </td>
-                        @endif
 
-                        @if($item->count == 1)
+                 
                         <td class="th-sm">
+                            @if($item->count)
+                            <span class="badge badge-success">Read</span>
+
+                            @else
+                            <span class="badge badge-danger">Unread</span>
+                            @endif
+                        </td>
+
+
+                        <td class="th-sm d-flex align-items-center gap-3 justify-content-between">
+
+
+
                             <div>
-                                <a type="button" id="unread_btn{{$item->id}}" class="btn btn-secondary btn-sm"
-                                onclick="unReadMessage({!! $item->id !!})">Unread</a>
-                            </div>
-                            
-                        </td>
-                        @endif
+                                @if($item->count == 0)
 
-                        <td class="th-sm ">
+                                <a type="button" id="read_btn{{$item->id}}" class="btn btn-primary btn-sm"
+                                    onclick="readMessage({!! $item->id !!})">Read</a>
+
+                                @endif
+
+                                @if($item->count == 1)
+                                <a type="button" id="unread_btn{{$item->id}}" class="btn btn-secondary btn-sm"
+                                    onclick="unReadMessage({!! $item->id !!})">Unread</a>
+                                @endif
+                            </div>
+
+
+
+
                             <a type="button" class="btn btn-danger btn-sm btn-circle"
                                 onclick="delete_course_message({!! $item->id !!})"><i class="fas fa-trash"></i></a>
                         </td>
@@ -74,26 +89,36 @@
                         <td class="th-sm">{{ $item->phone }}</td>
                         <td class="th-sm">{{ $item->course_name }}</td>
                         <td class="th-sm">
-                            {{substr($item->message, 0, 30)}} ....
+                            {{substr($item->message, 0, 30)}} .... <a href="#"
+                                onclick="readMessage({!! $item->id !!})">See More</a>
                         </td>
-                        @if($item->count == 0)
-                        <td class="th-sm">
-                            <a type="button" id="read_btn{{$item->id}}" class="btn btn-success btn-sm"
-                                onclick="readMessage({!! $item->id !!})">Read</a>
-                        </td>
-                        @endif
 
-                        @if($item->count == 1)
                         <td class="th-sm">
+                            @if($item->count)
+                            <span class="badge badge-success">Read</span>
+
+                            @else
+                            <span class="badge badge-danger">Unread</span>
+                            @endif
+                        </td>
+
+                        <td class="th-sm d-flex align-items-center gap-3 justify-content-between">
+
+
+
                             <div>
-                                <a type="button" id="unread_btn{{$item->id}}" class="btn btn-secondary btn-sm"
-                                onclick="unReadMessage({!! $item->id !!})">Unread</a>
-                            </div>
-                            
-                        </td>
-                        @endif
+                                @if($item->count == 0)
+                                <a type="button" id="read_btn{{$item->id}}" class="btn btn-primary btn-sm"
+                                    onclick="readMessage({!! $item->id !!})">Read</a>
+                                @endif
 
-                        <td class="th-sm ">
+                                @if($item->count == 1)
+                                <a type="button" id="unread_btn{{$item->id}}" class="btn btn-secondary btn-sm"
+                                    onclick="unReadMessage({!! $item->id !!})">Unread</a>
+                                @endif
+                            </div>
+
+
                             <a type="button" class="btn btn-danger btn-sm btn-circle"
                                 onclick="delete_course_message({!! $item->id !!})"><i class="fas fa-trash"></i></a>
                         </td>
@@ -215,15 +240,15 @@
 
                     if(response.data.status){
 
-                        document.getElementById("message_title").innerText = response.data.message.name;
-                        document.getElementById("modal_phone").innerText = response.data.message.phone;
-                        document.getElementById("modal_course_name").innerText = response.data.message.course_name;
-                        document.getElementById("modal_desc").innerText = response.data.message.message;
+                        // document.getElementById("message_title").innerText = response.data.message.name;
+                        // document.getElementById("modal_phone").innerText = response.data.message.phone;
+                        // document.getElementById("modal_course_name").innerText = response.data.message.course_name;
+                        // document.getElementById("modal_desc").innerText = response.data.message.message;
 
-                        var element = document.getElementById(`read_btn${id}`);
-                        element.innerText = 'Unread'
-                        element.classList.remove("btn-success");
-                        element.classList.add("btn-secondary");
+                        // var element = document.getElementById(`read_btn${id}`);
+                        // element.innerText = 'Unread'
+                        // element.classList.remove("btn-success");
+                        // element.classList.add("btn-secondary");
                     }
 
 
@@ -255,10 +280,10 @@
                         timer: 1000,
                     });
 
-                    var element = document.getElementById(`unread_btn${id}`);
-                    element.innerText = 'Read'
-                    element.classList.remove("btn-secondary");
-                    element.classList.add("btn-success");
+                    // var element = document.getElementById(`unread_btn${id}`);
+                    // element.innerText = 'Read'
+                    // element.classList.remove("btn-secondary");
+                    // element.classList.add("btn-success");
 
                     setTimeout(()=>{
                         window.location.reload();

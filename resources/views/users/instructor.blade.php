@@ -26,7 +26,7 @@
         <div class="row pt-5">
             <div class="col-lg-6 col-md-10 mx-auto">
                 <div class="text-center mb-4">
-                    <h2 class="fw-bold heading">{{$instructor->name}}'s' <span class="sm-red-title">COURSES</span></h2>
+                    <h2 class="fw-bold heading"><span class="sm-red-title">COURSES</span> this Instructor</h2>
                 </div>
             </div>
         </div>
