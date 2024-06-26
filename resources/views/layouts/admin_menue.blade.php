@@ -14,7 +14,7 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
+       
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
             <div class="sidebar-brand-icon">
                 <i class="fa fa-home"></i>
@@ -22,7 +22,7 @@
             <div class="sidebar-brand-text mx-3">WB<sup>IT</sup></div>
         </a>
 
-        <!-- Divider -->
+   
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
