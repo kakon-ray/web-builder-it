@@ -51,6 +51,38 @@
 
                     <div class="card-body">
                         <h3 class="card-title">{{ $item->course_title }}</h3>
+                        <div class="text-center pt-4">
+                            @if(Auth::guard('student')->check())
+                            @php
+                            $enroll_course =
+                            DB::table('active_courses')->where('course_id',$item->id)->where('student_id',Auth::guard('student')->user()->id)->where('status',true)->first();
+                            $wishlist_course =
+                            DB::table('active_courses')->where('course_id',$item->id)->where('student_id',Auth::guard('student')->user()->id)->where('status',false)->first();
+                            $not_active_course =
+                            DB::table('active_courses')->where('course_id',$item->id)->where('student_id',Auth::guard('student')->user()->id)->count();
+                            @endphp
+
+
+
+                            @if($enroll_course)
+                            <h5 class="pt-0 pb-2"><a
+                                    href="{{ route('student.classroom', ['id' => $enroll_course->id]) }}"
+                                    style="color: #f3124e">Go to Classroom</a></h5>
+                            @endif
+
+                            @if($wishlist_course)
+                            <h5 class="pt-0 pb-2"><a href="{{ route('student.wishlist')}}" style="color: #f3124e">Go to
+                                    Wishlist</a></h5>
+                            @endif
+
+                            @if(!$not_active_course)
+                            <h5 class="pt-0 pb-2"><a
+                                    href="{{ route('student.active.course.classroom', ['course_id' => $item->id]) }}"
+                                    style="color: #f3124e">Add to Wishlist</a></h5>
+                            @endif
+
+                            @endif
+                        </div>
                         <div class="review">
                             <h5>Course Fee</h5>
 

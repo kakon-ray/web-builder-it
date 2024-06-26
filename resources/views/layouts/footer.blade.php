@@ -33,7 +33,7 @@
                         <ul>
 
                             @foreach ($coursecategories as $item)
-                            <li><a href="{{ route('user.course.details', ['id' => $item->id]) }}">{{ $item->category_name
+                            <li><a href="{{ route('user.course.catagory', ['coursecatagory' => $item->category_slug]) }}">{{ $item->category_name
                                     }}
                                 </a></li>
                             @endforeach
