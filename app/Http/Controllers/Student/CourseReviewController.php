@@ -38,6 +38,15 @@ class CourseReviewController extends Controller
         } else {
             DB::beginTransaction();
 
+            $exsist_review = CourseReview::where('course_id',$request->course_id)->where('student_id',$request->student_id)->count();
+
+            if($exsist_review){
+                return response()->json([
+                    'status' => 400,
+                    'msg' => 'You have already add review'
+                ]);
+            }
+
             try {
 
 

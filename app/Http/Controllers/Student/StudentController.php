@@ -123,6 +123,17 @@ class StudentController extends Controller
            $enroleCount->save();
 
             if ($responce) {
+
+                $course_info = AddCourse::where('id',$request->course_id)->first();
+                $courseModel = new CourseModel();
+                $courseModel->name = Auth::guard('student')->user()->student_name;
+                $courseModel->phone = Auth::guard('student')->user()->phone;
+                $courseModel->course_name = $course_info->course_title;
+                $courseModel->message = Auth::guard('student')->user()->student_name.' '.'Enroll'.' '.$course_info->course_title.' '.'Course' ;
+        
+                $responce = $courseModel->save();
+
+                
                 return redirect()->route('student.wishlist');
             }
         } else {

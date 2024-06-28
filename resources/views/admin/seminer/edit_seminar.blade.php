@@ -20,7 +20,7 @@
     <div class="container-fluid">
 
         <div class="card">
-            <div class="card-header text-center">Add Free Seminer</div>
+            <div class="card-header text-center">Update Free Seminer</div>
 
             <div class="card-body p-5">
                 <form method="POST" action="{{ route('admin.edit.seminar.submit') }}" id="editseminer">

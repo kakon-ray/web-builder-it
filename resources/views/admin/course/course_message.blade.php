@@ -156,9 +156,6 @@
                     <p id="modal_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, quaerat?</p>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="closemodal()">Close</button>
-                </div>
 
             </div>
         </div>
@@ -240,15 +237,15 @@
 
                     if(response.data.status){
 
-                        // document.getElementById("message_title").innerText = response.data.message.name;
-                        // document.getElementById("modal_phone").innerText = response.data.message.phone;
-                        // document.getElementById("modal_course_name").innerText = response.data.message.course_name;
-                        // document.getElementById("modal_desc").innerText = response.data.message.message;
+                        document.getElementById("message_title").innerText = response.data.message.name;
+                        document.getElementById("modal_phone").innerText = response.data.message.phone;
+                        document.getElementById("modal_course_name").innerText = response.data.message.course_name;
+                        document.getElementById("modal_desc").innerText = response.data.message.message;
 
-                        // var element = document.getElementById(`read_btn${id}`);
-                        // element.innerText = 'Unread'
-                        // element.classList.remove("btn-success");
-                        // element.classList.add("btn-secondary");
+                        var element = document.getElementById(`read_btn${id}`);
+                        element.innerText = 'Unread'
+                        element.classList.remove("btn-success");
+                        element.classList.add("btn-secondary");
                     }
 
 

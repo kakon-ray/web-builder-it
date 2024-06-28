@@ -279,7 +279,7 @@ class CourseController extends Controller
 
     function manage_course(Request $request)
     {
-        $allCourse = AddCourse::with('course_catagory')->orderBy('updated_at', 'desc')->get();
+        $allCourse = AddCourse::with('course_catagory')->orderBy('status', 'ASC')->orderBy('updated_at', 'desc')->get();
         $current_user_data = User::where('email', Auth::guard('web')->user()->email)->first();
         return view('admin/course/manage_course', ['allCourse' => $allCourse, 'current_user_data' => $current_user_data]);
     }
